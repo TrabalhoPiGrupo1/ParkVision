@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,17 +11,18 @@
 
 <body>
     <img src="./ParkVision_yellow.png" alt="ParkVision Logo">
-    
+
     <div class="cartao">
         <div class="conteudo">
-            
+
             <div class="coluna-entradas">
                 <h1 class="titulo">Simulador Financeiro ParkVision</h1>
 
                 <p>1. Número de vagas total do estacionamento:</p>
                 <input type="number" id="vagasTotal">
 
-                <p>2. Tarifa cobrada por hora: <br> <span class="legenda">(Opcional - padrão R$ 15,00 de acordo com pesquisa da Carpass)</span></p>
+                <p>2. Tarifa cobrada por hora: <br> <span class="legenda">(Opcional - padrão R$ 15,00 de acordo com
+                        pesquisa da Carpass)</span></p>
                 <input type="number" id="tarifaHora">
 
                 <p>3. Horas diárias de baixa demanda:</p>
@@ -38,7 +40,7 @@
             <div class="coluna-resultados">
                 <div class="painel-resultados">
                     <h2>CÁLCULO DA OCIOSIDADE</h2>
-                    
+
                     <div id="divResultado">
                         <div class="campo-resultado">
                             Preencha os campos e clique em "Calcular Ociosidade" para ver o resultado.
@@ -53,26 +55,37 @@
     </div>
 
     <script>
-    function calcular() {
-        let totalVagas = Number(vagasTotal.value) || 0;
-        let tarifaInput = tarifaHora.value;
-        let horasValeValor = Number(horasVale.value) || 0;
-        let vagasOcupadasValor = Number(vagasOcupadas.value) || 0;
-        let diasMesValor = Number(diasMes.value) || 0;
+        function calcular() {
+            let totalVagas = Number(vagasTotal.value) || 0;
+            let tarifaInput = tarifaHora.value;
+            let horasValeValor = Number(horasVale.value) || 0;
+            let vagasOcupadasValor = Number(vagasOcupadas.value) || 0;
+            let diasMesValor = Number(diasMes.value) || 0;
 
-        let tarifaHoraValor = 15;
-        if (tarifaInput !== '' && !isNaN(Number(tarifaInput))) {
-            tarifaHoraValor = Number(tarifaInput);
-        }
+            if (totalVagas == 0 || horasValeValor == 0 || vagasOcupadasValor == 0 || diasMesValor == 0) {
+                alert(`Insira os valores nos campos`)
+                return
+            }
+            
+            else if (horasValeValor < 1 || horasValeValor > 24) {
+                alert(`Insira uma hora válida`)
+                return
+            }
 
-        let vagasVazias = totalVagas - vagasOcupadasValor;
-        if (vagasVazias < 0) vagasVazias = 0;
+            let tarifaHoraValor = 15;
+            if (tarifaInput !== '' && !isNaN(Number(tarifaInput))) {
+                tarifaHoraValor = Number(tarifaInput);
+            }
 
-        let perdaPorHora = vagasVazias * tarifaHoraValor;
-        let perdaDiaria = perdaPorHora * horasValeValor;
-        let perdaMensal = perdaDiaria * diasMesValor;
 
-        divResultado.innerHTML = `
+            let vagasVazias = totalVagas - vagasOcupadasValor;
+            if (vagasVazias < 0) vagasVazias = 0;
+
+            let perdaPorHora = vagasVazias * tarifaHoraValor;
+            let perdaDiaria = perdaPorHora * horasValeValor;
+            let perdaMensal = perdaDiaria * diasMesValor;
+
+            divResultado.innerHTML = `
             <div class="bloco-resultado resultado-principal">
                 <span class="titulo-resultado">PERDA MENSAL ESTIMADA</span>
                 <span class="valor-resultado texto-amarelo">- R$ ${perdaMensal.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
@@ -94,7 +107,7 @@
             </div>
         `;
 
-        divMensagemDestaque.innerHTML = `
+            divMensagemDestaque.innerHTML = `
             <div class="banner-alerta">
                 <p>Sua estrutura física já está paga. O ParkVision identifica os momentos de vale, gera consciência sobre a ociosidade e te dá o poder de intervir antes que as perdas aconteçam.</p>
             </div>
@@ -104,7 +117,8 @@
                 <button>Entrar em contato</button>
             </div>
         `;
-    }
-</script>
+        }
+    </script>
 </body>
+
 </html>
