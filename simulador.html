@@ -11,7 +11,7 @@
 <body>
     <img src="./ParkVision_yellow.png" alt="ParkVision Logo">
     
-    <div class="cartao">
+    <div class="cartao" id="cartaoPrincipal">
         <div class="conteudo">
             
             <div class="coluna-entradas">
@@ -35,15 +35,10 @@
                 <button type="button" class="botao-calcular" onclick="calcular()">Calcular Ociosidade</button>
             </div>
 
-            <div class="coluna-resultados">
+            <div class="coluna-resultados" id="colunaResultados">
                 <div class="painel-resultados">
                     <h2>CÁLCULO DA OCIOSIDADE</h2>
-                    
-                    <div id="divResultado">
-                        <div class="campo-resultado">
-                            Preencha os campos e clique em "Calcular Ociosidade" para ver o resultado.
-                        </div>
-                    </div>
+                    <div id="divResultado"></div>
                 </div>
             </div>
 
@@ -71,6 +66,9 @@
         let perdaPorHora = vagasVazias * tarifaHoraValor;
         let perdaDiaria = perdaPorHora * horasValeValor;
         let perdaMensal = perdaDiaria * diasMesValor;
+
+        colunaResultados.classList.add('visivel');
+        cartaoPrincipal.classList.add('expandido');
 
         divResultado.innerHTML = `
             <div class="bloco-resultado resultado-principal">
@@ -105,6 +103,6 @@
             </div>
         `;
     }
-</script>
+    </script>
 </body>
 </html>
