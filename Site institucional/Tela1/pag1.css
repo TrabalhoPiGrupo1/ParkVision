@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Original+Surfer&family=Outfit:wght@100..900&family=Ranchers&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+/* .pag1-container{
+    display: flex;
+} */
+
+.pag1-container{
+    background-image: linear-gradient(
+        180deg, 
+        rgba(15, 23, 42, 0.75) 60%, 
+        rgba(15, 23, 42, 0.30) 100%, 
+        rgba(15, 23, 42, 0.10) 100%
+    ), url(./estacionamentohome.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1000px;
+}
+.pag1-nav-bar{
+    background-color: #0f172a3d;
+    padding: 16px;
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.pag1-nav-bar ul{
+    list-style-type: none;
+    margin: 0;
+    flex-direction: row;
+    display: flex;
+    gap: 50px;
+}
+
+.pag1-nav-bar ul a{
+    color: #ffff;
+    text-decoration: none;
+}
+.pag1-nav-bar .pag1-nav-logo img{
+    width: 150px;
+    height: auto;
+}
+.pag1-nav-bar .pag1-nav-button button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffff;
+    font-weight: 800;
+    font-size: 16px;
+    background-color: #3094FF;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    height: 50px;
+    width: 140px;
+}
+
+/* HOME CSS */
+.pag1-home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 200px;
+    text-align: center;
+}
+
+.pag1-home .pag1-legenda-titulo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.pag1-home .pag1-legenda-titulo h3 {
+    border: 2px solid #FFE37C;
+    color: #FFE37C;
+    font-family: "Outfit", sans-serif;
+    width: 300px;
+    padding: 4px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bolder;
+    text-align: center; 
+}
+.pag1-home .pag1-hero-section .pag1-hero-text{
+    color: #fff;
+    font-family: "Outfit", sans-serif;
+    font-size: 40px;
+    text-align: center;
+}
+
+.texto-destaque{
+    color: #3094FF;
+}
+
+.pag1-hero-subtitle{
+    margin-top: 20px;
+    color: #ffff;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    font-family: "Outfit", sans-serif;
+}
+
+.simulacao-button button{
+    margin-top: 50px;
+    background-color: #FFE37C;
+    color: #000;
+    font-size: 15px;
+    font-weight: 900;
+    border: none;
+    border-radius: 6px;
+    height: 50px;
+    width: 230px;
+    cursor: pointer;
+
+}
+
+/* Pag 2 */
+.pag2-container {
+    padding: 80px 20px;
+    background-color: #F4F9FF;
+    display: flex;
+    flex-direction: row;
+    align-items: center;      
+    justify-content: center;   
+    gap: 20%;                    
+    margin: 0 auto;             
+    box-sizing: border-box;
+}
+
+.pag2-container .pag2-img {
+    max-width: 480px;          
+}
+
+.pag2-container .pag2-img img {
+    height: auto;
+    width: 100%;
+    display: block;
+    border-radius: 15px;
+    border-bottom: 9px solid #FFE37C;
+    margin-left: 25%;
+}
+
+.pag2-containt {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;   
+    text-align: left;
+}
+
+.pag2-legenda-titulo {
+    margin-bottom: 16px;
+}
+
+.pag2-legenda-titulo h3 {
+    border: 2px solid #3094FF;
+    color: #3094FF;
+    font-family: "Outfit", sans-serif;
+    padding: 4px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.pag2-title {
+    font-size: 38px;
+    font-family: "Outfit", sans-serif;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.pag2-containt p {
+    text-align: left;
+    padding-top: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #1B3A5C;
+    font-family: "Inter", sans-serif;
+    width: 70%;           
+    margin-bottom: 30px;
+}
+
+.pag2-containt .simulacao-button button {
+    margin-top: 0;
+}
