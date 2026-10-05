@@ -42,6 +42,7 @@
 .pag1-nav-bar ul a{
     color: #ffff;
     text-decoration: none;
+    transition: 0.3s;
 }
 .pag1-nav-bar .pag1-nav-logo img{
     width: 150px;
@@ -204,4 +205,9 @@
     background-color: #FFE37C;
     color: #000;
     transform: scale(1.01);
+}
+
+.pag1-nav-bar ul a:hover{
+    color: #3094FF;
+    transform: translateY(-0.5px);
 }
