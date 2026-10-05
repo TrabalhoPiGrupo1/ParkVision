@@ -60,6 +60,7 @@
     border-radius: 6px;
     height: 50px;
     width: 140px;
+    transition: 0.3s;
 }
 
 /* HOME CSS */
@@ -119,6 +120,7 @@
     height: 50px;
     width: 230px;
     cursor: pointer;
+    transition: 0.3s;
 
 }
 
@@ -190,4 +192,16 @@
 
 .pag2-containt .simulacao-button button {
     margin-top: 0;
+}
+
+/*  Hover*/
+.simulacao-button button:hover{
+    background-color: #3094FF;
+    transform: scale(1.01);
+}
+
+.pag1-nav-button button:hover{
+    background-color: #FFE37C;
+    color: #000;
+    transform: scale(1.01);
 }
