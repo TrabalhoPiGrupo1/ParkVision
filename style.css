@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Outfit", Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.principal {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    height: 350px;
+    gap: 20px;
+
+    background-color: #f5f7fa;
+}
+
+.principal h1 {
+    color: #17213b;
+    font-size: 35px;
+}
+
+.principal p {
+    color: #17213b;;
+    font-size: 16px;
+    text-align: center;
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    line-height: 1.4;
+    margin-bottom: 28px;
+}
+
+.contato {
+    display: flex;
+    gap: 10px;
+}
+
+.contato input {
+    width: 260px;
+    height: 35px;
+
+    border: 1px solid #dce4ec;
+    border-radius: 6px;
+    padding: 0 14px;
+
+    font-size: 13px;
+    background-color: #eaf2ff;
+    color: #06193d;
+    outline: none;
+}
+
+.contato input::placeholder {
+    color: #8ea0c4;
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+
+}
+
+.contato button {
+    width: 150px;
+    height: 35px;
+
+    border: none;
+    border-radius: 4px;
+
+    background-color: #3294ed;
+    color: white;
+
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+
+    font-family: "Outfit", Arial, Helvetica, sans-serif;
+
+}
+
+.principal > button {
+    width: 150px;
+    height: 40px;
+
+    border: none;
+    border-radius: 6px;
+
+    background-color: #ffdc65;
+    color: #17213b;
+
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+
+    font-family: "Outfit", Arial, Helvetica, sans-serif;
+}
+
+.rodape {
+    height: 110px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 55px;
+
+    background-color: #102d4b;
+}
+
+.logo {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.links {
+    display: flex;
+    gap: 35px;
+}
+
+.links a {
+    color: white;
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: 600;
+}
