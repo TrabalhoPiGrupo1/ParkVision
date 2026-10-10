@@ -1,0 +1,162 @@
+@font-face {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 100 900;
+    src: url(https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtq.woff2) format('woff2');
+}
+
+/* Reset: zera margens e padroniza o tamanho das caixas */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: #FFFFFF;
+}
+
+/* ---------- ESTRUTURA EM 2 COLUNAS ---------- */
+.comeco {
+    display: flex;
+    height: 900px;
+    padding: 10px;
+    gap: 40px;
+}
+
+.lado_imagem {
+    width: 620px;
+    height: 880px;
+}
+
+.lado_imagem img {
+    width: 620px;
+    height: 880px;
+    border-radius: 15px;
+}
+
+.lado_conteudo {
+    width: 700px;
+    padding: 10px 40px;
+}
+
+/* ---------- BOTÕES DO TOPO ---------- */
+.bt {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.bt_esquerda {
+    display: flex;
+    gap: 20px;
+}
+
+.bt_cadastro {
+    background-color: transparent;
+    border: 1px solid #2F8CFF;
+    color: #2F8CFF;
+    font-family: 'Outfit', sans-serif;
+    font-size: 8px;
+    font-weight: bold;
+    padding: 4px 10px;
+    
+}
+
+
+.bt_voltar {
+    background-color: #2F8CFF;
+    border: none;
+    color: #FFFFFF;
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 10px 24px;
+    border-radius: 3px;
+}
+
+/* ---------- TÍTULO ---------- */
+.titulo h1 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 44px;
+    color: #0B1B3B;
+    text-align: left;
+    margin-bottom: 80px;
+}
+
+.titulo span {
+    color: #2F8CFF;
+}
+
+/* ---------- FORMULÁRIO ---------- */
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.campo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.campo span {
+    width: 60px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #0B1B3B;
+}
+
+.campo input {
+    width: 270px;
+    height: 44px;
+    padding: 0 16px;
+    border: 1px solid #CCCCCC;
+    border-radius: 14px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+}
+
+.bt_login {
+    width: 190px;
+    height: 48px;
+    margin-left: 120px;
+    background-color: #FFE074;
+    border: none;
+    border-radius: 3px;
+    color: #0B1B3B;
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* ---------- ADICIONADO: EFEITO AO PASSAR O MOUSE ---------- */
+.bt_cadastro:hover {
+    background-color: #E3F0FF;
+}
+
+.bt_voltar:hover {
+    background-color: #5BA5FF;
+}
+
+.bt_login:hover {
+    background-color: #FFEBA6;
+}
+
+/* ---------- ADICIONADO: LOGO EM CIMA DA IMAGEM ---------- */
+.lado_imagem {
+    position: relative;
+}
+
+.lado_imagem .logo {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    width: 160px;
+    height: 40px;
+    border-radius: 0;
+}
