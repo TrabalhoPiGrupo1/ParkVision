@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo2.css">
+    <title>ParkVision</title>
+</head>
+<body>
+
+    <div class="pag1-container">
+
+        <nav class="pag1-nav-bar" id="mainNavbar">
+            <div class="pag1-nav-logo">
+                <img src="Rectangle3.png" alt="ParkVision">
+            </div>
+
+            <ul>
+                <li><a href="#nosso-produto">Nosso produto</a></li>
+                <li><a href="#processo">Processo</a></li>
+                <li><a href="#simulador">Simulador</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+
+            <div class="pag1-nav-button">
+                <button type="button" onclick="abrirModal('login')">Entrar</button>
+            </div>
+        </nav>
+
+        <div class="pag1-home">
+            <div class="pag1-hero-section">
+                <div class="pag1-legenda-titulo">
+                    <h3>TECNOLOGIA DE ESTACIONAMENTO</h3>
+                </div>
+
+                <div class="pag1-hero-text">
+                    <h1>
+                        Monitore as suas vagas.<br>
+                        <span class="texto-destaque">Precifique com inteligência.</span>
+                    </h1>
+                </div>
+
+                <p class="pag1-hero-subtitle">
+                    Transformando a ocupação do seu pátio em um ativo mensurável<br>
+                    através de inteligência de dados.
+                </p>
+
+                <div class="simulacao-button">
+                    <button type="button" onclick="document.getElementById('cartaoPrincipal').scrollIntoView({ behavior: 'smooth' });">
+                        FAÇA UMA SIMULAÇÃO
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="pag2-container">
+        <div class="pag2-img">
+            <img src="https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&q=80&w=800" alt="">
+        </div>
+
+        <div class="pag2-containt">
+            <div class="pag2-legenda-titulo">
+                <h3>MONITORAMENTO</h3>
+            </div>
+
+            <h1 class="pag2-title">Visão completa do seu estacionamento.</h1>
+
+            <p>ParkVision é uma solução IoT de monitoramento em tempo real para estacionamentos privados. Através de sensores ultrassônicos e dashboards analíticos, transformamos a taxa de ocupação em dados estratégicos, ajudando gestores a combater a ociosidade, aplicar preços dinâmicos e maximizar o faturamento</p>
+
+            <div class="simulacao-button">
+                <button>FAÇA UMA SIMULAÇÃO</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script>
+       // Monitora a rolagem da página para esconder a Navbar após ultrapassar 50% da altura total
+    window.addEventListener('scroll', function() {
+        let navbar = document.getElementById('mainNavbar');
+        // Calcula o ponto correspondente à metade da rolagem total da página
+        let metadeDoSite = (document.documentElement.scrollHeight - window.innerHeight) / 2;
+
+        if (window.scrollY > metadeDoSite) {
+            navbar.classList.add('navbar-oculta'); // Oculta a barra de navegação
+        } else {
+            navbar.classList.remove('navbar-oculta'); // Exibe a barra de navegação
+        }
+    });
+</script>
