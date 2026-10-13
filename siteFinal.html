@@ -7,51 +7,68 @@
     <title>ParkVision</title>
 </head>
 <body>
-    <!-- Inicio pag1 -->
-    <div class="pag1-container">
-        <!-- Barra de navegação -->
-        <nav class="pag1-nav-bar">
-            <div class="pag1-nav-logo">
-                <img src="../Assets/Rectangle3.png" alt="">
+    <!-- Início pag1 -->
+<div class="pag1-container">
+
+    <!-- Barra de navegação -->
+    <nav class="pag1-nav-bar" id="mainNavbar">
+        <div class="pag1-nav-logo">
+            <img src="Rectangle3.png" alt="ParkVision">
+        </div>
+
+        <ul>
+            <li><a href="#nosso-produto">Nosso produto</a></li>
+            <li><a href="#processo">Processo</a></li>
+            <li><a href="#simulador">Simulador</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+
+        <div class="pag1-nav-button">
+            <button type="button" onclick="abrirModal('login')">Entrar</button>
+        </div>
+    </nav>
+    <!-- Fim barra de navegação -->
+
+    <!-- Início Home -->
+    <div class="pag1-home">
+        <div class="pag1-hero-section">
+            <div class="pag1-legenda-titulo">
+                <h3>TECNOLOGIA DE ESTACIONAMENTO</h3>
             </div>
-            
-            <ul>
-                <a href=""><li>Nosso produto</li></a>
-                <a href=""><li>Processo</li></a>
-                <a href=""><li>Simulador</li></a>
-                <a href=""><li>Contato</li></a>
-            </ul>
 
-            <div class="pag1-nav-button">
-                <button>Entrar</button>
+            <div class="pag1-hero-text">
+                <h1>
+                    Monitore as suas vagas.<br>
+                    <span class="texto-destaque">Precifique com inteligência.</span>
+                </h1>
             </div>
-        </nav>
-        <!-- Fim barra de navegação -->
 
-        <!-- Início Home -->
-        <div class="pag1-home">
-            <div class="pag1-hero-section">
-                <div class="pag1-legenda-titulo"><h3>TECNOLOGIA DE ESTACIONAMENTO</h3></div>
-                    <div class="pag1-hero-text">
-                        <h1>Monitore as suas vagas e<br> 
-                        <span class="texto-destaque">Precifique com</span> inteligência.</h1>
-                    </div>
+            <p class="pag1-hero-subtitle">
+                Transformando a ocupação do seu pátio em um ativo mensurável<br>
+                através de inteligência de dados.
+            </p>
 
-                    <p class="pag1-hero-subtitle">Transformando a ocupação do seu pátio em um ativo mensurável<br> através de inteligência de dados.</p>
-
-                    <div class="simulacao-button">
-                        <button>FAÇA UMA SIMULAÇÃO</button>
-                    </div>
+            <div class="simulacao-button">
+                <button type="button" onclick="document.getElementById('cartaoPrincipal').scrollIntoView({ behavior: 'smooth' });">
+                    FAÇA UMA SIMULAÇÃO
+                </button>
             </div>
         </div>
-        <!-- Fim home -->
-
     </div>
-    <!-- Fim pag1 -->
+    <!-- Fim home -->
+
+</div>
+<!-- Fim pag1 -->
+
+
+<!-------------------------------------------------------------------->
+
+
+
 
     <!-- Inicio pag2 -->
      <div class="pag2-container">
-        <div class="pag2-img"><img src="./estacionamento-foto2.webp" alt=""></div>
+        <div class="pag2-img"><img src="https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&q=80&w=800" alt=""></div>
         
         <div class="pag2-containt">
             <div class="pag2-legenda-titulo"><h3>MONITORAMENTO</h3></div>

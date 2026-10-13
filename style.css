@@ -1,114 +1,186 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Original+Surfer&family=Outfit:wght@100..900&family=Ranchers&display=swap');
-
-
-*{
+/* Reset (o HTML do par 1 depende disso para não ter margens padrão) */
+* {
     padding: 0;
     margin: 0;
 }
-
-/* .pag1-container{
+ 
+/* ===================================
+   0. SEÇÃO HERO (MENU E TOPO DO SITE)
+=================================== */
+.pag1-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #0b1120; /* Cor de fundo base escura */
     display: flex;
-} */
-
-.pag1-container{
-    background-image: linear-gradient(
-        180deg, 
-        rgba(15, 23, 42, 0.75) 60%, 
-        rgba(15, 23, 42, 0.30) 100%, 
-        rgba(15, 23, 42, 0.10) 100%
-    ), url(./estacionamentohome.avif);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 1000px;
-}
-.pag1-nav-bar{
-    background-color: #0f172a3d;
-    padding: 16px;
-    font-family: "Inter", sans-serif;
-    font-weight: 800;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    padding-bottom: 80px;
+    overflow: hidden;
+}
+ 
+/* Imagem de Fundo com Baixa Opacidade (antes era a div .hero-bg-image) */
+.pag1-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('imagem.png'); /* Nome do seu arquivo local ou 'file:///...' */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.25; /* Opacidade reduzida para a imagem */
+    z-index: 0;
+}
+ 
+/* Camada de Gradiente / Escurecimento (antes era a div .hero-overlay) */
+.pag1-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(11, 17, 32, 0.4) 0%, rgba(11, 17, 32, 0.85) 100%);
+    z-index: 1;
+}
+ 
+/* BARRA DE NAVEGAÇÃO FIXA E SEMI-TRANSPARENTE */
+.pag1-nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    max-width: 100%;
+    padding: 18px 40px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(11, 17, 32, 0.65); /* Fundo semi-transparente e opaco */
+    backdrop-filter: blur(10px); /* Efeito de vidro fosco */
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
 }
-
-.pag1-nav-bar ul{
-    list-style-type: none;
-    margin: 0;
-    flex-direction: row;
+ 
+/* Esconde a barra quando passar da metade da página */
+.pag1-nav-bar.navbar-oculta {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+ 
+.pag1-nav-logo {
     display: flex;
-    gap: 50px;
+    align-items: center;
+    gap: 8px;
+    font-size: 22px;
+    font-weight: 800;
+    color: #ffffff;
+    cursor: pointer;
 }
-
-.pag1-nav-bar ul a{
-    color: #ffff;
-    text-decoration: none;
-    transition: 0.3s;
-}
-.pag1-nav-bar .pag1-nav-logo img{
+ 
+.pag1-nav-logo img {
     width: 150px;
     height: auto;
 }
-.pag1-nav-bar .pag1-nav-button button{
+ 
+.pag1-nav-bar ul {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #ffff;
+    list-style: none;
+    gap: 90px;
+    margin-right: 55px; /* ta invertido esquerda é direita e direita é esquerda*/
+}
+ 
+.pag1-nav-bar ul a {
+    color: #e2e8f0;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+ 
+.pag1-nav-bar ul a:hover {
+    color: #38bdf8;
+}
+ 
+.pag1-nav-button button {
+    background-color: #3b82f6;
+    color: #ffffff;
+    font-size: 13px;
     font-weight: 800;
-    font-size: 16px;
-    background-color: #3094FF;
-    cursor: pointer;
+    letter-spacing: 0.5px;
+    padding: 10px 24px;
     border: none;
     border-radius: 6px;
-    height: 50px;
-    width: 140px;
-    transition: 0.3s;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
 }
-
-/* HOME CSS */
-.pag1-home{
+ 
+.pag1-nav-button button:hover {
+    background-color: #2563eb;
+}
+ 
+/* CONTEÚDO DO HERO */
+/* .pag1-home faz o papel de centralizar o conteúdo dentro do container */
+.pag1-home {
+    position: relative;
+    z-index: 2;
+    margin: auto 0;
+}
+ 
+.pag1-hero-section {
+    max-width: 800px;
+    text-align: center;
+    padding: 120px 20px 0 20px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin-top: 200px;
-    text-align: center;
 }
-
-.pag1-home .pag1-legenda-titulo {
-    display: flex;
-    justify-content: center;
+ 
+/* Badge (antes .badge-hero) */
+.pag1-legenda-titulo h3 {
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 6px 16px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(4px);
+    margin-bottom: 24px;
+}
+ 
+/* Título (antes .hero-titulo) */
+.pag1-hero-text h1 {
+    font-size: 48px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.15;
     margin-bottom: 20px;
+    letter-spacing: -0.5px;
 }
-
-.pag1-home .pag1-legenda-titulo h3 {
-    border: 2px solid #FFE37C;
-    color: #FFE37C;
-    font-family: "Outfit", sans-serif;
-    width: 300px;
-    padding: 4px;
-    border-radius: 6px;
-    font-size: 15px;
-    font-weight: bolder;
-    text-align: center; 
+ 
+.texto-destaque {
+    color: #38bdf8;
 }
-.pag1-home .pag1-hero-section .pag1-hero-text{
-    color: #fff;
-    font-family: "Outfit", sans-serif;
-    font-size: 40px;
-    text-align: center;
-}
-
-.texto-destaque{
-    color: #3094FF;
-}
-
-.pag1-hero-subtitle{
-    margin-top: 20px;
-    color: #ffff;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    font-family: "Outfit", sans-serif;
-}
+ 
+/* Subtítulo (antes .hero-subtitulo) */
+.pag1-hero-subtitle {
+    font-size: 16px;
+    color: #cbd5e1;
+    font-weight: 400;
+    max-width: 580px;
+    line-height: 1.5;
+    margin-bottom: 36px;
+}   
 
 .simulacao-button button{
     margin-top: 50px;
@@ -125,93 +197,122 @@
 
 }
 
-/* Pag 2 */
+/* ===================================
+   SEÇÃO MONITORAMENTO / VISÃO COMPLETA
+=================================== */
+
+
 .pag2-container {
-    padding: 80px 20px;
-    background-color: #F4F9FF;
+    background-color: #f4f8ff;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 90px max(20px, calc((100% - 1100px) / 2));
     display: flex;
     flex-direction: row;
-    align-items: center;      
-    justify-content: center;   
-    gap: 20%;                    
-    margin: 0 auto;             
-    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
 }
 
-.pag2-container .pag2-img {
-    max-width: 480px;          
+
+.pag2-img {
+    flex: 1;
+    max-width: 480px;
+    position: relative;
+    border-radius: 20px;
+    border-bottom: 6px solid #fde047; /* Linha de destaque amarela na base */
+    overflow: hidden;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
-.pag2-container .pag2-img img {
-    height: auto;
+
+.pag2-img img {
     width: 100%;
+    height: 400px;
+    object-fit: cover;
     display: block;
-    border-radius: 15px;
-    border-bottom: 9px solid #FFE37C;
-    margin-left: 25%;
 }
+
 
 .pag2-containt {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;   
-    text-align: left;
-}
-
-.pag2-legenda-titulo {
-    margin-bottom: 16px;
+    align-items: flex-start;
 }
 
 .pag2-legenda-titulo h3 {
-    border: 2px solid #3094FF;
-    color: #3094FF;
-    font-family: "Outfit", sans-serif;
-    padding: 4px 16px;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: bolder;
-    text-align: center;
-}
-
-.pag2-title {
-    font-size: 38px;
-    font-family: "Outfit", sans-serif;
-    color: #000;
+    display: inline-block;
+    border: 1px solid #3b82f6;
+    color: #3b82f6;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 6px 14px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    background-color: #ffffff;
     margin-bottom: 20px;
 }
 
-.pag2-containt p {
-    text-align: left;
-    padding-top: 0;
-    font-size: 16px;
-    line-height: 1.6;
-    color: #1B3A5C;
-    font-family: "Inter", sans-serif;
-    width: 70%;           
-    margin-bottom: 30px;
+
+.pag2-title {
+    font-size: 38px;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    margin-bottom: 24px;
 }
+
+
+.pag2-containt p {
+    font-size: 15px;
+    color: #475569;
+    line-height: 1.7;
+    font-weight: 500;
+    margin-bottom: 36px;
+}
+
 
 .pag2-containt .simulacao-button button {
-    margin-top: 0;
+    background-color: #fde047;
+    color: #0f172a;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-/*  Hover*/
-.simulacao-button button:hover{
-    background-color: #3094FF;
-    transform: scale(1.01);
+.pag2-containt .simulacao-button button:hover {
+    background-color: #facc15;
+    transform: translateY(-1px);
 }
 
-.pag1-nav-button button:hover{
-    background-color: #FFE37C;
-    color: #000;
-    transform: scale(1.01);
-}
+/* Responsividade */
+@media (max-width: 900px) {
+    .pag2-container {
+        flex-direction: column;
+        gap: 40px;
+    }
 
-.pag1-nav-bar ul a:hover{
-    color: #3094FF;
-    transform: translateY(-0.5px);
-}
+    .pag2-img {
+        max-width: 100%;
+        width: 100%;
+    }
 
+    .pag2-img img {
+        height: 300px;
+    }
+
+    .pag2-title {
+        font-size: 28px;
+    }
+}
 
 :root {
   --azul: #2f80ed;
