@@ -3,88 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="estilo2.css">
     <title>ParkVision</title>
 </head>
 <body>
-    <!-- Início pag1 -->
-<div class="pag1-container">
 
-    <!-- Barra de navegação -->
-    <nav class="pag1-nav-bar" id="mainNavbar">
-        <div class="pag1-nav-logo">
-            <img src="Rectangle3.png" alt="ParkVision">
-        </div>
+<!-- PAGINA 1 - GUILHERME -->
 
-        <ul>
-            <li><a href="#nosso-produto">Nosso produto</a></li>
-            <li><a href="#processo">Processo</a></li>
-            <li><a href="#simulador">Simulador</a></li>
-            <li><a href="#contato">Contato</a></li>
-        </ul>
-
-        <div class="pag1-nav-button">
-            <button type="button" onclick="abrirModal('login')">Entrar</button>
-        </div>
-    </nav>
-    <!-- Fim barra de navegação -->
-
-    <!-- Início Home -->
-    <div class="pag1-home">
-        <div class="pag1-hero-section">
-            <div class="pag1-legenda-titulo">
-                <h3>TECNOLOGIA DE ESTACIONAMENTO</h3>
+    <div class="pag1-container">
+        <nav class="pag1-nav-bar" id="mainNavbar">
+            <div class="pag1-nav-logo">
+                <img src="logo.png" alt="ParkVision">
             </div>
 
-            <div class="pag1-hero-text">
-                <h1>
-                    Monitore as suas vagas.<br>
-                    <span class="texto-destaque">Precifique com inteligência.</span>
-                </h1>
+            <ul>
+                <li><a href="#nosso-produto">Nosso produto</a></li>
+                <li><a href="#processo">Processo</a></li>
+                <li><a href="#simulador">Simulador</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+
+            <div class="pag1-nav-button">
+                <button type="button" onclick="abrirModal('login')">Entrar</button>
             </div>
+        </nav>
 
-            <p class="pag1-hero-subtitle">
-                Transformando a ocupação do seu pátio em um ativo mensurável<br>
-                através de inteligência de dados.
-            </p>
+        <div class="pag1-home">
+            <div class="pag1-hero-section">
+                <div class="pag1-legenda-titulo">
+                    <h3>TECNOLOGIA DE ESTACIONAMENTO</h3>
+                </div>
 
-            <div class="simulacao-button">
-                <button type="button" onclick="document.getElementById('cartaoPrincipal').scrollIntoView({ behavior: 'smooth' });">
-                    FAÇA UMA SIMULAÇÃO
-                </button>
+                <div class="pag1-hero-text">
+                    <h1>
+                        Monitore as suas vagas.<br>
+                        <span class="texto-destaque1">Precifique com inteligência.</span>
+                    </h1>
+                </div>
+
+                <p class="pag1-hero-subtitle">
+                    Transformando a ocupação do seu pátio em um ativo mensurável<br>
+                    através de inteligência de dados.
+                </p>
+
+                <div class="simulacao-button">
+                    <button type="button">FAÇA UMA SIMULAÇÃO</button>
+                </div>
             </div>
         </div>
     </div>
-    <!-- Fim home -->
 
-</div>
-<!-- Fim pag1 -->
+<!-- PAGINA 2 GUILHERME -->
 
+    <div class="pag2-container">
+        <div class="pag2-img">
+            <img src="https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&q=80&w=800" alt="">
+        </div>
 
-<!-------------------------------------------------------------------->
-
-
-
-
-    <!-- Inicio pag2 -->
-     <div class="pag2-container">
-        <div class="pag2-img"><img src="https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&q=80&w=800" alt=""></div>
-        
         <div class="pag2-containt">
-            <div class="pag2-legenda-titulo"><h3>MONITORAMENTO</h3></div>
+            <div class="pag2-legenda-titulo">
+                <h3>MONITORAMENTO</h3>
+            </div>
+
             <h1 class="pag2-title">Visão completa do seu estacionamento.</h1>
+
             <p>ParkVision é uma solução IoT de monitoramento em tempo real para estacionamentos privados. Através de sensores ultrassônicos e dashboards analíticos, transformamos a taxa de ocupação em dados estratégicos, ajudando gestores a combater a ociosidade, aplicar preços dinâmicos e maximizar o faturamento</p>
+
             <div class="simulacao-button">
                 <button>FAÇA UMA SIMULAÇÃO</button>
             </div>
         </div>
+    </div>
 
+<!-- PAGINA 3 GABRIEL -->
 
-     </div>
-     
-
-
-     <section class="plataforma" id="plataforma">
+<section class="plataforma" id="plataforma">
     <div class="container">
       <span class="tag tag--azul">Nossa plataforma</span>
       <h2 class="titulo">Tudo que uma operação de <span class="destaque">estacionamento moderno</span> precisa.</h2>
@@ -95,7 +88,7 @@
             <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg>
           </div>
           <h3>Monitoramento em Tempo Real</h3>
-          <p>Veja o status de cada vaga por sensores ultrassônicos, sem rondas manuais.</p>
+          <p>Identifique instantaneamente o status de cada vaga via sensores ultrassônicos, eliminando a necessidade de rondas manuais ou percepção visual limitada. </p>
         </article>
 
         <article class="card-recurso">
@@ -103,7 +96,7 @@
             <svg viewBox="0 0 24 24"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>
           </div>
           <h3>Dashboards e Gestão Visual</h3>
-          <p>Acompanhe a ocupação do pátio em gráficos simples, direto na plataforma web.</p>
+          <p>Transforme dados complexos em gráficos intuitivos via plataforma web para controle operacional total da ocupação do seu pátio em tempo real.</p>
         </article>
 
         <article class="card-recurso">
@@ -111,7 +104,7 @@
             <svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 17v-4M12 17V8M16 17v-6"/></svg>
           </div>
           <h3>Decisões Baseadas em Fatos</h3>
-          <p>Meça a ociosidade com precisão e decida com base em dados reais e históricos.</p>
+          <p>Substitua a intuição por uma base analítica auditável que mede a ociosidade com precisão, fundamentando sua estratégia em dados reais e históricos.</p>
         </article>
 
         <article class="card-recurso">
@@ -119,7 +112,7 @@
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
           </div>
           <h3>Combate à Ociosidade Silenciosa</h3>
-          <p>Encontre janelas de baixa demanda e transforme vagas vazias em faturamento.</p>
+          <p>Identifique janelas de baixa demanda para converter vagas vazias em faturamento real e reverter perdas causadas por tarifas rígidas.</p>
         </article>
       </div>
     </div>
@@ -177,15 +170,13 @@
 
   <section class="processo-section" id="processo">
     <div class="processo-container">
-        <!-- Cabeçalho -->
         <div class="processo-header">
             <span class="badge-processo">PROCESSO</span>
             <h2 class="titulo-processo">Da entrada de veículos à decisão do operador.</h2>
         </div>
 
-        <!-- Grid de Passos em 3 etapas consecutivas -->
         <div class="processo-grid">
-            <!-- Etapa 01 -->
+      
             <div class="passo-card">
                 <div class="passo-header">
                     <span class="numero-passo">01</span>
@@ -197,7 +188,6 @@
                 </p>
             </div>
 
-            <!-- Etapa 02 -->
             <div class="passo-card">
                 <div class="passo-header">
                     <span class="numero-passo">02</span>
@@ -209,7 +199,6 @@
                 </p>
             </div>
 
-            <!-- Etapa 03 -->
             <div class="passo-card">
                 <div class="passo-header">
                     <span class="numero-passo">03</span>
@@ -225,21 +214,19 @@
 </section>
 
 
-<!-- =========================================================================
-   3. SEÇÃO DA CALCULADORA / SIMULADOR FINANCEIRO
-========================================================================= -->
+
+
+
 <section class="calculadora-section" id="simulador">
-    <!-- Cabeçalho do Simulador -->
+
     <div class="calculadora-header">
         <span class="badge-simulador">SIMULADOR FINANCEIRO</span>
         <h2 class="titulo-simulador">Estime o <span class="destaque-azul">potencial</span> do seu estacionamento.</h2>
     </div>
 
-    <!-- Card Principal do Simulador (Expandível via JS) -->
     <div class="cartao" id="cartaoPrincipal">
         <div class="conteudo">
             
-            <!-- Coluna de Formulário de Entradas -->
             <div class="coluna-entradas">
                 <p>1. Número de vagas total do estacionamento:</p>
                 <input type="number" id="vagasTotal" placeholder="Ex: 50">
@@ -256,27 +243,25 @@
                 <p>5. Dias de funcionamento por mês:</p>
                 <input type="number" id="diasMes" placeholder="Ex: 26">
 
-                <!-- Botão que executa o cálculo da ociosidade em JavaScript -->
                 <button type="button" class="botao-calcular" onclick="calcular()">Calcular Ociosidade</button>
             </div>
 
-            <!-- Coluna onde os resultados serão renderizados após o cálculo -->
+            
             <div class="coluna-resultados" id="colunaResultados">
                 <div class="painel-resultados">
                     <h2>CÁLCULO DA OCIOSIDADE</h2>
-                    <!-- Div dinâmico preenchido via JavaScript -->
+            
                     <div id="divResultado"></div>
                 </div>
             </div>
 
         </div>
 
-        <!-- Banner promocional e chamada de ação gerada dinamicamente pelo JS -->
         <div id="divMensagemDestaque"></div>
     </div>
 </section>
 
-    
+
     <div class="principal">
         <h1>Pronto para modernizar o seu estacionamento?</h1>
 
@@ -295,7 +280,7 @@
 
     <div class="rodape">
 
-        <img class="logo" src="img/Rectangle3.png" alt="ParkVision">
+        <img class="logo" src="logo.png" alt="ParkVision">
 
             <div class="links">
                 <a href="#">Nosso Produto</a>
@@ -305,38 +290,38 @@
 
             </div>
         
-    </div>
+          </div>
+
 
 <script>
-    // Função principal de cálculo financeiro do simulador
+
     function calcular() {
-        // Coleta e converte os valores digitados para números (ou atribui 0 caso vazio/inválido)
+
         let totalVagas = Number(vagasTotal.value) || 0;
         let tarifaInput = tarifaHora.value;
         let horasValeValor = Number(horasVale.value) || 0;
         let vagasOcupadasValor = Number(vagasOcupadas.value) || 0;
         let diasMesValor = Number(diasMes.value) || 0;
 
-        // Define a tarifa por hora padrão (R$ 15,00) se o usuário não preencher o campo
+     
         let tarifaHoraValor = 15;
         if (tarifaInput !== '' && !isNaN(Number(tarifaInput))) {
             tarifaHoraValor = Number(tarifaInput);
         }
 
-        // Calcula a quantidade de vagas que ficam vazias nos horários de baixa demanda
+       
         let vagasVazias = totalVagas - vagasOcupadasValor;
-        if (vagasVazias < 0) vagasVazias = 0; // Previne resultados negativos
+        if (vagasVazias < 0) vagasVazias = 0; 
 
-        // Fórmulas matemáticas de perda financeira
+     
         let perdaPorHora = vagasVazias * tarifaHoraValor;
         let perdaDiaria = perdaPorHora * horasValeValor;
         let perdaMensal = perdaDiaria * diasMesValor;
 
-        // Exibe a coluna de resultados e expande o container do simulador
+   
         colunaResultados.classList.add('visivel');
         cartaoPrincipal.classList.add('expandido');
 
-        // Preenche o HTML do painel de resultados formatando em Moeda Brasileira (R$)
         divResultado.innerHTML = `
             <div class="bloco-resultado resultado-principal">
                 <span class="titulo-resultado">PERDA MENSAL ESTIMADA</span>
@@ -359,7 +344,6 @@
             </div>
         `;
 
-        // Preenche o HTML do alerta e chamada para ação
         divMensagemDestaque.innerHTML = `
             <div class="banner-alerta">
                 <p>Sua estrutura física já está paga. O ParkVision identifica os momentos de vale, gera consciência sobre a ociosidade e te dá o poder de intervir antes que as perdas aconteçam.</p>
@@ -371,7 +355,6 @@
             </div>
         `;
     }
-
 </script>
 
 </body>
