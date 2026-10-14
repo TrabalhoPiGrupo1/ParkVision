@@ -28,7 +28,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('imagem.png');
+    background-image: url('');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -86,8 +86,9 @@
 }
 
 .pag1-nav-logo img {
-    width: 150px;
+    width: 50px;
     height: auto;
+    outline: 2px solid red;
 }
 
 .pag1-nav-bar ul {
