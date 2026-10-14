@@ -1,0 +1,100 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+.layout { 
+    display: flex; 
+    height: 100vh; 
+}
+
+.sidebar { 
+    width: 250px; 
+    background: #1b3a5c; 
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    padding: 20px 0; 
+}
+
+.sair { 
+    margin-top: auto; 
+    background: #3399ff; 
+    color: #fff; 
+}
+
+.conteudo {
+    flex: 1; 
+    background: #f4f9ff; 
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+  margin-bottom: 90px;
+  zoom: 0.7;
+}
+
+.saudacao {
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin: 30px 0 50px;
+  font-family: 'Inter', sans-serif;
+}
+
+.ativo {
+  background: #ffe27a;
+  color: #000;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-top: 40px;
+}
+
+nav {
+  width: 100%;
+  margin-top: 30px;
+  padding-left: 12px;
+  font-family: 'Inter', sans-serif;
+}
+
+nav a {
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+  margin-left: 8px;
+  line-height: 2.4;
+  font-family: 'Inter', sans-serif;
+}
+
+nav a::after {
+  content: "\A";
+  white-space: pre;
+}
+
+nav i {
+  color: #fff;
+  font-size: 15px;
+}
+
+.sair {
+  margin-top: auto;
+  margin-bottom: 20px;
+  background: #3399ff;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.sair:hover {
+  background: #ffe27a;
+}
