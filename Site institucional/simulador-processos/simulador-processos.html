@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParkVision - Plataforma Integrada</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+
+<section class="processo-section" id="processo">
+    <div class="processo-container">
+        <div class="processo-header">
+            <span class="badge-processo">PROCESSO</span>
+            <h2 class="titulo-processo">Da entrada de veículos à decisão do operador.</h2>
+        </div>
+
+        <div class="processo-grid">
+      
+            <div class="passo-card">
+                <div class="passo-header">
+                    <span class="numero-passo">01</span>
+                    <div class="linha-passo"></div>
+                </div>
+                <h3 class="passo-titulo">Implementação e Ativação</h3>
+                <p class="passo-descricao">
+                    Instale sensores ultrassónicos e monitore seu pátio em tempo real. Transforme vagas físicas em dados estratégicos e precisos para sua gestão.
+                </p>
+            </div>
+
+            <div class="passo-card">
+                <div class="passo-header">
+                    <span class="numero-passo">02</span>
+                    <div class="linha-passo"></div>
+                </div>
+                <h3 class="passo-titulo">Monitoramento e Diagnóstico</h3>
+                <p class="passo-descricao">
+                    Visualize dashboards e identifique a "ociosidade silenciosa". Saiba exatamente onde e quando você perde receita por falta de fluxo.
+                </p>
+            </div>
+
+            <div class="passo-card">
+                <div class="passo-header">
+                    <span class="numero-passo">03</span>
+                    <div class="linha-passo"></div>
+                </div>
+                <h3 class="passo-titulo">Decisões e Gestão com Estratégia</h3>
+                <p class="passo-descricao">
+                    Tenha dados concretos e reais para agir baseado em fatos. Substitua a intuição por informações auditáveis e tome decisões seguras para otimizar sua ocupação e os resultados do seu estacionamento.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<section class="calculadora-section" id="simulador">
+
+    <div class="calculadora-header">
+        <span class="badge-simulador">SIMULADOR FINANCEIRO</span>
+        <h2 class="titulo-simulador">Estime o <span class="destaque-azul">potencial</span> do seu estacionamento.</h2>
+    </div>
+
+    <div class="cartao" id="cartaoPrincipal">
+        <div class="conteudo">
+            
+            <div class="coluna-entradas">
+                <p>1. Número de vagas total do estacionamento:</p>
+                <input type="number" id="vagasTotal" placeholder="Ex: 50">
+
+                <p>2. Tarifa cobrada por hora: <br> <span class="legenda">(Opcional - padrão R$ 15,00)</span></p>
+                <input type="number" id="tarifaHora" placeholder="Ex: 15">
+
+                <p>3. Horas diárias de baixa demanda:</p>
+                <input type="number" id="horasVale" placeholder="Ex: 4">
+
+                <p>4. Estimativa de vagas ocupadas nos horários de vale:</p>
+                <input type="number" id="vagasOcupadas" placeholder="Ex: 10">
+
+                <p>5. Dias de funcionamento por mês:</p>
+                <input type="number" id="diasMes" placeholder="Ex: 26">
+
+                <button type="button" class="botao-calcular" onclick="calcular()">Calcular Ociosidade</button>
+            </div>
+
+            
+            <div class="coluna-resultados" id="colunaResultados">
+                <div class="painel-resultados">
+                    <h2>CÁLCULO DA OCIOSIDADE</h2>
+            
+                    <div id="divResultado"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="divMensagemDestaque"></div>
+    </div>
+</section>
+
+
+
+<script>
+
+    function calcular() {
+
+        let totalVagas = Number(vagasTotal.value) || 0;
+        let tarifaInput = tarifaHora.value;
+        let horasValeValor = Number(horasVale.value) || 0;
+        let vagasOcupadasValor = Number(vagasOcupadas.value) || 0;
+        let diasMesValor = Number(diasMes.value) || 0;
+
+     
+        let tarifaHoraValor = 15;
+        if (tarifaInput !== '' && !isNaN(Number(tarifaInput))) {
+            tarifaHoraValor = Number(tarifaInput);
+        }
+
+       
+        let vagasVazias = totalVagas - vagasOcupadasValor;
+        if (vagasVazias < 0) vagasVazias = 0; 
+
+     
+        let perdaPorHora = vagasVazias * tarifaHoraValor;
+        let perdaDiaria = perdaPorHora * horasValeValor;
+        let perdaMensal = perdaDiaria * diasMesValor;
+
+   
+        colunaResultados.classList.add('visivel');
+        cartaoPrincipal.classList.add('expandido');
+
+        divResultado.innerHTML = `
+            <div class="bloco-resultado resultado-principal">
+                <span class="titulo-resultado">PERDA MENSAL ESTIMADA</span>
+                <span class="valor-resultado texto-destaque">- R$ ${perdaMensal.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
+            </div>
+
+            <div class="grade-resultado">
+                <div class="bloco-resultado">
+                    <span class="titulo-resultado">VAGAS OCIOSAS</span>
+                    <span class="subvalor-resultado">${vagasVazias} vagas</span>
+                </div>
+                <div class="bloco-resultado">
+                    <span class="titulo-resultado">PERDA / HORA</span>
+                    <span class="subvalor-resultado">R$ ${perdaPorHora.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
+                </div>
+                <div class="bloco-resultado">
+                    <span class="titulo-resultado">PERDA DIÁRIA</span>
+                    <span class="subvalor-resultado">R$ ${perdaDiaria.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
+                </div>
+            </div>
+        `;
+
+        divMensagemDestaque.innerHTML = `
+            <div class="banner-alerta">
+                <p>Sua estrutura física já está paga. O ParkVision identifica os momentos de vale, gera consciência sobre a ociosidade e te dá o poder de intervir antes que as perdas aconteçam.</p>
+            </div>
+
+            <div class="chamada-acao">
+                <p>Quer entender melhor?</p>
+                <button onclick="document.getElementById('contato').scrollIntoView({ behavior: 'smooth' });">Entrar em contato</button>
+            </div>
+        `;
+    }
+</script>
+
+
+</body>
+</html>
