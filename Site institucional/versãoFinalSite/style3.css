@@ -1,188 +1,135 @@
-* {
-    padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+    box-sizing: border-box;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    padding: 0;
+    font-family: "Poppins";
 }
 
+/* INICIO DA CONFIGURAÇÕES DA NAVBAR */
 
-/* ===================================
-   PÁGINA 1 - HERO - GUILHERME
-=================================== */
-.pag1-container {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    background-color: #0b1120;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 80px;
-    overflow: hidden;
+li, a, button {
+    font-size: 12px;
+    color: #fff;
+    text-decoration: none;
 }
 
-.pag1-container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('imagem.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.25;
-    z-index: 0;
-}
-
-.pag1-container::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(180deg, rgba(11, 17, 32, 0.4) 0%, rgba(11, 17, 32, 0.85) 100%);
-    z-index: 1;
-}
-
-
-/* ===================================
-   PÁGINA 1 - BARRA DE NAVEGAÇÃO - GUILHERME
-=================================== */
-.pag1-nav-bar {
-    position: fixed;
+header {
+   position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 100;
     max-width: 100%;
-    padding: 18px 40px;
+    padding: 8px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: rgba(11, 17, 32, 0.65);
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
 }
 
-.pag1-nav-bar.navbar-oculta {
-    transform: translateY(-100%);
-    opacity: 0;
-    pointer-events: none;
-}
-
-.pag1-nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 22px;
-    font-weight: 800;
-    color: #ffffff;
-    cursor: pointer;
-}
-
 .pag1-nav-logo img {
-    width: 130px;
-    height: auto;
+    height: 27px;
+    width: auto;
+    display: block;
 }
 
-.pag1-nav-bar ul {
-    display: flex;
+.nav-links {
     list-style: none;
-    gap: 90px;
-    margin-right: 55px;
+    margin-right: 90px;
 }
 
-.pag1-nav-bar ul a {
-    color: #e2e8f0;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    transition: color 0.2s ease;
-}
-
-.pag1-nav-bar ul a:hover {
-    color: #38bdf8;
-}
-
-.pag1-nav-button button {
-    background-color: #3b82f6;
-    color: #ffffff;
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    padding: 10px 24px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-.pag1-nav-button button:hover {
-    background-color: #2563eb;
-}
-
-
-/* ===================================
-   PÁGINA 1 - CONTEÚDO DO HERO - GUILHEME
-=================================== */
-.pag1-home {
-    position: relative;
-    z-index: 2;
-    margin: auto 0;
-}
-
-.pag1-hero-section {
-    max-width: 800px;
-    text-align: center;
-    padding: 120px 20px 0 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.pag1-legenda-titulo h3 {
+.nav-links li {
     display: inline-block;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: #ffffff;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    padding: 6px 16px;
-    border-radius: 4px;
-    text-transform: uppercase;
-    background-color: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(4px);
-    margin-bottom: 24px;
+    padding: 0px 40px;
 }
 
-.pag1-hero-text h1 {
-    font-size: 48px;
-    font-weight: 800;
-    color: #ffffff;
-    line-height: 1.15;
+.nav-links li a:hover {
+    color: #6090d7;
+}
+
+button {
+    padding: 10px 40px;
+    background-color: #4771b0;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #39619c;
+}
+
+/* FIM DAS CONFIGURAÇÕES DA NAVBAR */
+
+/* INCIO DA PAGINA 1 */
+
+.pag1-container{
+    background-image: linear-gradient(
+        180deg, 
+        rgba(15, 23, 42, 0.75) 60%, 
+        rgba(15, 23, 42, 0.30) 100%, 
+        rgba(15, 23, 42, 0.10) 100%
+    ), url(../Assets/imagem.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 551px;
+}
+
+.pag1-home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.pag1-home .pag1-legenda-titulo {
+    display: flex;
+    justify-content: center;
     margin-bottom: 20px;
-    letter-spacing: -0.5px;
+    margin-top: 100px;
 }
 
-.texto-destaque1 {
-    color: #38bdf8;
+.pag1-home .pag1-legenda-titulo h3 {
+    border: 1px solid white;
+    color: white;
+    font-family: "Outfit", sans-serif;
+    width: 270px;
+    padding: 8px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: bolder;
+    text-align: center;
+    letter-spacing: 2px; 
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2px);
 }
 
-.pag1-hero-subtitle {
-    font-size: 16px;
-    color: #cbd5e1;
-    font-weight: 400;
-    max-width: 580px;
-    line-height: 1.5;
-    margin-bottom: 36px;
+.pag1-home .pag1-hero-section .pag1-hero-text{
+    color: #fff;
+    font-family: "Outfit", sans-serif;
+    font-size: 30px;
+    text-align: center;
 }
 
-.simulacao-button button {
+.texto-destaque1{
+    color: #3094FF;
+}
+
+.pag1-hero-subtitle{
+    margin-top: 10px;
+    color: #cbd5e1;       
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    font-family: "Outfit", sans-serif;
+}
+
+.simulacao-button button{
     margin-top: 50px;
     background-color: #FFE37C;
     color: #000;
@@ -190,108 +137,105 @@
     font-weight: 900;
     border: none;
     border-radius: 6px;
-    height: 40px;
-    width: 200px;
+    height: 50px;
+    width: 210px;
     cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.1s ease;
+    transition: 0.3s;
+
 }
 
-.simulacao-button button:hover {
-    background-color: #facc15;
-    transform: translateY(-1px);
-}
+/* FIM DA PAGINA 1 */
 
-/* ===================================
-   PÁGINA 2 - MONITORAMENTO - GUILHERME
-=================================== */
+/* INICIO DA PAGINA 2 */
+
 .pag2-container {
-    background-color: #f4f8ff;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 90px max(20px, calc((100% - 1100px) / 2));
+    padding: 80px 0px;
+    background-color: #F4F9FF;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 60px;
+    align-items: center;      
+    justify-content: center;   
+    gap: 20%;                    
+    margin: 0 auto;             
+    box-sizing: border-box;
 }
 
-.pag2-img {
-    flex: 1;
-    max-width: 480px;
-    position: relative;
-    border-radius: 20px;
-    border-bottom: 6px solid #fde047;
-    overflow: hidden;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+.pag2-container .pag2-img {
+    max-width: 480px;          
 }
 
-.pag2-img img {
+.pag2-container .pag2-img img {
+    height: auto;
     width: 100%;
-    height: 400px;
-    object-fit: cover;
     display: block;
+    border-radius: 15px;
+    border-bottom: 9px solid #FFE37C;
+    margin-left: 25%;
 }
 
 .pag2-containt {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-start;   
+    text-align: left;
+}
+
+.pag2-legenda-titulo {
+    margin-bottom: 16px;
 }
 
 .pag2-legenda-titulo h3 {
-    display: inline-block;
-    border: 1px solid #3b82f6;
-    color: #3b82f6;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    padding: 6px 14px;
-    border-radius: 4px;
-    text-transform: uppercase;
-    background-color: #ffffff;
-    margin-bottom: 20px;
+    border: 2px solid #3094FF;
+    color: #3094FF;
+    font-family: "Outfit", sans-serif;
+    padding: 4px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bolder;
+    text-align: center;
 }
 
 .pag2-title {
     font-size: 38px;
-    font-weight: 800;
-    color: #0f172a;
-    line-height: 1.2;
-    letter-spacing: -0.5px;
-    margin-bottom: 24px;
+    font-family: "Outfit", sans-serif;
+    color: #000;
+    margin-bottom: 20px;
 }
 
 .pag2-containt p {
-    font-size: 15px;
-    color: #475569;
-    line-height: 1.7;
-    font-weight: 500;
-    margin-bottom: 36px;
+    text-align: left;
+    padding-top: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #1B3A5C;
+    font-family: "Inter", sans-serif;
+    width: 70%;           
+    margin-bottom: 30px;
 }
 
 .pag2-containt .simulacao-button button {
-    background-color: #fde047;
-    color: #0f172a;
-    font-size: 9px;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    padding: 14px 28px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-top: 0;
 }
 
-.pag2-containt .simulacao-button button:hover {
-    background-color: #facc15;
-    transform: translateY(-1px);
+.simulacao-button button:hover{
+    background-color: #3094FF;
+    transform: scale(1.01);
 }
 
-/* ===================================
-   PÁGINA 3 - NOSSA PLATAFORMA - GABRIEL
-=================================== */
+.pag1-nav-button button:hover{
+    background-color: #FFE37C;
+    color: #000;
+    transform: scale(1.01);
+}
+
+.pag1-nav-bar ul a:hover{
+    color: #3094FF;
+    transform: translateY(-0.5px);
+}
+
+/* FIM DA PAGINA 2 */
+
+/* INICIO DA PAGIA 3 */
 
 :root {
   --azul: #2f80ed;
@@ -386,12 +330,7 @@ h2, h3 { font-family: "Outfit", Arial, sans-serif; }
   border: 1px solid var(--azul-borda);
   border-radius: 14px;
   padding: 24px 16px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
 
-.card-recurso:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(23, 51, 92, 0.12);
 }
 
 .card-recurso .icone { margin-bottom: 16px; }
@@ -404,6 +343,10 @@ h2, h3 { font-family: "Outfit", Arial, sans-serif; }
   font-size: 0.8rem;
   color: var(--texto-suave);
 }
+
+/* FIM DA PAGINA 3 */
+
+/* INICIO DA PAGIA 4 */
 
 .aplicacao .titulo {
   margin: 10px 40px 20px 40px;
@@ -425,7 +368,7 @@ h2, h3 { font-family: "Outfit", Arial, sans-serif; }
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('imagem.png') center / cover no-repeat;
+  background: url('../Assets/imagem.png') center / cover no-repeat;
   opacity: 0.25;
   z-index: 0;
 }
@@ -456,42 +399,13 @@ h2, h3 { font-family: "Outfit", Arial, sans-serif; }
   align-items: flex-end;
   text-align: left;
   background-color: #0b1120;
-   background: var(--foto) center / cover no-repeat;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: var(--foto) center / cover no-repeat;
+
 }
 
 .aplicacao .card-foto {
-  box-shadow:
-    0 24px 40px -8px rgba(0, 0, 0, 0.6),
-    0 0 0 1px rgba(255, 255, 255, 0.06);
-  animation: flutuar 4s ease-in-out infinite;
-  transition: box-shadow 0.3s ease;
    border: 1px solid #2a2f3a !important;
     align-items: flex-start;
-}
-
-
-
-.card-foto:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(23, 51, 92, 0.12);
-}
-
-
-.card-foto::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    180deg,
-    rgba(11, 17, 32, 0.25) 0%,
-    rgba(11, 17, 32, 0.35) 40%,
-    rgba(11, 17, 32, 0.95) 100%
-  );
-  z-index: 1;
 }
 
 .card-foto__conteudo {
@@ -527,23 +441,9 @@ h2, h3 { font-family: "Outfit", Arial, sans-serif; }
   .plataforma, .aplicacao { padding: 56px 0; }
 }
 
+/* FIM DA PAGINA 4 */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 2. SEÇÃO DE PROCESSO */
+/* INICIO DA PAGINA 5 */
 
 .processo-section {    background-color: #f4f8ff;
     padding: 80px 20px;
@@ -635,9 +535,10 @@ h2, h3 { font-family: "Outfit", Arial, sans-serif; }
     font-weight: 500;
 }
 
-/*
-3. SEÇÃO DA CALCULADORA */
-.calculadora-section {    padding: 60px 20px 80px 20px;
+/* INICIO DA CALCULADORA */
+
+.calculadora-section {
+    padding: 28px 12px 36px 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -645,25 +546,25 @@ h2, h3 { font-family: "Outfit", Arial, sans-serif; }
 
 .calculadora-header {
     text-align: center;
-    margin-bottom: 36px;
+    margin-bottom: 16px;
 }
 
 .badge-simulador {
     display: inline-block;
     border: 1px solid #3b82f6;
     color: #3b82f6;
-    font-size: 12px;
+    font-size: 9px;
     font-weight: 700;
-    letter-spacing: 1.5px;
-    padding: 6px 14px;
+    letter-spacing: 1px;
+    padding: 3px 8px;
     border-radius: 4px;
     text-transform: uppercase;
     background-color: #ffffff;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
 }
 
 .titulo-simulador {
-    font-size: 38px;
+    font-size: 22px;
     font-weight: 800;
     color: #0f172a;
     line-height: 1.2;
@@ -675,36 +576,34 @@ h2, h3 { font-family: "Outfit", Arial, sans-serif; }
 
 .cartao {
     background-color: #ffffff;
-    border-radius: 16px;
-    padding: 32px;
+    border-radius: 10px;
+    padding: 14px;
     width: 100%;
-    max-width: 480px;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+    max-width: 270px;
     border: 1px solid #e2e8f0;
-    transition: max-width 0.3s ease-in-out;
 }
 
 .cartao.expandido {
-    max-width: 900px;
+    max-width: 520px;
 }
 
 .conteudo {
     display: flex;
-    gap: 32px;
+    gap: 14px;
     flex-wrap: wrap;
 }
 
 .coluna-entradas {
     flex: 1;
-    min-width: 280px;
+    min-width: 180px;
 }
 
 .coluna-entradas p {
-    font-size: 14px;
+    font-size: 10px;
     font-weight: 600;
     color: #334155;
-    margin-bottom: 6px;
-    margin-top: 14px;
+    margin-bottom: 3px;
+    margin-top: 8px;
 }
 
 .coluna-entradas p:first-of-type {
@@ -712,41 +611,41 @@ h2, h3 { font-family: "Outfit", Arial, sans-serif; }
 }
 
 .legenda {
-    font-size: 12px;
+    font-size: 9px;
     color: #0284c7;
     font-weight: 500;
 }
 
-input {
+.coluna-entradas input {
     width: 100%;
     background-color: #f8fafc;
     border: 1px solid #cbd5e1;
-    border-radius: 8px;
-    padding: 10px 14px;
+    border-radius: 5px;
+    padding: 5px 8px;
     color: #0f172a;
-    font-size: 15px;
+    font-size: 11px;
     outline: none;
     transition: all 0.2s ease;
 }
 
-input:focus {
+.coluna-entradas input:focus {
     border-color: #0284c7;
     background-color: #ffffff;
-    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+    box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.15);
 }
 
 .botao-calcular {
-    margin-top: 20px;
+    margin-top: 10px;
     width: 100%;
     background-color: #0284c7;
     color: #ffffff;
     font-weight: 700;
-    padding: 12px;
+    padding: 7px;
     border: none;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.2s ease, transform 0.1s ease;
+    font-size: 12px;
+
 }
 
 .botao-calcular:hover {
@@ -757,7 +656,7 @@ input:focus {
 .coluna-resultados {
     display: none;
     flex: 1;
-    min-width: 280px;
+    min-width: 180px;
 }
 
 .coluna-resultados.visivel {
@@ -766,8 +665,8 @@ input:focus {
 
 .painel-resultados {
     background-color: #f8fafc;
-    border-radius: 12px;
-    padding: 24px;
+    border-radius: 8px;
+    padding: 12px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -775,11 +674,11 @@ input:focus {
 }
 
 .painel-resultados h2 {
-    font-size: 12px;
-    letter-spacing: 1.5px;
+    font-size: 9px;
+    letter-spacing: 1px;
     color: #64748b;
     text-transform: uppercase;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
     font-weight: 800;
 }
 
@@ -789,21 +688,21 @@ input:focus {
 }
 
 .resultado-principal {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     border-bottom: 1px solid #cbd5e1;
-    padding-bottom: 16px;
+    padding-bottom: 8px;
 }
 
 .titulo-resultado {
-    font-size: 13px;
+    font-size: 9px;
     font-weight: 700;
     letter-spacing: 0.5px;
     color: #64748b;
-    margin-bottom: 6px;
+    margin-bottom: 3px;
 }
 
 .valor-resultado {
-    font-size: 32px;
+    font-size: 18px;
     font-weight: 800;
     line-height: 1.2;
 }
@@ -815,26 +714,26 @@ input:focus {
 .grade-resultado {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
 }
 
 .subvalor-resultado {
-    font-size: 18px;
+    font-size: 12px;
     font-weight: 700;
     color: #0f172a;
 }
 
 .banner-alerta {
-    margin-top: 24px;
+    margin-top: 12px;
     background-color: #e0f2fe;
-    border-left: 4px solid #0284c7;
-    border-radius: 8px;
-    padding: 16px 20px;
+    border-left: 3px solid #0284c7;
+    border-radius: 5px;
+    padding: 8px 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .banner-alerta p {
-    font-size: 14px;
+    font-size: 10px;
     line-height: 1.5;
     color: #0369a1;
     font-weight: 500;
@@ -844,23 +743,22 @@ input:focus {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 24px;
+    margin-top: 12px;
 }
 
 .chamada-acao button {
     justify-content: center;
-    margin-top: 8px;
+    margin-top: 5px;
     width: 100%;
-    max-width: 240px;
+    max-width: 150px;
     background-color: #0284c7;
     color: #ffffff;
     font-weight: 700;
-    padding: 12px;
+    padding: 7px;
     border: none;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.2s;
+    font-size: 12px;
 }
 
 .chamada-acao button:hover {
@@ -868,19 +766,13 @@ input:focus {
 }
 
 .chamada-acao p {
-    font-size: 15px;
+    font-size: 11px;
     line-height: 1.6;
     color: #334155;
     font-weight: 600;
 }
 
-
-
-
 /* ultima parte */
-
-
-
 
 body {
     font-family: "Outfit", Arial, Helvetica, sans-serif;
@@ -945,7 +837,7 @@ body {
 }
 
 .contato button {
-    width: 150px;
+    width: 210px;
     height: 35px;
 
     border: none;
@@ -963,7 +855,7 @@ body {
 }
 
 .principal > button {
-    width: 150px;
+    width: 190px;
     height: 40px;
     margin-bottom: 30px;
 
