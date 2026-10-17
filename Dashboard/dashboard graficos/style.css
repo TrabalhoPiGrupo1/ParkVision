@@ -1,0 +1,237 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body {
+  background-color: #f4f9ff;
+}
+
+.layout { 
+    display: flex; 
+    height: 100vh; 
+}
+
+.sidebar { 
+    width: 280px; 
+    background: #1b3a5c; 
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    text-align: left;
+    padding: 20px 10px; 
+}
+
+.logo img {
+  margin: 80px;
+  height: auto;
+  width: 170px;
+}
+
+.saudacao {
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin: 30px 0 50px;
+  font-family: 'Inter', sans-serif;
+}
+
+.ativo {
+  background: #ffe27a;
+  color: #000;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 12px 14px;
+  border-radius: 4px;
+  margin-top: 40px;
+}
+
+nav {
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-left: 12px;
+  font-family: 'Inter', sans-serif;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+  margin-left: 8px;
+  font-family: 'Inter', sans-serif;
+  padding: 0;
+  transition: 0.2s;
+}
+
+nav a:hover{
+  color: #ffe27a;
+}
+
+nav i {
+  color: #fff;
+  font-size: 13px;
+}
+
+.sair {
+  margin-top: auto;
+  margin-bottom: 20px;
+  background: #3399ff;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  padding: 12px 35px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sair:hover {
+  background: #ffe27a;
+  color: #000;
+}
+
+.conteudo {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  font-family: 'Inter', sans-serif;
+  color: #1b3a5c;
+}
+
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 25px;
+}
+
+.topo h2 {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.nome {
+  color: #3399ff;
+}
+
+.info-data {
+  font-size: 11px;
+  text-align: right;
+  color: #333;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 6px;
+  min-height: 130px;
+}
+
+.card h3 {
+  font-size: 10px;
+  margin-bottom: 12px;
+  color: #000;
+}
+
+.destaque {
+  font-size: 17px;
+  font-weight: bold;
+  color: #3399ff;
+  margin-bottom: 8px;
+}
+
+.pequeno {
+  font-size: 11px;
+  color: #333;
+}
+
+.valor {
+  font-size: 15px;
+  color: #333;
+}
+
+.card-rosca {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.rosca {
+  width: 90px;
+  height: 90px;
+}
+
+.legenda {
+  list-style: none;
+  font-size: 11px;
+}
+
+.legenda li {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bolinha {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.azul-claro { background: #3399ff; }
+.azul-escuro { background: #1b3a5c; }
+
+.linha-graficos {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.caixa {
+  background: #fff;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+.caixa h3 {
+  font-size: 15px;
+}
+
+.sub {
+  font-size: 11px;
+  color: #3399ff;
+  margin-bottom: 10px;
+}
+
+.area-grafico {
+  height: 220px;
+}
+
+.ponto {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
