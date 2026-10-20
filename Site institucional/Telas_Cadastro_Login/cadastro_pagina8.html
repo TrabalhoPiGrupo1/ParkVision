@@ -134,11 +134,11 @@
         }
 
         else {
-            if ((confirma_senha == senha) && requisitos_cadastro > 1) {
+            if ((confirma_senha == senha) && requisitos_cadastro > 1 && requisitos_cadastro >= 4) {
                 confirmacao_senha.innerHTML = `<p style = "color: #3aad16; font-size: 16px; font-weight: 600;">Usuário cadastrado com sucesso!</p>`
             } else if (confirma_senha !== senha) {
                 confirmacao_senha.innerHTML = `<p style = "color: #be2424;">As senhas informadas não são iguais! Tente novamente</p>`
-            } else if (requisitos_cadastro < 1) {
+            } else {
                 confirmacao_senha.innerHTML = `<p style = "color: #be2424;"> Sua senha atual é muito fraca. Crie outra! </p>`
             }
         }
