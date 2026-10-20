@@ -1,0 +1,166 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body {
+  background-color: #f4f9ff;
+}
+
+.layout { 
+    display: flex; 
+    height: 100vh; 
+}
+
+.sidebar { 
+    width: 280px; 
+    background: #1b3a5c; 
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    text-align: left;
+    padding: 20px 10px; 
+}
+
+.logo img {
+  margin: 80px;
+  height: auto;
+  width: 170px;
+}
+
+.saudacao {
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin: 30px 0 50px;
+  font-family: 'Inter', sans-serif;
+}
+
+.ativo {
+  background: #ffe27a;
+  color: #000;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 12px 14px;
+  border-radius: 4px;
+  margin-top: 40px;
+}
+
+nav {
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-left: 12px;
+  font-family: 'Inter', sans-serif;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+  margin-left: 8px;
+  font-family: 'Inter', sans-serif;
+  padding: 0;
+  transition: 0.2s;
+}
+
+nav a:hover{
+  color: #ffe27a;
+}
+
+nav i {
+  color: #fff;
+  font-size: 13px;
+}
+
+.sair {
+  margin-top: auto;
+  margin-bottom: 20px;
+  background: #3399ff;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  padding: 12px 35px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sair:hover {
+  background: #ffe27a;
+  color: #000;
+}
+
+.conteudo{
+    flex: 1;
+    padding: 40px;
+    background-color: #f4f9ff;
+    display: flex;
+    flex-direction: column;
+}
+
+.topoConteudo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.titulo{
+    font-size: 28px;
+    font-weight: bold;
+    font-family: "Outfit", Arial, Helvetica, sans-serif;
+    color: #000;
+}
+
+.data{
+    font-size: 15px;
+    color: #333;
+    font-family: "Outfit", Arial, Helvetica, sans-serif;
+
+}
+
+.tabelaGeral{
+display: flex;
+background-color: transparent; 
+flex-direction: column;
+gap: 12px;
+}
+
+.tabelaCabecalho {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 3fr;
+    padding: 18px 25px;
+    font-weight: bold;
+    font-size: 13px;
+    color: #000;
+    background-color: #fff; 
+    border-radius: 6px;    
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    font-family: "Outfit", Arial, Helvetica, sans-serif;
+
+}
+
+
+
+.tabelaLinha{
+  height: 55px;
+  background-color: #fff; 
+  border-radius: 6px;    
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.tabelaLinha:last-child {
+  border-bottom: none;
+}
