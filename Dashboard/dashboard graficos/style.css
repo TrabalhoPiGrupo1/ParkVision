@@ -1,26 +1,26 @@
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   background-color: #f4f9ff;
 }
 
-.layout { 
-    display: flex; 
-    height: 100vh; 
+.layout {
+  display: flex;
+  height: 100vh;
 }
 
-.sidebar { 
-    width: 280px; 
-    background: #1b3a5c; 
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-    text-align: left;
-    padding: 20px 10px; 
+.sidebar {
+  width: 280px;
+  background: #1b3a5c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  padding: 20px 10px;
 }
 
 .logo img {
@@ -31,7 +31,7 @@ body {
 
 .saudacao {
   color: #fff;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   text-align: center;
   margin: 30px 0 50px;
@@ -74,13 +74,13 @@ nav a {
   transition: 0.2s;
 }
 
-nav a:hover{
+nav a:hover {
   color: #ffe27a;
 }
 
 nav i {
   color: #fff;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .sair {
@@ -88,7 +88,7 @@ nav i {
   margin-bottom: 20px;
   background: #3399ff;
   color: #fff;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: bold;
   border: none;
   padding: 12px 35px;
@@ -118,8 +118,9 @@ nav i {
 }
 
 .topo h2 {
-  font-size: 30px;
+  font-size: 34px;
   font-weight: 500;
+  margin-bottom: 10px;
 }
 
 .nome {
@@ -127,7 +128,7 @@ nav i {
 }
 
 .info-data {
-  font-size: 11px;
+  font-size: 12px;
   text-align: right;
   color: #333;
 }
@@ -147,25 +148,26 @@ nav i {
 }
 
 .card h3 {
-  font-size: 10px;
+  font-size: 14px;
   margin-bottom: 12px;
   color: #000;
 }
 
 .destaque {
-  font-size: 17px;
+  font-size: 20px;
   font-weight: bold;
   color: #3399ff;
-  margin-bottom: 8px;
+  margin-top: 15px;
 }
 
 .pequeno {
-  font-size: 11px;
+  font-size: 12px;
+  margin-top: 10px;
   color: #333;
 }
 
 .valor {
-  font-size: 15px;
+  font-size: 16px;
   color: #333;
 }
 
@@ -182,14 +184,14 @@ nav i {
 
 .legenda {
   list-style: none;
-  font-size: 11px;
+  font-size: 14px;
 }
 
 .legenda li {
   margin-bottom: 8px;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 10px;
 }
 
 .bolinha {
@@ -199,39 +201,53 @@ nav i {
   display: inline-block;
 }
 
-.azul-claro { background: #3399ff; }
-.azul-escuro { background: #1b3a5c; }
+.azul-claro {
+  background: #3399ff;
+}
+
+.azul-escuro {
+  background: #1b3a5c;
+}
 
 .linha-graficos {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 15px;
   margin-bottom: 20px;
+  width: 100%;
+}
+
+.linha-graficos-dupla {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 .caixa {
   background: #fff;
-  padding: 15px;
+  padding: 20px;
   border-radius: 6px;
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .caixa h3 {
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
 }
 
 .sub {
-  font-size: 11px;
+  font-size: 14px;
   color: #3399ff;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .area-grafico {
-  height: 220px;
-}
-
-.ponto {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  flex-shrink: 0;
+  position: relative;
+  width: 100%;
+  height: 260px;
 }

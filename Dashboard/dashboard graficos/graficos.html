@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/3.0.1/chartjs-plugin-annotation.min.js"></script>
 </head>
 
 <body>
@@ -38,13 +39,13 @@
         <h2>Visão geral do estacionamento <span class="nome">nome</span></h2>
         <div class="info-data">
           <p>Data: 13/10/2026</p>
-          <p>tarifa: R$15,00 Hora</p>
+          <p>Tarifa: <b>R$15,00</b> Hora</p>
         </div>
       </header>
 
       <section class="cards">
         <div class="card">
-          <h3>OCUPAÇÃO NO ESTACIONAMENTO</h3>
+          <h3>OCUPAÇÃO ATUAL DO ESTACIONAMENTO</h3>
           <div class="card-rosca">
             <div class="rosca"><canvas id="graficoRosca"></canvas></div>
             <ul class="legenda">
@@ -55,40 +56,52 @@
         </div>
 
         <div class="card">
-          <h3>TEMPO MÉDIO DE PERMANÊNCIA</h3>
+          <h3>TICKET DE TEMPO MÉDIO DE PERMANÊNCIA</h3>
           <p class="destaque">2 Horas</p>
           <p class="pequeno">Gasto médio:</p>
-          <p class="valor">R$30,00</p>
+          <p class="valor"><b>R$30,00</b></p>
         </div>
 
         <div class="card">
           <h3>RESULTADO DO FATURAMENTO (Outubro)</h3>
-          <p class="destaque">R$ 2000,00/R$ 5000,00</p>
-          <p class="pequeno">40% (mínimo esperado : 70%)</p>
+          <p class="destaque">R$ 20000,00 / R$ 25000,00</p>
+          <p class="pequeno">40% (mínimo esperado: 70%)</p>
         </div>
 
         <div class="card">
           <h3>ALERTAS</h3>
           <p class="destaque">2 Alertas Registrados</p>
-          <p class="pequeno">Dia: 13/10/2026</p>
+          <p class="pequeno">Último registro: 13/10/2026 12:30</p>
         </div>
       </section>
 
       <section class="linha-graficos">
         <div class="caixa">
-          <h3>Ocupação Média por Dia da Semana</h3>
-          <p class="sub">Comparativo da ocupação média da semana</p>
-          <div class="area-grafico"><canvas id="graficoSemana"></canvas></div>
+          <h3>Taxa de Ocupação ao Longo do Dia</h3>
+          <p class="sub">Percentual de vagas ocupadas ao longo do dia (média dos últimos 7 dias)</p>
+          <div class="area-grafico">
+            <canvas id="graficoOcupacaoHorario"></canvas>
+          </div>
+        </div>
+
+        <div class="caixa">
+          <h3>Ocupação Média por Dia</h3>
+          <p class="sub">Comparativo da taxa de ocupação (%) entre os dias da semana (últimos 7 dias)</p>
+          <div class="area-grafico">
+            <canvas id="graficoSemana"></canvas>
+          </div>
         </div>
       </section>
 
-      <section class="linha-graficos">
+      <section class="linha-graficos-dupla">
         <div class="caixa">
-          <h3>Faturamento estimado dos últimos 7 dias</h3>
-          <p class="sub">Soma do dia, em R$</p>
-          <div class="area-grafico"><canvas id="graficoFaturamento"></canvas></div>
+          <h3>Faturamento por Dia da Semana</h3>
+          <p class="sub">Receita acumulada por dia da semana em R$ (últimos 7 dias)</p>
+          <div class="area-grafico">
+            <canvas id="graficoFaturamento"></canvas>
+          </div>
         </div>
-
+      </section>
 
     </main>
   </div>
@@ -106,9 +119,29 @@
         }]
       },
       options: {
+        responsive: true,
+        maintainAspectRatio: false,
         plugins: { legend: { display: false } }
       }
     });
+
+    const opcoesPadrao = {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: {
+          ticks: {
+            font: { size: 12 }
+          }
+        },
+        y: {
+          ticks: {
+            font: { size: 12 }
+          }
+        }
+      }
+    };
 
     new Chart(document.getElementById('graficoSemana'), {
       type: 'bar',
@@ -119,10 +152,21 @@
           backgroundColor: '#1a73ff'
         }]
       },
-      options: {
-        maintainAspectRatio: false,
-        plugins: { legend: { display: false } }
-      }
+      options: opcoesPadrao
+    });
+
+    new Chart(document.getElementById('graficoOcupacaoHorario'), {
+      type: 'line',
+      data: {
+        labels: ['00h', '02h', '04h', '06h', '08h', '10h', '12h', '14h', '16h', '18h', '20h', '22h'],
+        datasets: [{
+          data: [30, 40, 45, 52, 78, 30, 25, 56, 40, 33, 56, 34],
+          borderColor: '#1a73ff',
+          backgroundColor: '#1a73ff',
+          tension: 0.1
+        }]
+      },
+      options: opcoesPadrao
     });
 
     new Chart(document.getElementById('graficoFaturamento'), {
@@ -130,14 +174,11 @@
       data: {
         labels: ['Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom', 'Seg'],
         datasets: [{
-          data: [23500, 22800, 25000, 31000, 34500, 17000, 22000],
+          data: [2500, 2800, 1200, 3000, 3500, 7000, 5600],
           backgroundColor: '#2a6fd6'
         }]
       },
-      options: {
-        maintainAspectRatio: false,
-        plugins: { legend: { display: false } }
-      }
+      options: opcoesPadrao
     });
   </script>
 
