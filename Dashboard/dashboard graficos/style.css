@@ -219,7 +219,7 @@ nav i {
 
 .linha-graficos-dupla {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.3fr 1fr;
   margin-bottom: 20px;
   width: 100%;
 }
@@ -246,8 +246,67 @@ nav i {
   margin-bottom: 15px;
 }
 
+.tabela-alertas{
+  margin-left: 15px;
+  height: auto;
+}
+
+th{
+  text-align: left;
+}
+
 .area-grafico {
   position: relative;
   width: 100%;
   height: 260px;
+}
+
+.alerta-bloco{
+  display: flex;
+  flex-direction: column;
+}
+
+.titulo-alerta{
+  font-weight: 500;
+}
+
+.desc-alerta{
+  font-size: 12px;
+}
+
+.hora-texto{
+  font-size: 12px;
+  padding-top: 5px;
+}
+.horario-bloco{
+  align-items: end;
+  display: flex;
+  flex-direction: column;
+  padding-top: 16px;
+}
+
+.amarelo{
+  background-color: #ffe27a;
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 600;
+
+}
+
+.verde{
+  background-color: #8ced72;
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.vermelho{
+  background-color: #f47777;
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 600;
+
 }
