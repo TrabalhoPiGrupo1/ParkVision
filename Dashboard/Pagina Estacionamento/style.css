@@ -1,0 +1,176 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body {
+  background-color: #f4f9ff;
+}
+
+.layout { 
+    display: flex; 
+    height: 100vh; 
+}
+
+.sidebar { 
+    width: 280px; 
+    background: #1b3a5c; 
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    text-align: left;
+    padding: 20px 10px; 
+}
+
+.logo img {
+  margin: 80px;
+  height: auto;
+  width: 170px;
+}
+
+.saudacao {
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin: 30px 0 50px;
+  font-family: 'Inter', sans-serif;
+}
+
+.ativo {
+  background: #ffe27a;
+  color: #000;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 12px 14px;
+  border-radius: 4px;
+  margin-top: 40px;
+}
+
+nav {
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-left: 12px;
+  font-family: 'Inter', sans-serif;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+  margin-left: 8px;
+  font-family: 'Inter', sans-serif;
+  padding: 0;
+  transition: 0.2s;
+}
+
+nav a:hover{
+  color: #ffe27a;
+}
+
+nav i {
+  color: #fff;
+  font-size: 13px;
+}
+
+.sair {
+  margin-top: auto;
+  margin-bottom: 20px;
+  background: #3399ff;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  padding: 12px 35px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sair:hover {
+  background: #ffe27a;
+  color: #000;
+}
+
+.conteudo {
+  flex: 1;
+  padding: 60px 65px;
+  overflow: auto;
+}
+
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 60px;
+}
+
+.topo h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #111;
+}
+
+.data {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.card {
+  width: 223px;
+  background: #fff;
+  padding: 18px 20px;
+  font-family: 'Outfit', sans-serif;
+}
+
+.card-numero {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.card h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 6px 0;
+}
+
+.card p {
+  font-size: 11px;
+}
+
+.btn-adicionar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 223px;
+  padding: 14px;
+  background: #ffeeb3;
+  color: #000;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.btn-adicionar:hover {
+  background: #ffe27a;
+}
