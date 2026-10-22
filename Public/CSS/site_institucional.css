@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Original+Surfer&family=Outfit:wght@100..900&family=Ranchers&display=swap');
 
 :root {
     --branco: #ffffff;
     --preto: #000;
-    --azul: #2f80ed;
+    --azul: #3094FF;
     --amarelo: #f5c542;
     --azul-destaque: #2f80ed;
     --azul-vivo: #2f80ed;
@@ -15,24 +15,25 @@
     --cinza-500: #64748b;
     --cinza-300: #cbd5e1;
     --cinza-200: #e2e8f0;
-    --cinza-50: var(--cinza-50);
-    --navy: #0f172a;
-    --navy-texto: #0f172a;
+    --cinza-claro: #F4F9FF;
+    --azul-escuro: #0f172a;
+    --azul-escuro-texto: #0f172a;
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: "Outfit", Arial, Helvetica, sans-serif;
-    color: var(--navy);
-    line-height: 1.5;
+    color: var(--azul-escuro);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+
 }
 
 /* NAVBAR */
@@ -44,20 +45,22 @@ li, a, button {
 }
 
 header {
-   position: fixed;
+position: fixed;
     top: 0;
-    left: 0;
-    right: 0;
+    left: 0;    
     z-index: 100;
+    right: 0;
     max-width: 100%;
-    padding: 15px 40px;
+    padding: 16px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background: rgba(15, 23, 42, 0.65);
+    justify-content: space-around;
+    background: rgba(11, 17, 32, 0.441);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+    transition: 0.3s;
+    font-family: "Outfit", sans-serif;
+    font-weight: 700;
 }
 
 .pag1-nav-logo img {
@@ -77,27 +80,28 @@ header {
 }
 
 .nav-links li a:hover {
-    color: var(--azul-destaque);
+    color: var(--amarelo-claro);
 }
 
-button {
-    padding: 0 8px;
-    width: 158px;
-    height: 38px;
-    background-color: var(--ceu);
-    font-family: "Outfit", Arial, Helvetica, sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    border: none;
-    border-radius: 4.5px;
+header button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--branco);
+    font-weight: 800;
+    font-size: 14px;
+    background-color: var(--azul);
     cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    height: 50px;
+    width: 140px;
     transition: 0.3s;
 }
 
 button:hover {
-    background-color: var(--ceu-escuro);
+    background-color: var(--amarelo-claro);
+    color: #000;
     transform: scale(1.01);
 }
 
@@ -120,6 +124,11 @@ button:hover {
     text-align: center;
 }
 
+.pag1-home h1{
+    font-weight:bolder;
+    color: #ecdce4;
+}
+
 .pag1-home .pag1-legenda-titulo {
     display: flex;
     justify-content: center;
@@ -137,7 +146,7 @@ button:hover {
     font-weight: 700;
     text-align: center;
     letter-spacing: 0.1em;
-    margin-top: 80px;
+    margin-top: 25%;
     margin-bottom: 20px;
 }
 
@@ -153,39 +162,41 @@ button:hover {
 }
 
 .pag1-hero-subtitle{
-    margin-top: 10px;
+    margin-top: 15px;
     color: var(--cinza-300);       
     font-size: 15px;
     text-align: center;
-    font-family: "Lora", sans-serif;
+    font-family: "inter", sans-serif;
 }
 
 .simulacao-button button{
     margin-top: 50px;
     background-color: var(--amarelo-claro);
     color: var(--preto);
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 700;
     border: none;
     border-radius: 6px;
     height: 50px;
-    width: 210px;
+    width: 230px;
     cursor: pointer;
     transition: 0.3s;
 
 }
 
 .simulacao-button button:hover{
-    background-color: var(--amarelo);
+    background-color: var(--azul);
     transform: scale(1.01);
+    color: var(--branco);
 }
 
 /* PÁGINA 2 */
 
 .pag2-container {
     padding: 80px 0px;
-    background-color: var(--cinza-50);
+    background-color: var(--cinza-claro);
     display: flex;
+    height: 70vh;
     flex-direction: row;
     align-items: center;      
     justify-content: center;   
@@ -243,7 +254,7 @@ button:hover {
     padding-top: 0;
     font-size: 16px;
     line-height: 1.6;
-    color: var(--navy);
+    color: var(--azul-escuro);
     font-family: "Inter", sans-serif;
     width: 70%;           
     margin-bottom: 30px;
@@ -271,9 +282,9 @@ button:hover {
 h2, h3 { font-family: "Outfit", Arial, sans-serif; }
 
 .container {
-  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 50px 80px;
+  height: 70vh;
 }
 
 .tag {
@@ -285,9 +296,7 @@ h2, h3 { font-family: "Outfit", Arial, sans-serif; }
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-.tag--azul { color: var(--azul-destaque); border: 1px solid var(--azul-destaque); 
-    margin-left: 42px;
-}
+.tag--azul { color: var(--azul-destaque); border: 1px solid var(--azul-destaque);}
 .tag--amarelo { color: var(--amarelo); border: 1px solid var(--amarelo); }
 
 .titulo {
@@ -322,18 +331,16 @@ h2, h3 { font-family: "Outfit", Arial, sans-serif; }
   stroke-linejoin: round;
 }
 .icone--azul { background: #e8f1fd; color: var(--azul); }
-.icone--amarelo { background: var(--amarelo); color: var(--navy); }
+.icone--amarelo { background: var(--amarelo); color: var(--azul-escuro); }
 
 .plataforma {
   background: var(--branco);
   padding: 72px 0 80px;
 }
 .plataforma .titulo { margin: 20px 0 48px; max-width: 720px; 
-    margin-left: 42px;
 }
 
 .plataforma .grid {
-  grid-template-columns: repeat(auto-fit, minmax(160px, 250px));
   justify-content: center;
 }
 
@@ -341,19 +348,21 @@ h2, h3 { font-family: "Outfit", Arial, sans-serif; }
   background: var(--branco);
   border: 1px solid var(--cinza-200);
   border-radius: 14px;
-  padding: 24px 16px;
-
+  padding: 50px 30px;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
 }
 
 .card-recurso .icone { margin-bottom: 16px; }
+
 .card-recurso h3 {
-  font-size: 1rem;
+  font-size: 18px;
   font-weight: 600;
   margin-bottom: 10px;
 }
 .card-recurso p {
-  font-size: 0.8rem;
-  color: var(--cinza-500);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--azul-escuro);
 }
 
 /* PÁGINA 4 */
@@ -365,7 +374,7 @@ h2, h3 { font-family: "Outfit", Arial, sans-serif; }
 
 .aplicacao {
     position: relative;
-    background-color: var(--navy);
+    background-color: var(--azul-escuro);
     padding: 40px 0 48px;
     text-align: center;
     height: 100vh;  
@@ -426,8 +435,10 @@ h2, h3 { font-family: "Outfit", Arial, sans-serif; }
 .card-foto__conteudo {
   position: relative;
   z-index: 2;
-  padding: 14px;
+  padding: 20px;
   color: var(--branco);
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+
 }
 
 .aplicacao .card-foto__conteudo {
@@ -457,11 +468,13 @@ h2, h3 { font-family: "Outfit", Arial, sans-serif; }
 
 /* PÁGINA 5 */
 
-.processo-section {    background-color: var(--cinza-50);
+.processo-section {    
+    background-color: var(--cinza-claro);
     padding: 80px 20px;
     width: 100%;
     display: flex;
     justify-content: center;
+    height: 75vh;
 }
 
 .processo-container {
@@ -485,14 +498,13 @@ h2, h3 { font-family: "Outfit", Arial, sans-serif; }
     padding: 6px 16px;
     border-radius: 6px;
     text-transform: uppercase;
-    background-color: var(--branco);
-    margin-bottom: 20px;
+    margin: 20px 0px;
 }
 
 .titulo-processo {
     font-size: 38px;
     font-weight: 800;
-    color: var(--navy);
+    color: var(--azul-escuro);
     line-height: 1.2;
     max-width: 700px;
     margin: 0 auto;
@@ -550,7 +562,7 @@ h2, h3 { font-family: "Outfit", Arial, sans-serif; }
 /* CALCULADORA */
 
 .calculadora-section {
-    padding: 42px 18px 54px 18px;
+    padding: 100px 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -580,6 +592,7 @@ h2, h3 { font-family: "Outfit", Arial, sans-serif; }
     font-weight: 800;
     color: var(--cinza-900);
     line-height: 1.2;
+    padding-bottom: 15px;
 }
 
 .destaque-azul {
@@ -786,30 +799,29 @@ h2, h3 { font-family: "Outfit", Arial, sans-serif; }
     font-weight: 600;
 }
 
-/* ÚLTIMA PARTE */
+/* FOOTER    */
 
 .principal {
     display: flex;
     flex: 1;
     flex-direction: column;
-
     align-items: center;
     justify-content: center;
-
-    height: 350px;
+    height: 70vh;
     gap: 20px;
-
-    background-color: var(--cinza-50);
+    background-color: #f5f7fa;
+    padding: 80px;
 }
 
 .principal h1 {
-    margin-top: 50px;
-    color: var(--navy-texto);
-    font-size: 38px;
+    color: var(--azul-escuro);
+    font-size: 35px;
+    font-family: "Outfit", sans-serif;
+    margin-top: 10px;
 }
 
 .principal p {
-    color: var(--navy-texto);;
+    color: var(--azul-escuro);
     font-size: 16px;
     text-align: center;
     font-family: "Inter", Arial, Helvetica, sans-serif;
@@ -823,80 +835,67 @@ h2, h3 { font-family: "Outfit", Arial, sans-serif; }
 }
 
 .contato input {
-    width: 260px;
-    height: 38px;
-
-    border: 1px solid var(--cinza-200);
+    width: 400px;
+    height: 50px;
+    border: 1px solid #dce4ec;
     border-radius: 6px;
     padding: 0 14px;
-
     font-size: 13px;
-    background-color: #e8f1fd;
-    color: var(--navy);
+    background-color: #eaf2ff;
+    color: var(--azul-escuro);
     outline: none;
 }
 
 .contato input::placeholder {
-    color: var(--cinza-500);
+    color: #8ea0c4;
     font-family: "Inter", Arial, Helvetica, sans-serif;
-
 }
 
-.contato button {
-    width: 158px;
-    height: 38px;
-
+.contato .btn-contato-final {
+    width: 230px;
+    height: 50px;
     border: none;
-    border-radius: 4.5px;
-
-    background-color: var(--ceu);
+    border-radius: 4px;
+    background-color: var(--azul);
     color: var(--branco);
-
-    font-size: 10px;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 600;
     cursor: pointer;
-
     font-family: "Outfit", Arial, Helvetica, sans-serif;
-
+    transition: 0.3s;
 }
 
-.contato button:hover {
-    background-color: var(--ceu-escuro);
-}
-
-.principal > button {
-    width: 178px;
-    height: 42px;
-    margin-bottom: 30px;
-
-    border: none;
-    border-radius: 5px;
-
+.btn-contato-final:hover{
     background-color: var(--amarelo-claro);
-    color: var(--preto);
-
-    font-size: 11px;
-    font-weight: 700;
-    cursor: pointer;
-
-    font-family: "Outfit", Arial, Helvetica, sans-serif;
+    color: #000;
 }
 
-.principal > button:hover {
-    background-color: var(--amarelo);
-    transform: scale(1.01);
+.btn-testar-final{
+    background-color: var(--amarelo-claro);
+    color: #000;
+    font-size: 15px;
+    font-weight: 900;
+    border: none;
+    border-radius: 6px;
+    height: 50px;
+    width: 280px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 40px;
+}
+
+.btn-testar-final:hover{
+    background-color: var(--azul);
+    color: var(--branco);
 }
 
 .rodape {
     height: 110px;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     padding: 0 55px;
-
-    background-color: var(--navy);
+    background-color: var(--azul-escuro);
 }
 
 .logo {
@@ -909,11 +908,17 @@ h2, h3 { font-family: "Outfit", Arial, sans-serif; }
 .links {
     display: flex;
     gap: 35px;
+    font-family: "Inter", Arial, Helvetica, sans-serif;
 }
 
 .links a {
     color: var(--branco);
-    font-size: 13px;
+    font-size: 15px;
     text-decoration: none;
     font-weight: 600;
+    transition: 0.3s;
+}
+
+.links a:hover{
+    color: var(--amarelo);
 }

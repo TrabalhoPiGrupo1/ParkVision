@@ -26,12 +26,11 @@
                 </ul>
             </nav>
 
-            <a href="./login.html"><button>Entrar</button></a>
+            <a href="./login.html"><button>ENTRAR</button></a>
         </header>
 
-        <!-- PAGINA 1 -->
+        <!-- Pág 1-->
 
-        <!-- Início Home -->
         <div class="pag1-home">
             <div class="pag1-hero-section">
                 <div class="pag1-legenda-titulo">
@@ -57,13 +56,11 @@
         </div>
 
     </div>
-    <!-- Fim home -->
 
-
-    <!-- Inicio pag2 -->
-    <div class="pag2-container">
+    <!-- Pág 2 -->
+    <div class="pag2-container" id="nosso-produto">
         <div class="pag2-img">
-            <img src="./Assets/Images/estacionamentohome.avif" alt="">
+            <img src="./Assets/Images/estacionamento-foto2.webp" alt="">
         </div>
 
         <div class="pag2-containt">
@@ -82,10 +79,8 @@
             </div>
         </div>
     </div>
-    <!-- Fim pag2 -->
 
-
-    <!-- inicio pag3 -->
+    <!-- Pág 3 -->
     <section class="plataforma" id="plataforma">
         <div class="container">
             <span class="tag tag--azul">Nossa plataforma</span>
@@ -145,9 +140,8 @@
             </div>
         </div>
     </section>
-    <!-- fim pagina 3 -->
 
-    <!-- TELA 4: ONDE APLICAR -->
+    <!-- Pág 4-->
     <section class="aplicacao" id="onde-aplicar">
         <div class="container">
             <span class="tag tag--amarelo">Onde aplicar</span>
@@ -157,7 +151,7 @@
 
             <div class="grid grid--aplicacao">
 
-                <article class="card-foto" style="--foto: url('../Assets/imagem_01.jpg')">
+                <article class="card-foto" style="--foto: url('./Assets/Images/Imagem1.jpg')">
                     <div class="card-foto__conteudo">
                         <div class="icone icone--amarelo">
                             <svg viewBox="0 0 24 24">
@@ -214,7 +208,7 @@
     </section>
 
 
-    <!-- tela 5 PROCESSO -->
+    <!-- Pág 5-->
     <section class="processo-section" id="processo">
         <div class="processo-container">
             <div class="processo-header">
@@ -266,7 +260,7 @@
     </section>
 
 
-    <!--tela 6 SIMULADOR -->
+    <!-- Pág 6-->
     <section class="calculadora-section" id="simulador">
 
         <div class="calculadora-header">
@@ -312,8 +306,8 @@
     </section>
 
 
-    <!-- tela 7CONTATO -->
-    <div class="principal" id="contato">
+    <!-- Pág 7 -->
+      <div class="principal" id="contato">
         <h1>Pronto para modernizar o seu estacionamento?</h1>
 
         <p>Converse com nosso time e veja uma demonstração ao vivo com os <br>
@@ -322,23 +316,23 @@
         <div class="contato">
             <input type="text" id="inputEmail" placeholder="Digite seu e-mail">
 
-            <button onclick="verificarEmail()">ENTRAR EM CONTATO</button>
+            <button onclick="verificarEmail()" class="btn-contato-final">ENTRAR EM CONTATO</button>
         </div>
 
-        <button>Testar Simulador</button>
+        <button class="btn-testar-final">FAÇA UMA SIMULAÇÃO</button>
     </div>
 
 
-    <!-- RODAPÉ -->
+    <!-- Pág 8 -->
     <div class="rodape">
 
         <img class="logo" src="./Assets/Icons/logo.png" alt="ParkVision">
 
         <div class="links">
-            <a href="#">Nosso Produto</a>
-            <a href="#">Processo</a>
-            <a href="#">Simulador</a>
-            <a href="#">Contato</a>
+            <a href="#nosso-produto">Nosso Produto</a>
+            <a href="#processo">Processo</a>
+            <a href="#simulador">Simulador</a>
+            <a href="#contato">Contato</a>
         </div>
 
     </div>
@@ -419,7 +413,7 @@
             }
 
             if (achou) {
-                alert("E-mail válido");
+                alert("E-mail enviado!");
             } else {
                 alert("E-mail inválido: falta o @");
             }
