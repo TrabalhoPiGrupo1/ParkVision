@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Original+Surfer&family=Outfit:wght@100..900&family=Ranchers&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -38,17 +40,6 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-.ativo {
-  background: #ffe27a;
-  color: #000;
-  font-family: 'Inter', sans-serif;
-  font-weight: bold;
-  font-size: 14px;
-  padding: 12px 14px;
-  border-radius: 4px;
-  margin-top: 40px;
-}
-
 nav {
   width: 100%;
   margin-top: 30px;
@@ -83,6 +74,15 @@ nav i {
   font-size: 14px;
 }
 
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 .sair {
   margin-top: auto;
   margin-bottom: 20px;
@@ -102,6 +102,10 @@ nav i {
   color: #000;
 }
 
+.sair:hover a {
+  color: #000;
+}
+
 .conteudo {
   flex: 1;
   padding: 16px 20px;
@@ -116,13 +120,18 @@ nav i {
   align-items: flex-start;
   margin-bottom: 8px;
 }
+
 /* 
  */
 
 .topo h2 {
   font-size: 26px;
-  font-weight: 500;
+  font-weight: 900;
   margin: 30px 0px;
+  font-weight: 700;
+  font-family: "Outfit", sans-serif;
+  color: #1b3a5c;
+
 }
 
 .nome {
@@ -247,15 +256,20 @@ nav i {
 .sub {
   font-size: 12px;
   color: #3399ff;
-  margin-bottom: 8px;
+  margin-bottom: 18px;
 }
 
-.tabela-alertas{
+.tabela-alertas {
   margin-left: 10px;
   height: auto;
 }
 
-th{
+.tabela-alertas td {
+  padding: 6px 0;
+  border-bottom: 1px solid #f0f4f8;
+}
+
+th {
   text-align: left;
 }
 
@@ -265,33 +279,33 @@ th{
   height: 140px;
 }
 
-.alerta-bloco{
+.alerta-bloco {
   display: flex;
   flex-direction: column;
 }
 
-.titulo-alerta{
+.titulo-alerta {
   font-weight: 500;
   font-size: 13px;
 }
 
-.desc-alerta{
-  font-size: 11px;
-}
+.desc-alerta {
+  font-size: 12px;
+  color: #6c757d;}
 
-.hora-texto{
+.hora-texto {
   font-size: 11px;
   padding-top: 3px;
 }
 
-.horario-bloco{
+.horario-bloco {
   align-items: end;
   display: flex;
   flex-direction: column;
   padding-top: 8px;
 }
 
-.amarelo{
+.amarelo {
   background-color: #ffe27a;
   padding: 3px 5px;
   border-radius: 3px;
@@ -300,7 +314,7 @@ th{
 
 }
 
-.verde{
+.verde {
   background-color: #8ced72;
   padding: 3px 5px;
   border-radius: 3px;
@@ -308,7 +322,7 @@ th{
   font-weight: 600;
 }
 
-.vermelho{
+.vermelho {
   background-color: #f47777;
   padding: 3px 5px;
   border-radius: 3px;

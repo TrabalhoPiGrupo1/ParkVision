@@ -181,12 +181,21 @@ button:hover {
     width: 230px;
     cursor: pointer;
     transition: 0.3s;
+}
 
+.simulacao-button a{
+    color: #000;
+    text-decoration: none;
+    transition: 0.3s;
 }
 
 .simulacao-button button:hover{
     background-color: var(--azul);
     transform: scale(1.01);
+    color: var(--branco);
+}
+
+.simulacao-button button:hover a {
     color: var(--branco);
 }
 

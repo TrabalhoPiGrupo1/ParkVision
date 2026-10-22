@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ParkVision - Dashboard de Alertas</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../CSS/tela_alertas.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="shortcut icon" href="../Assets/Icons/icon-ParkVision.png" type="image/x-icon">
+
+</head>
+
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h1 class="logo"><img src="../../Assets/Icons/logo_amarelo.png" alt="ParkVision"></h1>
+      <p class="saudacao">Olá, Usuário!</p>
+      <nav>
+
+        <div class="nav-item">
+          <i class="fa-solid fa-chevron-right"></i>
+          <a href="./estacionamentos_acesso.html">Estacionamento</a>
+        </div>
+        <div class="nav-item">
+          <i class="fa-solid fa-chevron-right"></i>
+          <a href="./graficos.html">Dashboard</a>
+        </div>
+        <div class="nav-item">
+          <i class="fa-solid fa-chevron-right"></i>
+          <a href="./tela_alerta.html">Alertas</a>
+        </div>
+      </nav>
+      <button class="sair"><a href="../site_institucional.html">Sair</a></button>
+    </aside>
+
+    <main class="conteudo">
+      <div class="topoConteudo">
+        <h2 class="titulo">Alertas do Sistema</h2>
+        <span class="data">Data: 20/10/2026</span>
+      </div>
+
+      <section class="caixa-alertas">
+        <div class="cabecalho-caixa">
+          <h3>Alertas Recentes</h3>
+          <p class="sub">Monitoramento de ocorrências em tempo real</p>
+        </div>
+
+        <div class="tabela-container">
+          <table class="tabela-alertas">
+            <thead>
+              <tr>
+                <th>Ocorrência / Descrição</th>
+                <th class="col-direita">Status / Horário</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="alerta-bloco">
+                    <span class="titulo-alerta">Estacionamento Lotado</span>
+                    <span class="desc-alerta">Capacidade máxima atingida na unidade</span>
+                  </div>
+                </td>
+                <td class="col-direita">
+                  <div class="horario-bloco">
+                    <span class="status-badge vermelho">Crítico</span>
+                    <span class="hora-texto">20/10/2026 - 14:30</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="alerta-bloco">
+                    <span class="titulo-alerta">Estacionamento Vazio</span>
+                    <span class="desc-alerta">Movimento abaixo do esperado para o período</span>
+                  </div>
+                </td>
+                <td class="col-direita">
+                  <div class="horario-bloco">
+                    <span class="status-badge vermelho">Crítico</span>
+                    <span class="hora-texto">20/10/2026 - 12:15</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="alerta-bloco">
+                    <span class="titulo-alerta">Fluxo Intenso</span>
+                    <span class="desc-alerta">Alta rotatividade de veículos na entrada</span>
+                  </div>
+                </td>
+                <td class="col-direita">
+                  <div class="horario-bloco">
+                    <span class="status-badge amarelo">Moderado</span>
+                    <span class="hora-texto">19/10/2026 - 10:45</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="alerta-bloco">
+                    <span class="titulo-alerta">Sistema Normalizado</span>
+                    <span class="desc-alerta">Operação estabilizada em todos os setores</span>
+                  </div>
+                </td>
+                <td class="col-direita">
+                  <div class="horario-bloco">
+                    <span class="status-badge verde">Normal</span>
+                    <span class="hora-texto">19/10/2026 - 08:00</span>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+</body>
+
+</html>
