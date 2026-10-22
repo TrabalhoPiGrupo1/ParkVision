@@ -1,26 +1,26 @@
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   background-color: #f4f9ff;
 }
 
-.layout { 
-    display: flex; 
-    height: 100vh; 
+.layout {
+  display: flex;
+  height: 100vh;
 }
 
-.sidebar { 
-    width: 280px; 
-    background: #1b3a5c; 
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-    text-align: left;
-    padding: 20px 10px; 
+.sidebar {
+  width: 280px;
+  background: #1b3a5c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  padding: 20px 10px;
 }
 
 .logo img {
@@ -40,13 +40,17 @@ body {
 
 .ativo {
   background: #ffe27a;
-  color: #000;
   font-family: 'Inter', sans-serif;
   font-weight: bold;
   font-size: 14px;
   padding: 12px 14px;
   border-radius: 4px;
   margin-top: 40px;
+} 
+
+.ativo a{
+  text-decoration: none;
+  color: #000;
 }
 
 nav {
@@ -74,7 +78,7 @@ nav a {
   transition: 0.2s;
 }
 
-nav a:hover{
+nav a:hover {
   color: #ffe27a;
 }
 
@@ -88,7 +92,7 @@ nav i {
   margin-bottom: 20px;
   background: #3399ff;
   color: #fff;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: bold;
   border: none;
   padding: 12px 35px;
@@ -135,10 +139,22 @@ nav i {
 }
 
 .card {
-  width: 223px;
+  width: 250px;
   background: #fff;
-  padding: 18px 20px;
+  padding: 24px 20px;
   font-family: 'Outfit', sans-serif;
+  border-radius: 5px;
+  border-left: 6px solid #3399ff;
+  cursor: pointer;
+   box-shadow: 10px 5px 15px -9px rgba(13, 10, 48, 0.16);
+  -webkit-box-shadow: 10px 5px 15px -9px rgba(13, 10, 48, 0.16);
+  -moz-box-shadow: 10px 5px 15px -9px rgba(13, 10, 48, 0.16);
+  transition: 0.15s;
+}
+
+.card:hover{
+  transform: translateY(-2px) scale(1.01);
+  border-left: #ffeeb3 6px solid;
 }
 
 .card-numero {
@@ -165,10 +181,12 @@ nav i {
   padding: 14px;
   background: #ffeeb3;
   color: #000;
+  text-decoration: none;
   font-family: 'Outfit', sans-serif;
   font-weight: 700;
   font-size: 15px;
   transition: 0.2s;
+  border-radius: 5px;
 }
 
 .btn-adicionar:hover {
