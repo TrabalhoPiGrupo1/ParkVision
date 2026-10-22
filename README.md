@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="Público/Assets/Icons/logo.png" alt="ParkVision" width="250">
+<img src="Public/Assets/Icons/logo.png" alt="ParkVision" width="250">
 
 **Sistema de monitoramento de vagas em estacionamentos privados na cidade de São Paulo**
 
