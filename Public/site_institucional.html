@@ -259,7 +259,7 @@
                     <p>1. Número de vagas total do estacionamento:</p>
                     <input type="number" id="vagasTotal" placeholder="Ex: 50">
 
-                    <p>2. Tarifa cobrada por hora: <br> <span class="legenda">(Opcional - padrão R$ 15,00)</span></p>
+                    <p>2. Tarifa cobrada por hora: <br> <span class="legenda">(Opcional - padrão R$ 15,00 de acordo com a <a href="https://www.carpass.in/blog/quanto-custa-estacionar-em-sao-paulo-por-bairro"><u>Carpass</u></a>)</span></p>
                     <input type="number" id="tarifaHora" placeholder="Ex: 15">
 
                     <p>3. Horas diárias de baixa demanda:</p>
@@ -271,13 +271,13 @@
                     <p>5. Dias de funcionamento por mês:</p>
                     <input type="number" id="diasMes" placeholder="Ex: 26">
 
-                    <button type="button" class="botao-calcular" onclick="calcular()">Calcular Ociosidade</button>
+                    <button type="button" class="botao-calcular" onclick="calcular()">CALCULAR OCIOSIDADE</button>
                 </div>
 
                 <div class="coluna-resultados" id="colunaResultados">
                     <div class="painel-resultados">
 
-                        <div id="divResultado"></div>
+                        <div id="divResultado"><span class="titulo-resultado">SEUS DADOS SIMULADOS AQUI.</span></div>
                     </div>
                 </div>
 
@@ -309,7 +309,7 @@
     <!-- Pág 8 -->
     <div class="rodape">
 
-        <img class="logo" src="./Assets/Icons/logo.png" alt="ParkVision">
+        <img class="logo" src="./Assets/Icons/logo_amarelo.png" alt="ParkVision">
 
         <div class="links">
             <a href="#nosso-produto">Nosso Produto</a>
@@ -403,7 +403,7 @@
 
                 <div class="chamada-acao">
                     <p>Quer entender melhor?</p>
-                    <button onclick="document.getElementById('contato').scrollIntoView({ behavior: 'smooth' });">Entrar em contato</button>
+                    <button onclick="document.getElementById('contato').scrollIntoView({ behavior: 'smooth' });">ENTRAR EM CONTATO</button>
                 </div>
             `;
         }
