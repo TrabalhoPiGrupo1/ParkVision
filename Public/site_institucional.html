@@ -52,7 +52,7 @@
                 </p>
 
                 <div class="simulacao-button">
-                    <button><a href="#simulador">FAÇA UMA SIMULAÇÃO</a></button>
+                    <a href="#simulador"><button>FAÇA UMA SIMULAÇÃO</button></a>
                 </div>
             </div>
         </div>
@@ -77,7 +77,7 @@
                 ajudando gestores a combater a ociosidade, aplicar preços dinâmicos e maximizar o faturamento</p>
 
             <div class="simulacao-button">
-                <button><a href="#simulador">FAÇA UMA SIMULAÇÃO</a></button>
+                <a href="#simulador"><button>FAÇA UMA SIMULAÇÃO</button></a>
             </div>
         </div>
     </div>
@@ -302,7 +302,8 @@
             <button onclick="verificarEmail()" class="btn-contato-final">ENTRAR EM CONTATO</button>
         </div>
 
-        <button class="btn-testar-final">FAÇA UMA SIMULAÇÃO</button>
+        <a href="#simulador"><button class="btn-testar-final">FAÇA UMA SIMULAÇÃO</button></a>
+
     </div>
 
 
@@ -333,10 +334,6 @@
 
 
             if (totalVagas == 0 || tarifaInput == 0 || horasValeValor == 0 || vagasOcupadasValor == 0 || diasMesValor == 0) {
-                alert(`Insira valores nos campos`);
-                return
-            }
-            if (totalVagas == "" || tarifaInput == "" || horasValeValor == "" || vagasOcupadasValor == "" || diasMesValor == "") {
                 alert(`Insira valores nos campos`);
                 return
             }
