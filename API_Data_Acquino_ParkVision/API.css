@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.logo{
+    display: flex;
+    justify-content: flex-start;
+    padding: 15px 15px;
+}
+
+.logo img{
+    width: 120px;
+    height: auto;
+}
+
+body {
+    background-image: url('estacionamentohome.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.60);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.titulo_vaga{
+    font-family: "Outfit", 'Times New Roman', Times, serif;
+    color: white;
+    font-size: 35px;
+    text-align: center;
+    padding-top: 15px;
+    
+}
+
+.borda_titulo {
+    width: fit-content;
+    margin: 15px auto 20px;
+    padding: 3px 18px;
+    border: 2px solid #ffe37c;
+    border-radius: 8px;
+    margin-top: 25px;
+}
+
+.titulo_grafico {
+    font-family: "Outfit", 'Times New Roman', Times, serif;
+    color: #ffe37c;
+    font-size: 20px;
+    text-align: center;
+}
+
+.grafico{
+    width:75%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 12px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.grafico canvas {
+    width: 100%;
+    height: auto;
+    display: block;
+}

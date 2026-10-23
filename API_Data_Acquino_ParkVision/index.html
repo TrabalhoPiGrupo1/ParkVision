@@ -2,18 +2,27 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
     <title>Graphics</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="API.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="tagFoto.png">
 </head>
 
 <body>
-
-    <h1>Graphics</h1>
-    <div style="display: flex;">
-        <div style="width: 50%;">
+    <div class="logo">
+        <img src="logotipo-parkvision.png">
+    </div>
+    <div>
+        <h1 class="titulo_vaga">DISPONIBILIDADE DE VAGAS</h1>
+    </div>
+    <div class="borda_titulo">
+        <h2 class="titulo_grafico">Gráfico de Linha</h2>
+    </div>
+        <div class="grafico">
             <canvas id="sensorDigital"></canvas>
         </div>
-    </div>
 
     <script>
         // var sensorAnalogico = new Chart(document.getElementById('sensorAnalogico').getContext('2d'), {
