@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ParkVision</title>
     <link rel="stylesheet" href="./CSS/site_institucional.css">
-      <link rel="shortcut icon" href="../Assets/Icons/icon-ParkVision.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../Assets/Icons/icon-ParkVision.png" type="image/x-icon">
 
 </head>
 
@@ -16,7 +16,7 @@
     <div class="pag1-container">
         <header>
             <div class="pag1-nav-logo">
-                <img src="./Assets/Icons/logo.png" alt="ParkVision">
+                <img src="./Assets/Icons/logopng.png" alt="ParkVision">
             </div>
 
             <nav>
@@ -153,58 +153,39 @@
 
             <div class="grid grid--aplicacao">
 
-                <article class="card-foto" style="--foto: url('./Assets/Images/Imagem1.jpg')">
+                <div class="card-foto" style="--foto: url('/Public/Assets/Images/img_1_centro.jpg')">
                     <div class="card-foto__conteudo">
-                        <div class="icone icone--amarelo">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4" />
-                                <rect x="9" y="9" width="6" height="6" rx="1" />
-                            </svg>
-                        </div>
+                        <div class="icone icone--amarelo"></div>
                         <h3>Centros Comerciais e Shopping</h3>
                         <p>Veja padrões de saturação e horários de pico em tempo real.</p>
                     </div>
-                </article>
+                </div>
 
-                <article class="card-foto" style="--foto: url('../Assets/imagem_02.jpg')">
+                <div class="card-foto" style="--foto: url('/Public/Assets/Images/img_2_empresa.jpg')">
                     <div class="card-foto__conteudo">
-                        <div class="icone icone--amarelo">
-                            <svg viewBox="0 0 24 24">
-                                <path d="m3 17 6-6 4 4 8-8" />
-                                <path d="M15 7h6v6" />
-                            </svg>
-                        </div>
+                        <div class="icone icone--amarelo"></div>
                         <h3>Edifícios e Complexos Empresariais</h3>
                         <p>Use dados concretos para aumentar o fluxo em períodos de baixa demanda.</p>
-                    </div>
-                </article>
 
-                <article class="card-foto" style="--foto: url('../Assets/imagem_03.jpg')">
+                    </div>
+                </div>
+
+                <div class="card-foto" style="--foto: url('/Public/Assets/Images/img_3_hospital.jpg')">
                     <div class="card-foto__conteudo">
-                        <div class="icone icone--amarelo">
-                            <svg viewBox="0 0 24 24">
-                                <path d="m3 17 6-6 4 4 8-8" />
-                                <path d="M15 7h6v6" />
-                            </svg>
-                        </div>
+                        <div class="icone icone--amarelo"></div>
                         <h3>Centros Médicos e de Serviços</h3>
                         <p>Garanta vagas disponíveis com monitoramento contínuo.</p>
                     </div>
-                </article>
+                </div>
 
-                <article class="card-foto" style="--foto: url('../Assets/imagem_04.jpg')">
+
+                <div class="card-foto" style="--foto: url('/Public/Assets/Images/img_4_eventos.jpg')">
                     <div class="card-foto__conteudo">
-                        <div class="icone icone--amarelo">
-                            <svg viewBox="0 0 24 24">
-                                <path d="m3 17 6-6 4 4 8-8" />
-                                <path d="M15 7h6v6" />
-                            </svg>
-                        </div>
+                        <div class="icone icone--amarelo"></div>
                         <h3>Hubs de Lazer e Eventos</h3>
                         <p>Prepare-se com precisão para picos sazonais de demanda.</p>
                     </div>
-                </article>
-
+                </div>
             </div>
         </div>
     </section>
@@ -309,7 +290,7 @@
 
 
     <!-- Pág 7 -->
-      <div class="principal" id="contato">
+    <div class="principal" id="contato">
         <h1>Pronto para modernizar o seu estacionamento?</h1>
 
         <p>Converse com nosso time e veja uma demonstração ao vivo com os <br>
@@ -351,6 +332,15 @@
             let diasMesValor = Number(diasMes.value) || 0;
 
 
+            if (totalVagas == 0 || tarifaInput == 0 || horasValeValor == 0 || vagasOcupadasValor == 0 || diasMesValor == 0) {
+                alert(`Insira valores nos campos`);
+                return
+            }
+            if (totalVagas == "" || tarifaInput == "" || horasValeValor == "" || vagasOcupadasValor == "" || diasMesValor == "") {
+                alert(`Insira valores nos campos`);
+                return
+            }
+
             let tarifaHoraValor = 15;
             if (tarifaInput !== '' && !isNaN(Number(tarifaInput))) {
                 tarifaHoraValor = Number(tarifaInput);
@@ -372,7 +362,7 @@
             divResultado.innerHTML = `
                 <div class="bloco-resultado resultado-principal">
                     <span class="titulo-resultado">PERDA MENSAL ESTIMADA</span>
-                    <span class="valor-resultado texto-destaque">- R$ ${perdaMensal.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
+                    <span class="valor-resultado texto-destaque">- R$ ${perdaMensal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </div>
 
                 <div class="grade-resultado">
@@ -382,11 +372,11 @@
                     </div>
                     <div class="bloco-resultado">
                         <span class="titulo-resultado">PERDA / HORA</span>
-                        <span class="subvalor-resultado">R$ ${perdaPorHora.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
+                        <span class="subvalor-resultado">R$ ${perdaPorHora.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                     </div>
                     <div class="bloco-resultado">
                         <span class="titulo-resultado">PERDA DIÁRIA</span>
-                        <span class="subvalor-resultado">R$ ${perdaDiaria.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
+                        <span class="subvalor-resultado">R$ ${perdaDiaria.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                     </div>
                 </div>
             `;

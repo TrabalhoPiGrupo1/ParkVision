@@ -447,20 +447,21 @@ h2, h3 { font-family: "Outfit", Arial, sans-serif; }
   padding: 20px;
   color: var(--branco);
   font-family: "Inter", Arial, Helvetica, sans-serif;
-
 }
 
 .aplicacao .card-foto__conteudo {
-  padding-top: 150px;
+  padding-top: 260px;
 }
 
 .aplicacao .card-foto h3 {
-  min-height: 3em;
-   margin-bottom: 14px;
+  min-height: 1em;
+  margin-bottom: 10px;
+  font-size: 14px;
 }
 
 .aplicacao .card-foto p {
   min-height: 4.5em;
+  font-size: 12px;
 }
 
 .aplicacao .card-foto .icone {
