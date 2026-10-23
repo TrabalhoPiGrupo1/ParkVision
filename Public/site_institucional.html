@@ -276,7 +276,6 @@
 
                 <div class="coluna-resultados" id="colunaResultados">
                     <div class="painel-resultados">
-                        <h2>CÁLCULO DA OCIOSIDADE</h2>
 
                         <div id="divResultado"></div>
                     </div>
@@ -326,17 +325,37 @@
 
         function calcular() {
 
+            if (vagasTotal.value === '' || Number(vagasTotal.value) <= 0) {
+                alert("Informe o número de vagas total (maior que zero).");
+                return;
+            }
+
+            if (tarifaHora.value !== '' && Number(tarifaHora.value) <= 0) {
+                alert("A tarifa por hora precisa ser maior que zero.");
+                return;
+            }
+
+            if (horasVale.value === '' || Number(horasVale.value) <= 0) {
+                alert("Informe as horas diárias de baixa demanda (maior que zero).");
+                return;
+            }
+
+            if (vagasOcupadas.value === '' || Number(vagasOcupadas.value) <= 0) {
+                alert("Informe a estimativa de vagas ocupadas (maior que zero).");
+                return;
+            }
+
+            if (diasMes.value === '' || Number(diasMes.value) <= 0) {
+                alert("Informe os dias de funcionamento por mês (maior que zero).");
+                return;
+            }
+
             let totalVagas = Number(vagasTotal.value) || 0;
             let tarifaInput = tarifaHora.value;
             let horasValeValor = Number(horasVale.value) || 0;
             let vagasOcupadasValor = Number(vagasOcupadas.value) || 0;
             let diasMesValor = Number(diasMes.value) || 0;
 
-
-            if (totalVagas == 0 || tarifaInput == 0 || horasValeValor == 0 || vagasOcupadasValor == 0 || diasMesValor == 0) {
-                alert(`Insira valores nos campos`);
-                return
-            }
 
             let tarifaHoraValor = 15;
             if (tarifaInput !== '' && !isNaN(Number(tarifaInput))) {
@@ -353,13 +372,12 @@
             let perdaMensal = perdaDiaria * diasMesValor;
 
 
-            colunaResultados.classList.add('visivel');
-            cartaoPrincipal.classList.add('expandido');
-
             divResultado.innerHTML = `
+                <h2>CÁLCULO DA OCIOSIDADE</h2>
+
                 <div class="bloco-resultado resultado-principal">
                     <span class="titulo-resultado">PERDA MENSAL ESTIMADA</span>
-                    <span class="valor-resultado texto-destaque">- R$ ${perdaMensal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                    <span class="valor-resultado texto-destaque">- R$ ${perdaMensal.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
                 </div>
 
                 <div class="grade-resultado">
@@ -369,11 +387,11 @@
                     </div>
                     <div class="bloco-resultado">
                         <span class="titulo-resultado">PERDA / HORA</span>
-                        <span class="subvalor-resultado">R$ ${perdaPorHora.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                        <span class="subvalor-resultado">R$ ${perdaPorHora.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
                     </div>
                     <div class="bloco-resultado">
                         <span class="titulo-resultado">PERDA DIÁRIA</span>
-                        <span class="subvalor-resultado">R$ ${perdaDiaria.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                        <span class="subvalor-resultado">R$ ${perdaDiaria.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
                     </div>
                 </div>
             `;
