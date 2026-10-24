@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Graphics</title>
+    <title>Gráfico Estacionamento</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="API.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
@@ -16,6 +16,10 @@
     </div>
     <div>
         <h1 class="titulo_vaga">DISPONIBILIDADE DE VAGAS</h1>
+    </div>
+    <div class="subtitulo">
+        Dados do sensor ultrassônico em tempo real para o
+        <br> monitoramento da ocupação das vagas
     </div>
     <div class="borda_titulo">
         <h2 class="titulo_grafico">Gráfico de Linha</h2>
@@ -52,13 +56,7 @@
 
         var sensorDigital = new Chart(document.getElementById('sensorDigital').getContext('2d'), {
             type: 'line',
-            data: {
-                datasets: [{
-                    label: 'Digital',
-                    borderColor: '#63B1BC',
-                    backgroundColor: '#0762C8'
-                }]
-            },
+            
             options: {
                 scales: {
                     x: {
