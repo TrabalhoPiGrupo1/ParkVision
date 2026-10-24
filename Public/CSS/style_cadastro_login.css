@@ -54,6 +54,14 @@
     padding-right: 40px;
 }
 
+.topo a{
+    color: #fff;
+}
+
+.topo a:hover{
+    color: #000;
+}
+
 .abas {
     display: flex;
     gap: 38px;
