@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Estacionamento</title>
+  <link rel="stylesheet" href="../CSS/estilo_cadastro.css">
+</head>
+
+<body>
+    <div class="comeco">
+
+        <div class="lado_imagem">
+            <img class="foto" src="../Assets/Images/foto_carros_cadastro.jpg" alt="Carros estacionados">
+          <img class="logo" src="../Assets/Icons/logopng.png" alt="ParkVision">
+        </div>
+
+        <div class="lado_conteudo">
+
+            <div class="bt">
+                <div class="bt_esquerda"></div>
+                <a href="./Estacionamento.html">
+                    <button class="bt_voltar">VOLTAR</button>
+                </a>
+            </div>
+
+            <div class="titulo">
+                <h1>
+                    Cadastro de <span>Estacionamento</span>
+                </h1>
+            </div>
+
+            <div class="formulario">
+
+                <div class="campo">
+                    <label for="ipt_nomeEstacionamento">Nome do Estacionamento:</label>
+                    <input type="text" placeholder="Digite o nome do Estacionamento" id="ipt_nomeEstacionamento">
+                    <span class="erro" id="msg_nomeEstacionamento"></span>
+                </div>
+
+                <div class="linha">
+                    <div class="campo">
+                        <label for="ipt_qntVagas">Quantidade de vagas:</label>
+                        <input type="text" placeholder="Ex: 200" id="ipt_qntVagas">
+                        <span class="erro" id="msg_qntVagas"></span>
+                    </div>
+                    <div class="campo">
+                        <label for="ipt_codigoValidacao">Código de validação:</label>
+                        <input type="text" placeholder="Digite o código" id="ipt_codigoValidacao">
+                        <span class="erro" id="msg_codigoValidacao"></span>
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <label for="ipt_nomeRua">Rua:</label>
+                    <input type="text" placeholder="Digite o nome da rua" id="ipt_nomeRua">
+                    <span class="erro" id="msg_nomeRua"></span>
+                </div>
+
+                <div class="linha">
+                    <div class="campo">
+                        <label for="ipt_bairro">Bairro:</label>
+                        <input type="text" placeholder="Ex: Jardim primavera" id="ipt_bairro">
+                        <span class="erro" id="msg_bairro"></span>
+                    </div>
+                    <div class="campo">
+                        <label for="ipt_cep">CEP:</label>
+                        <input type="text" placeholder="Ex: 06360-181" id="ipt_cep" maxlength="9" oninput="mascaraCep()"
+                            onblur="validarCep()">
+                        <span class="erro" id="msg_cep"></span>
+                    </div>
+                </div>
+
+                <button class="bt_cadastro" onclick="cadastrar()">CADASTRAR</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    let cepValido = false;
+
+    function validarCep() {
+        let cep = ipt_cep.value;
+
+        if (cep.length == 0) {
+            msg_cep.innerHTML = 'Digite o CEP.';
+            ipt_cep.style.borderColor = '#E03131';
+            cepValido = false;
+        } else if (cep.length != 8) {
+            msg_cep.innerHTML = 'CEP inválido. Ele precisa ter 8 números.';
+            ipt_cep.style.borderColor = '#E03131';
+            cepValido = false;
+        } else {
+            msg_cep.innerHTML = '';
+            ipt_cep.style.borderColor = '';
+            cepValido = true;
+        }
+    }
+
+    function cadastrar() {
+        let tudoCerto = true;
+
+        if (ipt_nomeEstacionamento.value == '') {
+            msg_nomeEstacionamento.innerHTML = 'Digite o nome do estacionamento.';
+            ipt_nomeEstacionamento.style.borderColor = '#E03131';
+            tudoCerto = false;
+        } else {
+            msg_nomeEstacionamento.innerHTML = '';
+            ipt_nomeEstacionamento.style.borderColor = '';
+        }
+
+        if (ipt_qntVagas.value == '') {
+            msg_qntVagas.innerHTML = 'Digite a quantidade de vagas.';
+            ipt_qntVagas.style.borderColor = '#E03131';
+            tudoCerto = false;
+        } else {
+            msg_qntVagas.innerHTML = '';
+            ipt_qntVagas.style.borderColor = '';
+        }
+
+        if (ipt_codigoValidacao.value == '') {
+            msg_codigoValidacao.innerHTML = 'Digite o código de validação.';
+            ipt_codigoValidacao.style.borderColor = '#E03131';
+            tudoCerto = false;
+        } else {
+            msg_codigoValidacao.innerHTML = '';
+            ipt_codigoValidacao.style.borderColor = '';
+        }
+
+        if (ipt_nomeRua.value == '') {
+            msg_nomeRua.innerHTML = 'Digite o nome da rua.';
+            ipt_nomeRua.style.borderColor = '#E03131';
+            tudoCerto = false;
+        } else {
+            msg_nomeRua.innerHTML = '';
+            ipt_nomeRua.style.borderColor = '';
+        }
+
+        if (ipt_bairro.value == '') {
+            msg_bairro.innerHTML = 'Digite o bairro.';
+            ipt_bairro.style.borderColor = '#E03131';
+            tudoCerto = false;
+        } else {
+            msg_bairro.innerHTML = '';
+            ipt_bairro.style.borderColor = '';
+        }
+
+        validarCep();
+
+        if (cepValido == false) {
+            tudoCerto = false;
+        }
+
+        if (tudoCerto) {
+            alert('Cadastro enviado!');
+        }
+    }
+</script>
+</body>
+
+</html>
