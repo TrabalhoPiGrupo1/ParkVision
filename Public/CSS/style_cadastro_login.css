@@ -169,6 +169,10 @@ a {
     outline: none;
 }
 
+forma{
+    width: 2000px;
+}
+
 .campo input:focus {
     border: 2px solid #2f8cf5;
 }
@@ -190,6 +194,10 @@ a {
     border-radius: 6px;
     cursor: pointer;
     transition: 0.3s;
+}
+
+button{
+    border: none;
 }
 
 .btn-finalizar a {
