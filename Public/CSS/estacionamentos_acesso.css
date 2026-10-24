@@ -1,11 +1,20 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
 }
 
 body {
   background-color: #f4f9ff;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 .layout {
@@ -38,21 +47,6 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-.ativo {
-  background: #ffe27a;
-  font-family: 'Inter', sans-serif;
-  font-weight: bold;
-  font-size: 14px;
-  padding: 12px 14px;
-  border-radius: 4px;
-  margin-top: 40px;
-} 
-
-.ativo a{
-  text-decoration: none;
-  color: #000;
-}
-
 nav {
   width: 100%;
   margin-top: 30px;
@@ -69,7 +63,6 @@ nav {
 }
 
 nav a {
-  color: #fff;
   font-size: 14px;
   text-decoration: none;
   margin-left: 8px;
@@ -101,8 +94,18 @@ nav i {
   transition: 0.3s;
 }
 
+.sair a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
 .sair:hover {
   background: #ffe27a;
+  color: #000;
+}
+
+.sair:hover a {
   color: #000;
 }
 
@@ -127,8 +130,11 @@ nav i {
 }
 
 .data {
-  font-family: 'Outfit', sans-serif;
-  font-size: 11px;
+  font-size: 12px;
+  text-align: right;
+  color: #333;
+  margin: 30px 0px;
+  font-family: 'Inter', sans-serif;
 }
 
 .cards {
@@ -146,13 +152,13 @@ nav i {
   border-radius: 5px;
   border-left: 6px solid #3399ff;
   cursor: pointer;
-   box-shadow: 10px 5px 15px -9px rgba(13, 10, 48, 0.16);
+  box-shadow: 10px 5px 15px -9px rgba(13, 10, 48, 0.16);
   -webkit-box-shadow: 10px 5px 15px -9px rgba(13, 10, 48, 0.16);
   -moz-box-shadow: 10px 5px 15px -9px rgba(13, 10, 48, 0.16);
   transition: 0.15s;
 }
 
-.card:hover{
+.card:hover {
   transform: translateY(-2px) scale(1.01);
   border-left: #ffeeb3 6px solid;
 }
@@ -189,6 +195,15 @@ nav i {
   border-radius: 5px;
 }
 
+.btn-adicionar a {
+  color: #000;
+  text-decoration: none;
+}
+
 .btn-adicionar:hover {
   background: #ffe27a;
+}
+
+.btn-adicionar:hover a {
+  color: #000;
 }

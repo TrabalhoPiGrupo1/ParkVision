@@ -1,34 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ParkVision - Dashboard</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../CSS/estacionamentos_acesso.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="shortcut icon" href="../Assets/Icons/icon-ParkVision.png" type="image/x-icon">
 </head>
+
 <body>
 
   <div class="layout">
     <aside class="sidebar">
-      <h1 class="logo"><img src="./logotipo-parkvision.png" alt="ParkVision"></h1>
+      <h1 class="logo"><img src="../Assets/Icons/logo_amarelo.png" alt="ParkVision"></h1>
       <p class="saudacao">Olá, Usuário!</p>
-      <p class="ativo">DASHBOARD</p>
       <nav>
+
         <div class="nav-item">
           <i class="fa-solid fa-chevron-right"></i>
-          <a href="telabase.html" style="color: #ffe37c;">Estacionamento</a>
+          <a href="./estacionamentos_acesso.html">Estacionamento</a>
         </div>
         <div class="nav-item">
           <i class="fa-solid fa-chevron-right"></i>
-          <a href="#">Alertas</a>
+          <a href="./graficos.html">Dashboard</a>
+        </div>
+        <div class="nav-item">
+          <i class="fa-solid fa-chevron-right"></i>
+          <a href="./tela_alerta.html">Alertas</a>
         </div>
       </nav>
-      <button class="sair">Sair</button>
+      <button class="sair"><a href="../site_institucional.html">Sair</a></button>
     </aside>
+
     <main class="conteudo">
-     <div class="topo">
+      <div class="topo">
         <h1>Estacionamentos cadastrados</h1>
         <p class="data">Data: 18/10/2026</p>
       </div>
@@ -47,22 +56,23 @@
           <p>Cadastrado em: 18/10/2026</p>
         </div>
 
-         <div class="card">
+        <div class="card">
           <span class="card-numero">Estacionamento n 03</span>
           <h2>Estacionamento xx</h2>
           <p>Cadastrado em: 18/10/2026</p>
         </div>
 
-      </div> 
+      </div>
 
-       <a href="#" class="btn-adicionar">
+      <a href="#" class="btn-adicionar">
         ADICIONAR <i class="fa-solid fa-plus"></i>
       </a>
 
-</main>
+    </main>
   </div>
 
-    
-      
+
+
 </body>
+
 </html>

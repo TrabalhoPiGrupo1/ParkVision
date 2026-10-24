@@ -21,7 +21,7 @@ const serial = async (
             host: 'localhost',
             user: 'aluno',
             password: 'Sptech#2024',
-            database: 'estacionamento1',
+            database: 'parkVision',
             port: 3307
         }
     ).promise();
@@ -48,26 +48,27 @@ const serial = async (
 
     // processa os dados recebidos do Arduino
     arduino.pipe(new serialport.ReadlineParser({ delimiter: '\r\n' })).on('data', async (data) => {
-        console.log(data);
         const valores = data.split(';');
         const sensorDigital = parseInt(valores[0]);
-        
+        const sensorDigital1 = sensorDigital === 1 ? 0 : 1;
+        const sensorDigital2 = sensorDigital;
 
         // armazena os valores dos sensores nos arrays correspondentes
         valoresSensorDigital.push(sensorDigital);
 
         // insere os dados no banco de dados (se habilitado)
         if (HABILITAR_OPERACAO_INSERIR) {
-
-            // este insert irá inserir os dados na tabela "medida"
             await poolBancoDados.execute(
-                'INSERT INTO medida (sensor_digital) VALUES (?)',
-                [sensorDigital]
+                'INSERT INTO Sensor_medida (leitura_sensor, fk_vaga) VALUES (?,1), (?,2), (?,3)',
+                [sensorDigital, sensorDigital1, sensorDigital2]
             );
-            console.log("valores inseridos no banco: ", + sensorDigital);
 
+            console.log(`Valores inseridos no banco: ${sensorDigital} ${sensorDigital1} ${sensorDigital2}
+vaga 01: ${sensorDigital}
+vaga 02: ${sensorDigital1}
+vaga 03: ${sensorDigital2}
+`);
         }
-
     });
 
     // evento para lidar com erros na comunicação serial

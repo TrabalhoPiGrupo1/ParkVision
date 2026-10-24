@@ -8,6 +8,8 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./CSS/style_cadastro_login.css">
+    <link rel="shortcut icon" href="../Assets/Icons/icon-ParkVision.png" type="image/x-icon">
+
 </head>
 
 <body>
@@ -53,7 +55,8 @@
                     <input type="password" placeholder="Digite o código" id="ipt_codigo">
                 </div>
 
-                <div class="btn-finalizar"><a href="./Dashboards_HTML/">Login</a></div>
+                <button class="btn-finalizar"><a href="#" onclick="
+                validar_login()">Login</a></button>
 
             </div>
 
@@ -62,5 +65,19 @@
     </div>
 
 </body>
+
+<script>
+    function validar_login(){
+        let cnpj = ipt_cnpj.value;
+        let senha = ipt_senha.value;
+        let codigo = ipt_codigo.value;
+
+        if(cnpj.length < 14 || senha == "" || codigo == ""){
+            alert('CNPJ/Senha/Código Incorreta! Tente novamente.');
+        } else {
+            window.location.replace("./Dashboards_HTML/estacionamentos_acesso.html");
+        }
+    }
+</script>
 
 </html>
