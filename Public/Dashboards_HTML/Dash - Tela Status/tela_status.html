@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParkVision - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="status.css">
+    <link rel="icon" href="tagFoto.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+        <img class="logo" src="Rectangle3.png" alt="ParkVision">
+        <p class="saudacao">Olá, Usuário!</p>
+        <p class="ativo">DASHBOARD</p>
+        <nav>
+            <i class="fa-solid fa-chevron-right"></i> <a href="#">Estacionamento</a>
+            <i class="fa-solid fa-chevron-right"></i> <a href="#">Alertas</a>
+        </nav>
+        <button class="sair">Sair</button>
+    </aside>
+
+    <main class="conteudo">
+
+        <header class="cabecalho">
+            <h1 class="titulo-principal">Status <span>Estacionamento 01</span></h1>
+            <div class="info-data">
+                <p>Data: 13/10/2026</p>
+                <p>Tarifa: R$ 15,00/Hora</p>
+            </div>
+        </header>
+
+        <section class="cards-topo">
+            <div class="card">
+                <h3 class="card-titulo">Ocupação Atual do Estacionamento</h3>
+                <div class="card-grafico">
+                    <canvas id="grafOcupacao"></canvas>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-titulo">Alertas</h3>
+                <p class="card-texto-destaque">2 Alertas Registrados</p>
+                <span class="card-subtexto">Dia: 13/10/2026</span>
+            </div>
+
+            <div class="card">
+                <h3 class="card-titulo">Resultado do Faturamento (Outubro)</h3>
+                <p class="card-valor">R$ 2000,00 / R$ 5000,00</p>
+                <span class="card-subtexto">40% (Mínimo esperado: 70%)</span>
+            </div>
+        </section>
+
+        <div class="area-graficos">
+
+            <section class="linha-principal">
+                <div class="card card-linha">
+                    <h3 class="card-titulo">Ocupação ao longo do dia</h3>
+                    <p class="card-subtitulo">Percentual de vagas ocupadas por horário</p>
+
+                    <div class="caixa-grafico-linha">
+                        <canvas id="graficoLinha"></canvas>
+                    </div>
+
+                    <p class="card-nota">Dados ilustrativos; em produção, serão usadas séries históricas dos sensores.</p>
+                </div>
+            </section>
+
+            <section class="coluna-direita">
+
+                <div class="card card-faturamento">
+                    <h3 class="card-titulo">Faturamento estimado dos últimos 7 dias</h3>
+                    <p class="card-subtitulo">Soma do dia, em R$</p>
+
+                    <div class="caixa-grafico-barra">
+                        <canvas id="graficoBarras"></canvas>
+                    </div>
+                </div>
+
+                <div class="card card-alertas">
+                    <div class="titulo-alertas">
+                        <h3 class="card-titulo">Alertas recentes</h3>
+                        <a href="#">Ver todos</a>
+                    </div>
+
+                    <div class="alerta">
+                        <span class="bolinha vermelha"></span>
+                        <div>
+                            <strong>Vaga ocupada por tempo excessivo</strong>
+                            <p>Estacionamento ParkVision</p>
+                        </div>
+                        <small>08:42</small>
+                    </div>
+
+                    <div class="alerta">
+                        <span class="bolinha amarela"></span>
+                        <div>
+                            <strong>Estacionamento em alta</strong>
+                            <p>Estacionamento ParkVision</p>
+                        </div>
+                        <small>07:35</small>
+                    </div>
+
+                    <div class="alerta">
+                        <span class="bolinha vermelha"></span>
+                        <div>
+                            <strong>Estacionamento lotado</strong>
+                            <p>Estacionamento ParkVision</p>
+                        </div>
+                        <small>06:12</small>
+                    </div>
+
+                    <div class="alerta">
+                        <span class="bolinha azul"></span>
+                        <div>
+                            <strong>Estacionamento em período de vale</strong>
+                            <p>Estacionamento ParkVision</p>
+                        </div>
+                        <small>05:47</small>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+</div>
+
+<script>
+    // Gráfico de rosca: ocupação atual
+    const ctxOcupacao = document.getElementById('grafOcupacao').getContext('2d');
+    new Chart(ctxOcupacao, {
+        type: 'doughnut',
+        data: {
+            labels: ['Ocupado', 'Ocioso'],
+            datasets: [{
+                data: [65, 35],
+                backgroundColor: ['#2563eb', '#1e293b'],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'right',
+                    labels: { boxWidth: 10, font: { family: 'Inter' } }
+                }
+            },
+            cutout: '75%'
+        }
+    });
+
+    // Gráfico de linha: ocupação ao longo do dia (em %)
+    const ctxLinha = document.getElementById('graficoLinha').getContext('2d');
+    new Chart(ctxLinha, {
+        type: 'line',
+        data: {
+            labels: ['08h', '10h', '12h', '14h', '16h', '18h', '20h'],
+            datasets: [{
+                label: 'Ocupação',
+                data: [20, 35, 55, 75, 90, 45, 20],
+                borderColor: '#2563eb',
+                backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                tension: 0.3,
+                fill: true,
+                pointRadius: 3,
+                pointBackgroundColor: '#2563eb'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                y: {
+                    min: 0,
+                    max: 100,
+                    ticks: { callback: v => v + '%' },
+                    grid: { color: '#eef2f7' }
+                },
+                x: { grid: { display: false } }
+            }
+        }
+    });
+
+    // Gráfico de barras: faturamento estimado (igual ao protótipo)
+    const ctxBarras = document.getElementById('graficoBarras').getContext('2d');
+    new Chart(ctxBarras, {
+        type: 'bar',
+        data: {
+            labels: ['Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
+            datasets: [{
+                data: [23500, 22800, 25200, 31000, 34500],
+                backgroundColor: '#2b78d6',
+                borderRadius: 0,
+                barPercentage: 0.4,
+                categoryPercentage: 0.9
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                y: {
+                    min: 0,
+                    max: 35000,
+                    border: { display: false },
+                    grid: { color: '#e5e9f0' },
+                    ticks: {
+                        stepSize: 5000,       // uma marcação a cada R$ 5.000
+                        autoSkip: false,      // não esconde nenhuma marcação
+                        color: '#555',
+                        font: { family: 'Inter', size: 9 },
+                        callback: value => 'R$ ' + value.toLocaleString('pt-BR')
+                    }
+                },
+                x: {
+                    border: { display: false },
+                    grid: { display: false },
+                    ticks: { color: '#777', font: { family: 'Inter', size: 9 } }
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>

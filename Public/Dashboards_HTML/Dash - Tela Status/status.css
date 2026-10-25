@@ -1,0 +1,369 @@
+html, body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ---------- Sidebar ---------- */
+
+.sidebar {
+    width: 250px;
+    background: #1b3a5c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+    margin-bottom: 90px;
+    zoom: 0.7;
+}
+
+.saudacao {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin: 30px 0 50px;
+    font-family: 'Inter', sans-serif;
+}
+
+.ativo {
+    background: #ffe27a;
+    color: #000;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-top: 40px;
+}
+
+nav {
+    width: 100%;
+    margin-top: 30px;
+    padding-left: 12px;
+    font-family: 'Inter', sans-serif;
+}
+
+nav a {
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    margin-left: 8px;
+    line-height: 2.4;
+    font-family: 'Inter', sans-serif;
+}
+
+nav a::after {
+    content: "\A";
+    white-space: pre;
+}
+
+nav i {
+    color: #fff;
+    font-size: 15px;
+}
+
+.sair {
+    margin-top: auto;
+    margin-bottom: 20px;
+    background: #3399ff;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    padding: 8px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.sair:hover {
+    background: #ffe27a;
+    color: #000;
+}
+
+/* ---------- Conteúdo ---------- */
+
+.conteudo {
+    flex: 1;
+    min-width: 0;
+    padding: 16px 32px 28px;
+    background: #f4f9ff;
+    display: flex;
+    flex-direction: column;
+}
+
+.cabecalho{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titulo-principal {
+    font-family: "Inter", sans-serif;
+    color: #000;
+    font-size: 28px;
+}
+
+.titulo-principal span{
+    font-family: "Inter", sans-serif;
+    color: #3094ff;
+}
+
+.info-data{
+    text-align: right;
+    font-family: "Inter", sans-serif;
+    font-size: 11px;
+    color: black;
+    line-height: 1.5;
+    flex-shrink: 0;
+}
+
+
+.cards-topo{
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr 0.5fr;
+    gap: 75px;
+    margin-top: 24px;
+}
+
+.card{
+    min-width: 0;
+    font-size: 13px;
+    font-family: "Inter", sans-serif;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 18px;
+}
+
+.card-titulo{
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
+.card-grafico{
+    height: 86px;
+    position: initial;
+}
+
+.card-texto-destaque{
+    font-size: 18px;
+    font-weight: 700;
+    color: #3399ff;
+    margin: 15px 0 5px 0;
+}
+
+.card-subtexto{
+    display: flex;
+    font-size: 14px;
+    color: black;
+    margin-top: 20px;
+}
+
+.card-valor{
+    font-size: 16px;
+    font-weight: 700;
+    color: #3399ff;
+    margin: 15px 0 15px 0;
+}
+
+.card-subtitulo{
+    font-size: 12px;
+    color: black;
+    margin-bottom: 15px;
+    font-family: 'Inter', sans-serif;
+}
+
+.area-graficos{
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 28px;
+    margin-top: 28px;                 
+    align-items: stretch;             
+}
+
+
+.linha-principal{
+    display: flex;
+    min-width: 0;
+}
+
+.card-linha{
+    flex: 1;                          
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.caixa-grafico-linha{
+    flex: 1;                         
+    position: relative;
+    min-height: 140px;
+    width: 100%;
+}
+
+.card-nota{
+    font-size: 10px;
+    color: #64748b;
+    margin-top: 10px;
+}
+
+.coluna-direita{
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    min-width: 0;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
+.card-faturamento{
+    flex: 0 0 auto;
+}
+
+/* Título do card de barras em minúsculas, como no protótipo */
+.card-faturamento .card-titulo{
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 13px;
+    margin-bottom: 2px;
+}
+
+.card-faturamento .card-subtitulo{
+    margin-bottom: 10px;
+}
+
+.caixa-grafico-barra{
+    position: relative;
+    width: 100%;
+    height: 190px;
+}
+
+.card-alertas{
+    flex: 1;                          /* termina alinhado com o card da esquerda */
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 0;
+}
+
+.titulo-alertas{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titulo-alertas .card-titulo{
+    margin-bottom: 0;
+}
+
+.titulo-alertas a{
+    font-size: 11px;
+    color: #3399ff;
+    text-decoration: none;
+}
+
+.titulo-alertas a:hover{
+    text-decoration: underline;
+}
+
+/* ---------- Lista de alertas ---------- */
+
+.alerta{
+    display: grid;
+    grid-template-columns: 7px minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 7px;
+    min-width: 0;
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+.alerta strong {
+    display: block;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.alerta p{
+    font-size: 9px;
+    color: #475569;
+    margin-top: 2px;
+}
+
+.alerta small{
+    font-size: 9px;
+    color: #475569;
+}
+
+.bolinha{
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-top: 4px;
+}
+
+.vermelha{ background: #ef4444; }
+.amarela{ background: #facc15; }
+.azul{ background: #2563eb; }
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 900px){
+    .area-graficos {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 650px){
+    .sidebar{
+        width: 110px;
+        min-width: 110px;
+        padding: 14px 6px;
+    }
+
+    .logo{
+        width: 95px;
+    }
+
+    .conteudo {
+        padding: 12px;
+    }
+
+    .cabecalho {
+        align-items: flex-start;
+    }
+
+    .cards-topo {
+        grid-template-columns: 1fr;
+    }
+
+    .caixa-grafico-linha {
+        min-height: 220px;
+    }
+
+    .caixa-grafico-barra {
+        height: 140px;
+    }
+}
