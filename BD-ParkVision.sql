@@ -67,7 +67,7 @@ CREATE TABLE Estacionamento (
 -- TABELA VAGA
 CREATE TABLE Vaga(
     id_vaga INT PRIMARY KEY AUTO_INCREMENT,
-    localizacao VARCHAR(5) NOT NULL,
+    identificacao VARCHAR(5) NOT NULL,
     fk_estacionamento INT,
     
     CONSTRAINT ckFkEstacionamento
@@ -133,7 +133,7 @@ INSERT INTO Estacionamento (nome, dt_cadastro, status_estacionamento, tarifa, qt
 ('Ibirapuera Park Vagas', '2026-04-12', 'Ativo', 20.00, 200, 4, 3);
 
 -- VAGA
-INSERT INTO Vaga (localizacao, fk_estacionamento) VALUES
+INSERT INTO Vaga (identificacao, fk_estacionamento) VALUES
 ('A01', 1),
 ('A02', 1),
 ('A03', 1),
@@ -183,7 +183,7 @@ JOIN Estacionamento est
 -- Situação das vagas de um estacionamento específico
 SELECT 
     est.nome AS 'Estacionamento',
-    v.localizacao,
+    v.identificacao,
     CASE s.leitura_sensor WHEN 1 THEN 'Ocupada' ELSE 'Livre' END AS 'Ocupação das vagas'
 FROM Vaga v
 JOIN Sensor_medida s
@@ -191,13 +191,13 @@ JOIN Sensor_medida s
 JOIN Estacionamento est
 	ON v.fk_estacionamento = est.id_estacionamento
 		WHERE est.id_estacionamento = 1
-		ORDER BY  v.localizacao;
+		ORDER BY  v.identificacao;
 
 
 -- Vagas ocupadas no momento
 SELECT 
     est.nome,
-    v.localizacao,
+    v.identificacao,
     s.leitura_sensor
 FROM Estacionamento est
 	JOIN Vaga v
@@ -209,7 +209,7 @@ FROM Estacionamento est
 -- Alertas emitidos nos estacionamentos
 SELECT 
     est.nome AS Estacionamento,
-    v.localizacao AS Vaga,
+    v.identificacao AS Vaga,
     a.descricao AS Mensagem_Alerta,
     a.dt_alerta AS Data_Hora
 FROM Alerta a
