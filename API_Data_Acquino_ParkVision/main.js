@@ -13,6 +13,8 @@ const HABILITAR_OPERACAO_INSERIR = true;
 // função para comunicação serial
 const serial = async (
     valoresSensorDigital,
+    valoresSensorDigital1,
+    valoresSensorDigital2,
 ) => {
 
     // conexão com o banco de dados MySQL
@@ -55,6 +57,8 @@ const serial = async (
 
         // armazena os valores dos sensores nos arrays correspondentes
         valoresSensorDigital.push(sensorDigital);
+        valoresSensorDigital1.push(sensorDigital1);
+        valoresSensorDigital2.push(sensorDigital2);
 
         // insere os dados no banco de dados (se habilitado)
         if (HABILITAR_OPERACAO_INSERIR) {
@@ -75,11 +79,13 @@ vaga 03: ${sensorDigital2}
     arduino.on('error', (mensagem) => {
         console.error(`Erro no arduino (Mensagem: ${mensagem}`)
     });
-}
+
 
 // função para criar e configurar o servidor web
 const servidor = (
-    valoresSensorDigital
+    valoresSensorDigital,
+    valoresSensorDigital1,
+    valoresSensorDigital2
 ) => {
     const app = express();
 
@@ -99,20 +105,34 @@ const servidor = (
     app.get('/sensores/digital', (_, response) => {
         return response.json(valoresSensorDigital);
     });
+
+    app.get('/sensores/digital1', (_, response) => {
+        return response.json(valoresSensorDigital1);
+    });
+
+    app.get('/sensores/digital2', (_, response) => {
+        return response.json(valoresSensorDigital2);
+    });
 }
 
 // função principal assíncrona para iniciar a comunicação serial e o servidor web
 (async () => {
     // arrays para armazenar os valores dos sensores
     const valoresSensorDigital = [];
+    const valoresSensorDigital1 = [];
+    const valoresSensorDigital2 = [];
 
     // inicia a comunicação serial
     await serial(
-        valoresSensorDigital
+        valoresSensorDigital,
+        valoresSensorDigital1,
+        valoresSensorDigital2
     );
 
     // inicia o servidor web
     servidor(
-        valoresSensorDigital
+        valoresSensorDigital,
+        valoresSensorDigital1,
+        valoresSensorDigital2
     );
 })();
