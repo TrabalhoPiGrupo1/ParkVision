@@ -67,7 +67,8 @@ CREATE TABLE Estacionamento (
 -- TABELA VAGA
 CREATE TABLE Vaga(
     id_vaga INT PRIMARY KEY AUTO_INCREMENT,
-    identificacao VARCHAR(5) NOT NULL,
+    bloco VARCHAR(5) NOT NULL,
+    numero INT NOT NULL,
     fk_estacionamento INT,
     
     CONSTRAINT ckFkEstacionamento
@@ -133,17 +134,17 @@ INSERT INTO Estacionamento (nome, dt_cadastro, status_estacionamento, tarifa, qt
 ('Ibirapuera Park Vagas', '2026-04-12', 'Ativo', 20.00, 200, 4, 3);
 
 -- VAGA
-INSERT INTO Vaga (identificacao, fk_estacionamento) VALUES
-('A01', 1),
-('A02', 1),
-('A03', 1),
-('B01', 2),
-('B02', 2),
-('B03', 2),
-('C01', 3),
-('C02', 3),
-('D01', 4),
-('D02', 4);
+INSERT INTO Vaga (bloco, numero, fk_estacionamento) VALUES
+('A', 01, 1),
+('A', 02, 1),
+('A', 03, 1),
+('B', 01, 2),
+('B', 02, 2),
+('B', 03, 2),
+('C', 01, 3),
+('C', 02, 3),
+('D', 01, 4),
+('D', 02, 4);
 
 -- SENSORMEDIDA (1 = ocupada, 0 = livre)
 INSERT INTO Sensor_medida (leitura_sensor, fk_vaga) VALUES
@@ -183,21 +184,21 @@ JOIN Estacionamento est
 -- Situação das vagas de um estacionamento específico
 SELECT 
     est.nome AS 'Estacionamento',
-    v.identificacao,
+    CONCAT(v.bloco, v.numero) AS 'Bloco e número da vaga',
     CASE s.leitura_sensor WHEN 1 THEN 'Ocupada' ELSE 'Livre' END AS 'Ocupação das vagas'
 FROM Vaga v
 JOIN Sensor_medida s
-	ON s.fk_vaga = v.id_vaga
+    ON s.fk_vaga = v.id_vaga
 JOIN Estacionamento est
-	ON v.fk_estacionamento = est.id_estacionamento
-		WHERE est.id_estacionamento = 1
-		ORDER BY  v.identificacao;
+    ON v.fk_estacionamento = est.id_estacionamento
+WHERE est.id_estacionamento = 1
+ORDER BY v.bloco, v.numero;
 
 
 -- Vagas ocupadas no momento
 SELECT 
     est.nome,
-    v.identificacao,
+    CONCAT(v.bloco, v.numero) AS 'Bloco e número da vaga',
     s.leitura_sensor
 FROM Estacionamento est
 	JOIN Vaga v
@@ -209,7 +210,7 @@ FROM Estacionamento est
 -- Alertas emitidos nos estacionamentos
 SELECT 
     est.nome AS Estacionamento,
-    v.identificacao AS Vaga,
+    CONCAT(v.bloco, v.numero) AS 'Bloco e número da vaga',
     a.descricao AS Mensagem_Alerta,
     a.dt_alerta AS Data_Hora
 FROM Alerta a
