@@ -1,7 +1,10 @@
-html, body{
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Original+Surfer&family=Outfit:wght@100..900&family=Ranchers&display=swap');
+
+html, body {
     width: 100%;
     height: 100%;
     margin: 0;
+    overflow: hidden;
 }
 
 * {
@@ -10,33 +13,39 @@ html, body{
     box-sizing: border-box;
 }
 
+body {
+    background-color: #f4f9ff;
+}
+
 .layout {
     display: flex;
-    min-height: 100vh;
+    height: 100vh;
 }
 
 .sidebar {
-    width: 250px;
+    width: 280px;
     background: #1b3a5c;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px 0;
+    text-align: left;
+    padding: 20px 10px;
+    flex-shrink: 0;
+    overflow-y: auto;
 }
 
 .logo {
-    height: 50px;
-    width: auto;
-    margin-bottom: 90px;
-    zoom: 0.7;
+    margin: 20px 0 20px;
+    height: auto;
+    width: 170px;
 }
 
 .saudacao {
     color: #fff;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     text-align: center;
-    margin: 30px 0 50px;
+    margin: 20px 0 30px;
     font-family: 'Inter', sans-serif;
 }
 
@@ -48,7 +57,7 @@ html, body{
     font-size: 14px;
     padding: 8px 12px;
     border-radius: 4px;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 nav {
@@ -65,6 +74,12 @@ nav a {
     margin-left: 8px;
     line-height: 2.4;
     font-family: 'Inter', sans-serif;
+    padding: 0;
+    transition: 0.2s;
+}
+
+nav a:hover {
+    color: #ffe27a;
 }
 
 nav a::after {
@@ -74,7 +89,16 @@ nav a::after {
 
 nav i {
     color: #fff;
-    font-size: 15px;
+    font-size: 14px;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
 }
 
 .sair {
@@ -82,12 +106,13 @@ nav i {
     margin-bottom: 20px;
     background: #3399ff;
     color: #fff;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;
     border: none;
-    padding: 8px 24px;
+    padding: 12px 35px;
     border-radius: 4px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 .sair:hover {
@@ -95,228 +120,257 @@ nav i {
     color: #000;
 }
 
+.sair:hover a {
+    color: #000;
+}
+
 .conteudo {
     flex: 1;
     min-width: 0;
-    padding: 16px 32px 28px;
+    padding: 16px 20px;
     background: #f4f9ff;
     display: flex;
     flex-direction: column;
+    font-family: 'Inter', sans-serif;
+    color: #1b3a5c;
+    height: 100vh;
+    overflow: hidden;
 }
 
-.cabecalho{
+.cabecalho {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .titulo-principal {
-    font-family: "Inter", sans-serif;
-    color: #000;
-    font-size: 28px;
+    font-family: "Outfit", sans-serif;
+    color: #1b3a5c;
+    font-size: 26px;
+    font-weight: 700;
+    margin: 12px 0;
 }
 
-.titulo-principal span{
-    font-family: "Inter", sans-serif;
-    color: #3094ff;
+.titulo-principal span {
+    font-family: "Outfit", sans-serif;
+    color: #3399ff;
 }
 
-.info-data{
+.info-data {
     text-align: right;
     font-family: "Inter", sans-serif;
     font-size: 11px;
-    color: black;
+    color: #333;
     line-height: 1.5;
+    margin: 12px 0;
     flex-shrink: 0;
 }
 
-
-.cards-topo{
+.cards-topo {
     display: grid;
     grid-template-columns: 0.5fr 0.5fr 0.5fr;
     gap: 100px;
-    margin-top: 25px;
+    margin-top: 8px;
 }
 
-.card{
+.card {
     font-size: 13px;
     font-family: "Inter", sans-serif;
-    background: #ffffff;
-    border-radius: 8px;
-    padding: 18px;
+    background: #fff;
+    border-radius: 6px;
+    padding: 12px;
     width: 100%;
 }
 
-.card-titulo{
-    font-size: 15px;
+.card-titulo {
+    font-size: 13px;
     font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    color: black;
-    letter-spacing: 0.5px;
-    margin-bottom: 10px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 8px;
 }
 
-.card-grafico{
+.card-grafico {
     height: 86px;
     position: initial;
 }
 
-.card-texto-destaque{
-    font-size: 18px;
-    font-weight: 700;
+.card-texto-destaque {
+    font-size: 17px;
+    font-weight: bold;
     color: #3399ff;
-    margin: 15px 0 5px 0;
+    margin: 8px 0 5px 0;
 }
 
-.card-subtexto{
+.card-subtexto {
     display: flex;
     font-size: 14px;
-    color: black;
+    color: #333;
     margin-top: 20px;
 }
 
-.card-valor{
-    font-size: 16px;
-    font-weight: 700;
+.card-valor {
+    font-size: 17px;
+    font-weight: bold;
     color: #3399ff;
-    margin: 15px 0 15px 0;
+    margin: 8px 0 15px 0;
 }
 
-.card-subtitulo{
+.card-subtitulo {
     font-size: 12px;
-    color: black;
+    color: #3399ff;
     margin-bottom: 15px;
     font-family: 'Inter', sans-serif;
 }
 
-.area-graficos{
+.area-graficos {
     display: grid;
     grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-    gap: 28px;
-    margin-top: 28px;                 
-    align-items: stretch;             
+    grid-template-rows: minmax(0, 1fr);
+    gap: 16px;
+    margin-top: 16px;
+    flex: 1;
+    min-height: 0;
+    align-items: stretch;
 }
 
-
-.linha-principal{
+.linha-principal {
     display: flex;
     min-width: 0;
 }
 
-.card-linha{
-    flex: 1;                          
+.card-linha {
+    flex: 1;
     display: flex;
     flex-direction: column;
     min-height: 0;
+    padding: 14px;
 }
 
-.caixa-grafico-linha{
-    flex: 1;                         
+.caixa-grafico-linha {
+    flex: 1;
     position: relative;
     min-height: 140px;
     width: 100%;
 }
 
-.card-nota{
-    font-size: 10px;
-    color: #64748b;
-    margin-top: 10px;
+.card-nota {
+    font-size: 11px;
+    color: #333;
+    margin-top: 6px;
 }
 
-.coluna-direita{
+.coluna-direita {
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 16px;
     min-width: 0;
+    min-height: 0;
     background: transparent;
     padding: 0;
     border-radius: 0;
 }
 
-.card-faturamento{
-    flex: 0 0 auto;
+.card-faturamento {
+    flex: 1 1 0;
+    min-height: 130px;
+    display: flex;
+    flex-direction: column;
+    padding: 14px;
 }
 
-.card-faturamento .card-titulo{
-    text-transform: none;
-    letter-spacing: 0;
-    font-size: 13px;
+.card-faturamento .card-titulo {
+    font-size: 14px;
+    font-weight: 600;
     margin-bottom: 2px;
 }
 
-.card-faturamento .card-subtitulo{
+.card-faturamento .card-subtitulo {
     margin-bottom: 10px;
 }
 
-.caixa-grafico-barra{
+.caixa-grafico-barra {
     position: relative;
     width: 100%;
-    height: 190px;
+    flex: 1;
+    min-height: 0;
 }
 
-.card-alertas{
-    flex: 1;                          
+.card-alertas {
+    flex: 0 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 14px;
     min-width: 0;
+    padding: 14px;
 }
 
-.titulo-alertas{
+.card-alertas .card-titulo {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.card-alertas .card-subtitulo {
+    margin-bottom: 8px;
+}
+
+.tabela-alertas {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela-alertas th {
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    color: #1b3a5c;
+    padding-bottom: 6px;
+}
+
+.tabela-alertas th:last-child {
+    text-align: right;
+}
+
+.tabela-alertas td {
+    padding: 4px 0;
+    border-bottom: 1px solid #f0f4f8;
+}
+
+.alerta-bloco {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
 }
 
-.titulo-alertas .card-titulo{
-    margin-bottom: 0;
-}
-
-.titulo-alertas a{
-    font-size: 11px;
-    color: #3399ff;
-    text-decoration: none;
-}
-
-.titulo-alertas a:hover{
-    text-decoration: underline;
-}
-
-.alerta{
-    display: grid;
-    grid-template-columns: 7px minmax(0, 1fr) auto;
-    align-items: start;
-    gap: 7px;
-    min-width: 0;
-    font-size: 10px;
-    line-height: 1.4;
-}
-
-.alerta strong {
-    display: block;
-    font-size: 10px;
+.titulo-alerta {
     font-weight: 500;
+    font-size: 13px;
 }
 
-.alerta p{
-    font-size: 9px;
-    color: #475569;
-    margin-top: 2px;
+.desc-alerta {
+    font-size: 12px;
+    color: #6c757d;
 }
 
-.alerta small{
-    font-size: 9px;
-    color: #475569;
+.horario-bloco {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-top: 4px;
 }
 
-.bolinha{
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    margin-top: 4px;
+.hora-texto {
+    font-size: 11px;
+    color: #333;
+    padding-top: 3px;
 }
 
-.vermelha{ background: #ef4444; }
-.amarela{ background: #facc15; }
-.azul{ background: #2563eb; }
+.status-badge {
+    padding: 3px 5px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+}
 
+.vermelho { background-color: #f47777; }
+.amarelo  { background-color: #ffe27a; }
+.verde    { background-color: #8ced72; }
