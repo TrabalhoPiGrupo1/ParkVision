@@ -40,34 +40,42 @@
 
       <header class="topo">
         <h2>Visão estratégica</h2>
+
         <div class="info-data">
-          <p>Data: 13/10/2026</p>
-          <p>Tarifa: <b>R$15,00</b> Hora</p>
+          <select id="trocaDash" onchange="trocarDashboard(this.value)">
+            <option value="./visao_estrategica.html" selected>Visão estratégica</option>
+            <option value="./tela_status.html">Status Estacionamento</option>
+          </select>
+
+          <div class="data-tarifa">
+            <p>Data: 13/10/2026</p>
+            <p>Tarifa: <b>R$15,00</b> Hora</p>
+          </div>
         </div>
       </header>
 
-      
+
       <section class="cards">
         <div class="card">
           <h3>TEMPO MÉDIO DE PERMANÊNCIA</h3>
-          <p class="destaque">2 Horas</p>
+          <p1 class="destaque">2 Horas</p1>
           <p class="pequeno">Gasto médio: <span class="valor"><b>R$30,00</b></span></p>
         </div>
 
         <div class="card">
           <h3>OCIOSIDADE MÉDIA</h3>
-          <p class="destaque">80%</p>
+          <p1 class="destaque">80%</p1>
           <p class="pequeno">Últimos 30 dias</p>
         </div>
 
         <div class="card">
           <h3>HORÁRIOS DE MAIOR OCIOSIDADE</h3>
-          <p class="destaque">08h - 10h</p>
+          <p1 class="destaque">08h - 10h</p1>
           <p class="pequeno">75% de ociosidade média.</p>
         </div>
       </section>
 
-      
+
       <section class="linha-unica">
         <div class="caixa">
           <h3>Evolução histórica da ocupação</h3>
@@ -78,7 +86,7 @@
         </div>
       </section>
 
-      
+
       <section class="linha-graficos">
         <div class="caixa">
           <h3>Ociosidade por horário</h3>
@@ -100,12 +108,16 @@
     </main>
   </div>
 
-  
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
 
   <script>
+    function trocarDashboard(destino) {
+      window.location.href = destino;
+    }
+
     if (window['chartjs-plugin-annotation']) {
       Chart.register(window['chartjs-plugin-annotation']);
     }
@@ -126,42 +138,42 @@
       grid: { display: false }
     };
 
-    new Chart(document.getElementById('graficoEvolucao'), {
+new Chart(document.getElementById('graficoEvolucao'), {
       type: 'line',
       data: {
         labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
         datasets: [
           {
             label: 'Semana atual',
-            data: [55, 62, 68, 78, 72, 45, 38],
+            data: [57, 64, 60, 76, 72, 50, 42],
             borderColor: '#1a73ff',
             backgroundColor: '#1a73ff',
             borderWidth: 3,
-            tension: 0.3,
+            tension: 0.1,
             pointRadius: 4
           },
           {
             label: '1 semana atrás',
-            data: [48, 53, 58, 66, 62, 38, 32],
-            borderColor: '#5fbf6a',
-            backgroundColor: '#5fbf6a',
-            tension: 0.3,
+            data: [50, 57, 52, 66, 63, 47, 39],
+            borderColor: '#66708E',
+            backgroundColor: '#66708E',
+            tension: 0.1,
             pointRadius: 3
           },
           {
             label: '2 semanas atrás',
-            data: [40, 45, 50, 57, 52, 32, 26],
+            data: [42, 48, 44, 56, 60, 41, 33],
             borderColor: '#f5a623',
             backgroundColor: '#f5a623',
-            tension: 0.3,
+            tension: 0.1,
             pointRadius: 3
           },
           {
             label: '3 semanas atrás',
-            data: [32, 36, 40, 47, 43, 25, 20],
-            borderColor: '#9b6bd6',
-            backgroundColor: '#9b6bd6',
-            tension: 0.3,
+            data: [34, 41, 37, 47, 51, 36, 28],
+            borderColor: '#334155',
+            backgroundColor: '#334155',
+            tension: 0.1,
             pointRadius: 3
           }
         ]
@@ -173,7 +185,7 @@
           legend: {
             position: 'bottom',
             reverse: true,
-            labels: { usePointStyle: true, boxWidth: 8, font: { size: 11 } }
+            labels: { usePointStyle: true, boxWidth: 8, padding: 20, font: { size: 11 } }
           },
           datalabels: { display: false }
         },
@@ -183,10 +195,6 @@
 
     const horas = ['06h', '08h', '10h', '12h', '14h', '16h', '18h', '20h', '22h'];
     const ociosidade = [19, 36, 55, 63, 78, 90, 68, 47, 36];
-    const mediaHistorica = [18, 28, 35, 42, 50, 52, 50, 38, 33];
-
-    const valorPico = Math.max(...ociosidade);
-    const indicePico = ociosidade.indexOf(valorPico);
 
     new Chart(document.getElementById('graficoOciosidadeHorario'), {
       type: 'line',
@@ -203,14 +211,6 @@
             pointRadius: 4,
             pointBackgroundColor: '#3399ff'
           },
-          {
-            label: 'Média histórica',
-            data: mediaHistorica,
-            borderColor: '#b8c4d6',
-            borderDash: [6, 6],
-            tension: 0.4,
-            pointRadius: 0
-          }
         ]
       },
       options: {
@@ -222,20 +222,6 @@
           datalabels: { display: false },
           annotation: {
             clip: false,
-            annotations: {
-              pico: {
-                type: 'label',
-                xValue: indicePico,
-                yValue: valorPico,
-                yAdjust: -26,
-                content: ['Pico: ' + valorPico + '%', 'às ' + horas[indicePico]],
-                color: '#fff',
-                backgroundColor: '#1b3a5c',
-                borderRadius: 6,
-                padding: 6,
-                font: { size: 11, weight: 'bold' }
-              }
-            }
           }
         },
         scales: { x: eixoX, y: eixoPercentual }

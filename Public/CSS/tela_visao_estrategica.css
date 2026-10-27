@@ -141,34 +141,56 @@ a:hover {
 }
 
 .info-data {
+  display: flex;
+  align-items: center;
+  gap: 14px;
   font-size: 11px;
-  text-align: right;
   color: #333;
   margin: 12px 0;
+}
+
+.data-tarifa {
+  text-align: right;
+}
+
+.info-data select {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #1b3a5c;
+  background: #fff;
+  border: 1px solid #3399ff;
+  border-radius: 4px;
+  padding: 6px 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+.info-data select:hover {
+  border-color: #1b3a5c;
 }
 
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 100px;
   margin-bottom: 14px;
   flex-shrink: 0;
 }
 
 .card {
   background: #fff;
-  padding: 12px 16px;
+  padding: 40px 16px;
   border-radius: 6px;
 }
 
 .card h3 {
-  font-size: 11px;
+  font-size: 15px;
   margin-bottom: 4px;
   color: #000;
 }
 
 .destaque {
-  font-size: 17px;
+  font-size: 25px;
   font-weight: bold;
   color: #3399ff;
   margin-top: 4px;
@@ -176,7 +198,7 @@ a:hover {
 }
 
 .pequeno {
-  font-size: 11px;
+  font-size: 15px;
   margin-top: 4px;
   color: #333;
 }
@@ -187,14 +209,14 @@ a:hover {
 }
 
 .linha-unica {
-  flex: 1 1 0;
+  flex: 1.5 1 0;
   min-height: 0;
   display: flex;
   margin-bottom: 14px;
 }
 
 .linha-graficos {
-  flex: 1.4 1 0;
+  flex: 1.1 1 0;
   min-height: 0;
   display: grid;
   grid-template-columns: 2fr 1fr;
