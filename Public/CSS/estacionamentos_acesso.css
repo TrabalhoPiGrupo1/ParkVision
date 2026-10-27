@@ -40,7 +40,7 @@ a:hover {
 
 .saudacao {
   color: #fff;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   text-align: center;
   margin: 30px 0 50px;
@@ -207,3 +207,10 @@ nav i {
 .btn-adicionar:hover a {
   color: #000;
 }
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
