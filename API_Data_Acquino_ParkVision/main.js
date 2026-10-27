@@ -20,7 +20,7 @@ const serial = async (
     // conexão com o banco de dados MySQL
     let poolBancoDados = mysql.createPool(
         {
-            host: 'localhost',
+            host: '10.18.32.128',
             user: 'aluno',
             password: 'Sptech#2024',
             database: 'parkVision',
@@ -77,9 +77,9 @@ vaga 03: ${sensorDigital2}
 
     // evento para lidar com erros na comunicação serial
     arduino.on('error', (mensagem) => {
-        console.error(`Erro no arduino (Mensagem: ${mensagem}`)
+        console.error(`Erro no arduino (Mensagem: ${mensagem})`);
     });
-
+};
 
 // função para criar e configurar o servidor web
 const servidor = (
@@ -113,7 +113,7 @@ const servidor = (
     app.get('/sensores/digital2', (_, response) => {
         return response.json(valoresSensorDigital2);
     });
-}
+};
 
 // função principal assíncrona para iniciar a comunicação serial e o servidor web
 (async () => {
