@@ -60,8 +60,11 @@
             <section class="cards-topo">
                 <div class="card">
                     <h3 class="card-titulo">Ocupação Atual do Estacionamento</h3>
+                    <span class="card-subtexto">Dia: 13/10/2026</span>
+                    
                     <div class="card-grafico">
                         <canvas id="grafOcupacao"></canvas>
+                        
                     </div>
                 </div>
 
@@ -85,6 +88,7 @@
                     <div class="card card-linha">
                         <h3 class="card-titulo">Ocupação ao longo do dia</h3>
                         <p class="card-subtitulo">Percentual de vagas ocupadas por horário</p>
+                        
 
                         <div class="caixa-grafico-linha">
                             <canvas id="graficoLinha"></canvas>
@@ -248,9 +252,9 @@
         new Chart(ctxBarras, {
             type: 'bar',
             data: {
-                labels: ['Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
+                labels: ['Seg','Ter', 'Qua', 'Qui', 'Sex', 'Sáb','Dom'],
                 datasets: [{
-                    data: [23500, 22800, 25200, 31000, 34500],
+                    data: [23500, 22800, 25200, 31000, 34500, 20000, 32000],
                     backgroundColor: '#3399ff',
                     borderRadius: 0,
                     barPercentage: 0.60,
