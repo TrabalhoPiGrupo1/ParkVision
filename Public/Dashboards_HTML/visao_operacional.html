@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ParkVision - Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="status.css">
-    <link rel="icon" href="tagFoto.png">
+    <link rel="stylesheet" href="../CSS/visao_operacional.css">
+    <link rel="shortcut icon" href="../Assets/Icons/icon-ParkVision.png" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
@@ -18,7 +18,7 @@
 
     <div class="layout">
         <aside class="sidebar">
-            <h1 class="logo"><img src="logo_amarelo.png" alt="ParkVision"></h1>
+            <h1 class="logo"><img src="../Assets/Icons/logo_amarelo.png" alt="ParkVision"></h1>
             <p class="saudacao">Olá, Usuário!</p>
             <div class="estacionamento-atual">Estacionamento Morumbi</div>
             <nav>
@@ -36,18 +36,18 @@
                     <a href="./tela_alerta.html">Alertas</a>
                 </div>
             </nav>
-            <button class="sair"><a href="../../site_institucional.html">Sair</a></button>
+            <button class="sair"><a href=".">Sair</a></button>
         </aside>
 
         <main class="conteudo">
 
 
             <header class="cabecalho">
-                <h1 class="titulo-principal">Status <span>Estacionamento 01</span></h1>
+                <h1 class="titulo-principal">Visão Operacional</h1>
                 <div class="info-data">
                     <select id="trocaDash" onchange="trocarDashboard(this.value)">
-                        <option value="../visao_estrategica.html">Visão estratégica</option>
-                        <option value="./tela_status.html" selected>Status Estacionamento</option>
+                        <option value="./visao_estrategica.html">Visão Estratégica</option>
+                        <option value="./visao_operacional.html" selected>Visão Operacional</option>
                     </select>
 
                     <div class="data-tarifa">
