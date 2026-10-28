@@ -169,10 +169,6 @@ a {
     outline: none;
 }
 
-forma{
-    width: 2000px;
-}
-
 .campo input:focus {
     border: 2px solid #2f8cf5;
 }
@@ -187,6 +183,8 @@ forma{
     align-items: center;
     justify-content: center;
     background: #ffe27a;
+    color: #000;                       
+    font-family: "Outfit", sans-serif; 
     font-weight: 600;
     font-size: 20px;
     letter-spacing: 1px;
@@ -200,20 +198,11 @@ button{
     border: none;
 }
 
-.btn-finalizar a {
-    color: #000;
-}
-
 .btn-finalizar:hover {
     background-color: #2f8cf5;
-    color: #ffff;
+    color: #fff;
 }
 
-.btn-finalizar:hover a {
-    color: #ffff;
-}
-
-/* Validação de senhas */
 #validar,
 #confirmacao_senha,
 #validacao_cnpj {
