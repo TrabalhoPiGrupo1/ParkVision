@@ -30,7 +30,7 @@ body {
 
 .lado_imagem {
     position: relative;
-    width: 440px;
+    width: 700px;
     height: 100%;
     flex-shrink: 0;
 }
