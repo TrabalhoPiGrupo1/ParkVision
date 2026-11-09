@@ -41,8 +41,8 @@
             <div class="formulario">
 
                 <div class="campo campo-inteiro">
-                    <div class="rotulo">CNPJ:</div>
-                    <input type="text" placeholder="Digite o seu CNPJ" id="ipt_cnpj">
+                    <div class="rotulo">E-mail</div>
+                    <input type="text" placeholder="Digite o seu E-mail" id="ipt_email">
                 </div>
 
                 <div class="campo campo-inteiro">
@@ -66,12 +66,12 @@
 
 <script>
     function validar_login(){
-        let cnpj = ipt_cnpj.value;
+        let email = ipt_email.value;
         let senha = ipt_senha.value;
         let codigo = ipt_codigo.value;
 
-        if(cnpj.length < 14 || senha == "" || codigo == ""){
-            alert('CNPJ/Senha/Código Incorreta! Tente novamente.');
+        if(senha == "" || codigo == ""){
+            alert('Senha/Código Incorreta! Tente novamente.');
         } else {
             window.location.replace("./Dashboards_HTML/estacionamentos_acesso.html");
         }
