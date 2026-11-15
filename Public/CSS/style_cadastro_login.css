@@ -194,6 +194,14 @@ a {
     transition: 0.3s;
 }
 
+.btn-finalizar a{
+    color: #000;
+}
+
+.btn-finalizar:hover a{
+    color: #ffff;
+}
+
 button{
     border: none;
 }
