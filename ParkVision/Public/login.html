@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | ParkVision</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./CSS/style_cadastro_login.css">
+    <link rel="shortcut icon" href="../Assets/Icons/icon-ParkVision.png" type="image/x-icon">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="lado-esquerdo">
+            <img class="foto" src="./Assets/Images/Imagem_login.jpg" alt="estacionamento">
+            <img class="degrade" src="./Assets/Images/degrade.png" alt="">
+            <img class="logo" src="./Assets/Icons/logo_amarelo.png" alt="ParkVision">
+        </div>
+
+        <div class="lado-direito">
+
+            <div class="topo">
+                <div class="abas">
+                    <div class="aba"><a href="./cadastro.html">Cadastro</a></div>
+                    <div class="aba aba-ativa"><a href="#">Login</a></div>
+                </div>
+                <div class="btn-voltar"><a href="./site_institucional.html">Voltar</a></div>
+            </div>
+
+            <div class="titulo">
+                Que bom ter você de volta! <br>
+                Para acessar sua conta,
+                <div class="titulo-destaque">Faça o Login.</div>
+            </div>
+
+            <div class="formulario">
+
+                <div class="campo campo-inteiro">
+                    <div class="rotulo">E-mail</div>
+                    <input type="text" placeholder="Digite o seu E-mail" id="ipt_email">
+                </div>
+
+                <div class="campo campo-inteiro">
+                    <div class="rotulo">Senha:</div>
+                    <input type="password" placeholder="Digite a sua senha" id="ipt_senha">
+                </div>
+
+                <div class="campo campo-inteiro">
+                    <div class="rotulo">Código de validação:</div>
+                    <input type="password" placeholder="Digite o código" id="ipt_codigo">
+                </div>
+
+                    <button class="btn-finalizar" onclick="validar_login()">Login</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+<script>
+    function validar_login(){
+        let email = ipt_email.value;
+        let senha = ipt_senha.value;
+        let codigo = ipt_codigo.value;
+
+        if(senha == "" || codigo == ""){
+            alert('Senha/Código Incorreta! Tente novamente.');
+        } else {
+            window.location.replace("./Dashboards_HTML/estacionamentos_acesso.html");
+        }
+    }
+</script>
+
+</html>
