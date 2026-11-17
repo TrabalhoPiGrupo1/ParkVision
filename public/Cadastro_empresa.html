@@ -1,0 +1,493 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Empresa | ParkVision</title>
+
+    <script src="./js/sessao.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./CSS/style_cadastro_login.css">
+    <link rel="shortcut icon" href="../Assets/Icons/icon-ParkVision.png" type="image/x-icon">
+    <link rel="icon" href="Assets/Icons/tagFoto.png">
+</head>
+
+<body onload="listar()">
+
+    <div class="container">
+
+        <div class="lado-esquerdo">
+            <img class="foto" src="./Assets/Images/cadastro.png" alt="Estacionamento">
+            <img class="degrade" src="./Assets/Images/degrade.png" alt="">
+            <img class="logo" src="./Assets/Icons/logo_amarelo.png" alt="ParkVision">
+        </div>
+
+        <div class="lado-direito">
+
+            <div class="topo">
+
+                <div class="abas">
+
+                    <div class="aba aba-ativa">
+                        <a href="./cadastro.html">Cadastro</a>
+                    </div>
+
+                </div>
+
+                <a href="./site_institucional.html">
+                    <div class="btn-voltar">Voltar</div>
+                </a>
+
+            </div>
+
+            <div class="titulo">
+                Cadastro de Empresas Parceiras
+
+            </div>
+
+            <!-- Mensagens de erro -->
+            <div class="alerta_erro">
+                <div class="card_erro" id="cardErro">
+                    <span id="mensagem_erro"></span>
+                </div>
+            </div>
+
+            <div class="formulario">
+
+                <div class="campo campo-inteiro">
+
+                    <div class="rotulo">Nome Fantasia:</div>
+
+                    <input
+                        type="text"
+                        placeholder="Digite o nome Fantasia"
+                        id="ipt_nome_fantasia">
+
+                </div>
+
+                <div class="campo">
+
+                    <div class="rotulo">CNPJ:</div>
+
+                    <input
+                        type="text"
+                        inputmode="numeric"
+                        maxlength="14"
+                        placeholder="Digite o seu cnpj"
+                        id="ipt_cnpj"
+                        onkeyup="validar_cnpj()">
+
+                    <div id="validacao_cnpj"></div>
+
+                </div>
+
+                <div class="campo">
+
+                    <div class="rotulo">Código de validação da empresa:</div>
+
+                    <input
+                        type="text"
+                        placeholder="Digite o código"
+                        id="ipt_codigo_validacao">
+
+                </div>
+
+                <div class="campo campo-inteiro">
+
+                    <div class="campo campo-inteiro">
+
+                    <div class="rotulo">Razão Social:</div>
+
+                    <input
+                        type="text"
+                        placeholder="Razão Social"
+                        id="ipt_razao_social">
+
+                </div>
+
+                <button
+                    type="button"
+                    class="btn-finalizar"
+                    onclick="cadastrar()">
+
+                    Cadastrar
+
+                </button>
+
+            </div>
+
+            <!-- Loading -->
+            <div id="div_aguardar" class="loading-div">
+
+                <img
+                    src="./assets/circle-loading.gif"
+                    id="loading-gif">
+
+            </div>
+
+            <div id="div_erros_login"></div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        // Array para armazenar empresas cadastradas
+        // para validação do código de ativação
+
+        let listaEmpresasCadastradas = [];
+
+        // Controle da segurança da senha
+
+        // ==========================================
+        // VALIDAÇÃO DO cnpj
+        // ==========================================
+
+        function validar_cnpj() {
+
+            let cnpj = ipt_cnpj.value;
+
+            if (cnpj == '') {
+
+                validacao_cnpj.innerHTML = '';
+
+            } else if (cnpj.length < 14 || cnpj.length > 14) {
+
+                validacao_cnpj.innerHTML =
+                    `<p style="color: #be2424;">
+                        cnpj inválido - ${cnpj.length} dígito(s)
+                    </p>`;
+
+            } else {
+
+                validacao_cnpj.innerHTML = '';
+
+            }
+
+        }
+
+
+        // ==========================================
+        // CADASTRO
+        // ==========================================
+
+        function cadastrar() {
+
+            aguardar();
+
+            let cnpj = ipt_cnpj.value;
+
+            let codigo_validacao = ipt_codigo_validacao.value;
+
+            let nome_fantasia = ipt_nome_fantasia.value;
+
+            let idEmpresaVincular;
+
+
+            // Verificando campos vazios
+
+            if (
+                nome_empresa == "" ||
+                cnpj == "" ||
+                codigo_validacao == "" ||
+                senha == "" ||
+                confirma_senha == ""
+            ) {
+
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML =
+                    "Preencha todos os campos para continuar.";
+
+                finalizarAguardar();
+
+                return false;
+
+            } else {
+
+                setInterval(sumirMensagem, 5000);
+
+            }
+
+
+            // Verificando o tamanho do CNPJ
+
+            if (cnpj.length != 14) {
+
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML =
+                    "CNPJ inválido. Digite os 14 números.";
+
+                finalizarAguardar();
+
+                return false;
+
+            }
+
+
+            // Verificando o código de ativação
+
+            let codigoValido = false;
+
+            for (
+                let i = 0;
+                i < listaEmpresasCadastradas.length;
+                i++
+            ) {
+
+                if (
+                    listaEmpresasCadastradas[i].codigo_ativacao ==
+                    codigo_validacao
+                ) {
+
+                    idEmpresaVincular =
+                        listaEmpresasCadastradas[i].id;
+
+                    codigoValido = true;
+
+                    console.log("Código de ativação válido.");
+
+                    break;
+
+                }
+
+            }
+
+
+            if (codigoValido == false) {
+
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML =
+                    "Código de validação inválido.";
+
+                finalizarAguardar();
+
+                return false;
+
+            }
+
+
+            // Verificando confirmação da senha
+
+            if (confirma_senha !== senha) {
+
+                confirmacao_senha.innerHTML =
+                    `<p style="color: #be2424;">
+                        As senhas informadas não são iguais!
+                        Tente novamente.
+                    </p>`;
+
+                finalizarAguardar();
+
+                return false;
+
+            }
+
+
+            // Verificando segurança da senha
+
+            if (requisitos_cadastro_global < 1) {
+
+                confirmacao_senha.innerHTML =
+                    `<p style="color: #be2424;">
+                        Sua senha está muito fraca. Crie outra!
+                    </p>`;
+
+                finalizarAguardar();
+
+                return false;
+
+            }
+
+
+            // Enviando os dados para a API
+
+            console.log("NOME DA EMPRESA:", nome_empresa);
+
+            console.log("CNPJ:", cnpj);
+
+            fetch("/usuarios/cadastrar", {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+
+                    nomeServer: nome_empresa,
+
+                    // Mantido o nome esperado pela API original.
+                    // Aqui está sendo enviado o CNPJ.
+                    emailServer: cnpj,
+
+                    senhaServer: senha,
+
+                    idEmpresaVincularServer: idEmpresaVincular,
+
+                    cnpjServer: cnpj
+
+                })
+
+            })
+
+            .then(function (resposta) {
+
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+
+                    cardErro.style.display = "block";
+
+                    mensagem_erro.innerHTML =
+                        "Cadastro realizado com sucesso! Redirecionando para o Login...";
+
+                    setTimeout(() => {
+
+                        window.location = "login.html";
+
+                    }, 2000);
+
+                    limparFormulario();
+
+                    finalizarAguardar();
+
+                } else {
+
+                    resposta.text().then(texto => {
+
+                        console.error(texto);
+
+                        mensagem_erro.innerHTML =
+                            "Houve um erro ao tentar realizar o cadastro.";
+
+                        cardErro.style.display = "block";
+
+                        finalizarAguardar();
+
+                    });
+
+                }
+
+            })
+
+            .catch(function (erro) {
+
+                console.log("#ERRO:", erro);
+
+                finalizarAguardar();
+
+            });
+
+            return false;
+
+        }
+
+
+        // ==========================================
+        // LISTANDO EMPRESAS CADASTRADAS
+        // ==========================================
+
+        function listar() {
+
+            fetch("/empresas/listar", {
+
+                method: "GET"
+
+            })
+
+            .then(function (resposta) {
+
+                resposta.json().then((empresas) => {
+
+                    empresas.forEach((empresa) => {
+
+                        listaEmpresasCadastradas.push(empresa);
+
+                        console.log("listaEmpresasCadastradas");
+
+                        console.log(
+                            listaEmpresasCadastradas[0].codigo_ativacao
+                        );
+
+                    });
+
+                });
+
+            })
+
+            .catch(function (resposta) {
+
+                console.log("#ERRO:", resposta);
+
+            });
+
+        }
+
+
+        // ==========================================
+        // LIMPAR FORMULÁRIO
+        // ==========================================
+
+        function limparFormulario() {
+
+            ipt_nome_empresa.value = "";
+
+            ipt_cnpj.value = "";
+
+            ipt_codigo_validacao.value = "";
+
+            ipt_senha.value = "";
+
+            ipt_confirma_senha.value = "";
+
+            validar.innerHTML = "";
+
+            validacao_cnpj.innerHTML = "";
+
+            confirmacao_senha.innerHTML = "";
+
+            requisitos_cadastro_global = 0;
+
+        }
+
+
+        // ==========================================
+        // CONFIRMAÇÃO DA SENHA
+        // ==========================================
+
+        function validar_confirmacao() {
+
+            let confirma_senha = ipt_confirma_senha.value;
+
+            if (confirma_senha == "") {
+
+                confirmacao_senha.innerHTML = "";
+
+            }
+
+        }
+
+
+        // ==========================================
+        // SUMIR MENSAGEM
+        // ==========================================
+
+        function sumirMensagem() {
+
+            cardErro.style.display = "none";
+
+        }
+
+    </script>
+
+</body>
+
+</html>

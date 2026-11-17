@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./CSS/style_cadastro_login.css">
     <link rel="shortcut icon" href="../Assets/Icons/icon-ParkVision.png" type="image/x-icon">
+    <link rel="icon" href="Assets/Icons/tagFoto.png">
 </head>
 
 <body onload="listar()">
@@ -65,39 +66,64 @@
 
                 <div class="campo campo-inteiro">
 
-                    <div class="rotulo">Nome da empresa:</div>
+                    <div class="rotulo">Nome completo:</div>
 
                     <input
                         type="text"
-                        placeholder="Digite o nome da Empresa"
+                        placeholder="Digite seu nome completo"
                         id="ipt_nome_empresa">
 
                 </div>
 
                 <div class="campo">
 
-                    <div class="rotulo">CNPJ:</div>
+                    <div class="rotulo">CPF:</div>
 
                     <input
                         type="text"
                         inputmode="numeric"
                         maxlength="14"
-                        placeholder="Digite o CNPJ"
+                        placeholder="Digite o seu CPF"
                         id="ipt_cnpj"
                         onkeyup="validar_cnpj()">
 
-                    <div id="validacao_cnpj"></div>
+                    <div id="validacao_cpf"></div>
 
                 </div>
 
                 <div class="campo">
 
-                    <div class="rotulo">Código de validação:</div>
+                    <div class="rotulo">Código de validação da empresa:</div>
 
                     <input
                         type="text"
                         placeholder="Digite o código"
                         id="ipt_codigo_validacao">
+
+                </div>
+
+                <div class="campo campo-inteiro">
+
+                    <div class="rotulo">E-mail:</div>
+
+                    <input
+                        type="text"
+                        placeholder="Digite o seu e-mail"
+                        id="ipt_email">
+
+                </div>
+
+                <div class="campo campo-inteiro">
+
+                    <div class="rotulo">Cargo:</div>
+
+                    <select>
+                        <option value="gerente">Gerente</option>
+                        <option value="supervisor">Supervisor</option>
+                        <option value="analista">Analista</option>
+                    </select>
+
+                    <div id="validar"></div>
 
                 </div>
 
