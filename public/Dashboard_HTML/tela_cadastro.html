@@ -1,270 +1,163 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt_br">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ParkVision - Visão estratégica</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../CSS/tela_visao_estrategica.css">
-  <link rel="shortcut icon" href="../Assets/Icons/icon-ParkVision.png" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Estacionamento</title>
+    <link rel="stylesheet" href="../CSS/tela_cadastro.css">
+    <link rel="shortcut icon" href="../Assets/Icons/icon-ParkVision.png" type="image/x-icon">
 </head>
 
 <body>
+    <div class="comeco">
 
-  <div class="layout">
-    <aside class="sidebar">
-      <h1 class="logo"><img src="../Assets/Icons/logo_amarelo.png" alt="ParkVision"></h1>
-      <p class="saudacao">Olá, Usuário!</p>
-      <div class="estacionamento-atual">Estacionamento Morumbi</div>
-      <nav>
-
-        <div class="nav-item">
-          <i class="fa-solid fa-chevron-right"></i>
-          <a href="./estacionamentos_acesso.html">Início</a>
-        </div>
-        <div class="nav-item">
-          <i class="fa-solid fa-chevron-right"></i>
-          <a href="./visao_estrategica.html">Dashboard</a>
-        </div>
-        <div class="nav-item">
-          <i class="fa-solid fa-chevron-right"></i>
-          <a href="./tela_alerta.html">Alertas</a>
-        </div>
-      </nav>
-      <button class="sair"><a href="../site_institucional.html">Sair</a></button>
-    </aside>
-
-    <main class="conteudo">
-
-      <header class="topo">
-        <h2>Visão estratégica</h2>
-
-        <div class="info-data">
-          <select id="trocaDash" onchange="trocarDashboard(this.value)">
-            <option value="./visao_estrategica.html" selected>Visão Estratégica</option>
-            <option value="./visao_operacional.html">Visão Operacional</option>
-          </select>
-
-          <div class="data-tarifa">
-            <p>Tarifa: <b>R$15,00</b> Hora</p>
-          </div>
-        </div>
-      </header>
-
-
-      <section class="cards">
-        <div class="card">
-          <h3>TEMPO MÉDIO DE PERMANÊNCIA</h3>
-          <p1 class="destaque">2 Horas</p1>
-          <p class="pequeno"><b>Gasto médio: <span class="valor">R$30,00</span></b></p>
-          <p class="pequeno">Últimos 30 dias</p>
+        <div class="lado_imagem">
+            <img class="foto" src="../Assets/Images/foto_carros_cadastro.jpg" alt="Carros estacionados">
+            <img class="logo" src="../Assets/Icons/logopng.png" alt="ParkVision">
         </div>
 
-        <div class="card">
-          <h3>OCIOSIDADE MÉDIA</h3>
-          <p1 class="destaque">80%</p1>
-          <p class="pequeno"><b>Média de 80 vagas livres</b></p>
-          <p class="pequeno">Últimos 30 dias</p>
+        <div class="lado_conteudo">
+
+            <div class="bt">
+                <div class="bt_esquerda"></div>
+                <a href="estacionamentos_acesso.html">
+                    <button class="bt_voltar">VOLTAR</button>
+                </a>
+            </div>
+
+            <div class="titulo">
+                <h1>
+                    Cadastro de <span>Estacionamento</span>
+                </h1>
+            </div>
+
+            <div class="formulario">
+
+                <div class="campo">
+                    <label for="ipt_nomeEstacionamento">Nome do Estacionamento:</label>
+                    <input type="text" placeholder="Digite o nome do Estacionamento" id="ipt_nomeEstacionamento">
+                    <span class="erro" id="msg_nomeEstacionamento"></span>
+                </div>
+
+                <div class="linha">
+                    <div class="campo">
+                        <label for="ipt_qntVagas">Quantidade de vagas:</label>
+                        <input type="text" placeholder="Ex: 200" id="ipt_qntVagas">
+                        <span class="erro" id="msg_qntVagas"></span>
+                    </div>
+                    <div class="campo">
+                        <label for="ipt_codigoValidacao">Código de validação:</label>
+                        <input type="text" placeholder="Digite o código" id="ipt_codigoValidacao">
+                        <span class="erro" id="msg_codigoValidacao"></span>
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <label for="ipt_nomeRua">Rua:</label>
+                    <input type="text" placeholder="Digite o nome da rua" id="ipt_nomeRua">
+                    <span class="erro" id="msg_nomeRua"></span>
+                </div>
+
+                <div class="linha">
+                    <div class="campo">
+                        <label for="ipt_bairro">Bairro:</label>
+                        <input type="text" placeholder="Ex: Jardim primavera" id="ipt_bairro">
+                        <span class="erro" id="msg_bairro"></span>
+                    </div>
+                    <div class="campo">
+                        <label for="ipt_cep">CEP:</label>
+                        <input type="text" placeholder="Ex: 06360-181" id="ipt_cep" maxlength="9" oninput="mascaraCep()"
+                            onblur="validarCep()">
+                        <span class="erro" id="msg_cep"></span>
+                    </div>
+                </div>
+
+                <button class="bt_cadastro" onclick="cadastrar()">CADASTRAR</button>
+            </div>
         </div>
+    </div>
 
-        <div class="card">
-          <h3>HORÁRIOS DE MAIOR OCIOSIDADE</h3>
-          <p1 class="destaque">08h - 10h</p1>
-          <p class="pequeno"><b>75% de ociosidade média.</b></p>
-          <p class="pequeno">Últimos 30 dias</p>
-        </div>
-      </section>
+    <script>
+        let cepValido = false;
 
+        function validarCep() {
+            let cep = ipt_cep.value;
 
-      <section class="linha-unica">
-        <div class="caixa">
-          <h3>Evolução histórica de ociosidade</h3>
-          <p class="sub">Comparativo da semana atual com as 3 semanas anteriores do mês</p>
-          <div class="area-grafico">
-            <canvas id="graficoEvolucao"></canvas>
-          </div>
-        </div>
-      </section>
-
-
-      <section class="linha-graficos">
-        <div class="caixa">
-          <h3>Ociosidade por horário</h3>
-          <p class="sub">Percentual de vagas ociosas</p>
-          <div class="area-grafico alto">
-            <canvas id="graficoOciosidadeHorario"></canvas>
-          </div>
-        </div>
-
-        <div class="caixa">
-          <h3>Ocuiosidade média por dia da semana</h3>
-          <p class="sub">Comparativo da ociosidade média da semana</p>
-          <div class="area-grafico alto">
-            <canvas id="graficoSemana"></canvas>
-          </div>
-        </div>
-      </section>
-
-    </main>
-  </div>
-
-
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
-
-  <script>
-    function trocarDashboard(destino) {
-      window.location.href = destino;
-    }
-
-    if (window['chartjs-plugin-annotation']) {
-      Chart.register(window['chartjs-plugin-annotation']);
-    }
-
-    const eixoPercentual = {
-      min: 0,
-      max: 100,
-      ticks: {
-        stepSize: 25,
-        callback: (valor) => valor + '%',
-        font: { size: 12 }
-      },
-      grid: { color: '#e8eef5' }
-    };
-
-    const eixoX = {
-      ticks: { font: { size: 12 } },
-      grid: { display: false }
-    };
-
-new Chart(document.getElementById('graficoEvolucao'), {
-      type: 'line',
-      data: {
-        labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
-        datasets: [
-          {
-            label: 'Semana atual',
-            data: [57, 64, 60, 76, 72, 50, 42],
-            borderColor: '#1a73ff',
-            backgroundColor: '#1a73ff',
-            borderWidth: 3,
-            tension: 0.1,
-            pointRadius: 4
-          },
-          {
-            label: '1 semana atrás',
-            data: [50, 57, 52, 66, 63, 47, 39],
-            borderColor: '#66708E',
-            backgroundColor: '#66708E',
-            tension: 0.1,
-            pointRadius: 3
-          },
-          {
-            label: '2 semanas atrás',
-            data: [42, 48, 44, 56, 60, 41, 33],
-            borderColor: '#f5a623',
-            backgroundColor: '#f5a623',
-            tension: 0.1,
-            pointRadius: 3
-          },
-          {
-            label: '3 semanas atrás',
-            data: [34, 41, 37, 47, 51, 36, 28],
-            borderColor: '#334155',
-            backgroundColor: '#334155',
-            tension: 0.1,
-            pointRadius: 3
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            position: 'bottom',
-            reverse: true,
-            labels: { usePointStyle: true, boxWidth: 8, padding: 20, font: { size: 11 } }
-          },
-          datalabels: { display: false }
-        },
-        scales: { x: eixoX, y: eixoPercentual }
-      }
-    });
-
-    const horas = ['06h', '08h', '10h', '12h', '14h', '16h', '18h', '20h', '22h'];
-    const ociosidade = [19, 36, 55, 63, 78, 90, 68, 47, 36];
-
-    new Chart(document.getElementById('graficoOciosidadeHorario'), {
-      type: 'line',
-      data: {
-        labels: horas,
-        datasets: [
-          {
-            label: 'Ociosidade',
-            data: ociosidade,
-            borderColor: '#3399ff',
-            backgroundColor: 'rgba(51, 153, 255, 0.15)',
-            fill: true,
-            tension: 0.4,
-            pointRadius: 4,
-            pointBackgroundColor: '#3399ff'
-          },
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        layout: { padding: { top: 45 } },
-        plugins: {
-          legend: { display: false },
-          datalabels: { display: false },
-          annotation: {
-            clip: false,
-          }
-        },
-        scales: { x: eixoX, y: eixoPercentual }
-      }
-    });
-
-    new Chart(document.getElementById('graficoSemana'), {
-      type: 'bar',
-      data: {
-        labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
-        datasets: [{
-          data: [35, 40, 45, 52, 48, 30, 25],
-          backgroundColor: '#1a73ff',
-          borderRadius: 3
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        layout: { padding: { top: 20 } },
-        plugins: {
-          legend: { display: false },
-          datalabels: {
-            anchor: 'end',
-            align: 'end',
-            color: '#1b3a5c',
-            font: { size: 11, weight: 'bold' },
-            formatter: (valor) => valor + '%'
-          }
-        },
-        scales: {
-          x: eixoX,
-          y: { display: false, min: 0, max: 60 }
+            if (cep.length == 0) {
+                msg_cep.innerHTML = 'Digite o CEP.';
+                ipt_cep.style.borderColor = '#E03131';
+                cepValido = false;
+            } else if (cep.length != 8) {
+                msg_cep.innerHTML = 'CEP inválido. Ele precisa ter 8 números.';
+                ipt_cep.style.borderColor = '#E03131';
+                cepValido = false;
+            } else {
+                msg_cep.innerHTML = '';
+                ipt_cep.style.borderColor = '';
+                cepValido = true;
+            }
         }
-      },
-      plugins: [ChartDataLabels]
-    });
-  </script>
 
+        function cadastrar() {
+            let tudoCerto = true;
+
+            if (ipt_nomeEstacionamento.value == '') {
+                msg_nomeEstacionamento.innerHTML = 'Digite o nome do estacionamento.';
+                ipt_nomeEstacionamento.style.borderColor = '#E03131';
+                tudoCerto = false;
+            } else {
+                msg_nomeEstacionamento.innerHTML = '';
+                ipt_nomeEstacionamento.style.borderColor = '';
+            }
+
+            if (ipt_qntVagas.value == '') {
+                msg_qntVagas.innerHTML = 'Digite a quantidade de vagas.';
+                ipt_qntVagas.style.borderColor = '#E03131';
+                tudoCerto = false;
+            } else {
+                msg_qntVagas.innerHTML = '';
+                ipt_qntVagas.style.borderColor = '';
+            }
+
+            if (ipt_codigoValidacao.value == '') {
+                msg_codigoValidacao.innerHTML = 'Digite o código de validação.';
+                ipt_codigoValidacao.style.borderColor = '#E03131';
+                tudoCerto = false;
+            } else {
+                msg_codigoValidacao.innerHTML = '';
+                ipt_codigoValidacao.style.borderColor = '';
+            }
+
+            if (ipt_nomeRua.value == '') {
+                msg_nomeRua.innerHTML = 'Digite o nome da rua.';
+                ipt_nomeRua.style.borderColor = '#E03131';
+                tudoCerto = false;
+            } else {
+                msg_nomeRua.innerHTML = '';
+                ipt_nomeRua.style.borderColor = '';
+            }
+
+            if (ipt_bairro.value == '') {
+                msg_bairro.innerHTML = 'Digite o bairro.';
+                ipt_bairro.style.borderColor = '#E03131';
+                tudoCerto = false;
+            } else {
+                msg_bairro.innerHTML = '';
+                ipt_bairro.style.borderColor = '';
+            }
+
+            validarCep();
+
+            if (cepValido == false) {
+                tudoCerto = false;
+            }
+
+            if (tudoCerto) {
+                alert('Cadastro enviado!');
+            }
+        }
+    </script>
 </body>
 
 </html>
