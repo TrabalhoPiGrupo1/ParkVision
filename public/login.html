@@ -109,7 +109,7 @@
 
             aguardar();
 
-            var emailVar = ipt_cnpj.value;
+            var emailVar = ipt_email.value;
             var senhaVar = ipt_senha.value;
 
             if (emailVar == "" || senhaVar == "") {
@@ -129,7 +129,7 @@
 
             }
 
-            console.log("FORM CNPJ: ", emailVar);
+            console.log("FORM cpf: ", emailVar);
             console.log("FORM SENHA: ", senhaVar);
 
             fetch("/usuarios/autenticar", {
@@ -166,7 +166,7 @@
 
                         setTimeout(function () {
 
-                            window.location = "./Dashboards_HTML/estacionamentos_acesso.html";
+                            window.location = "./Dashboard_HTML/estacionamentos_acesso.html";
 
                         }, 1000);
 

@@ -303,8 +303,6 @@
 
             let nome_usuario = ipt_nome_usuario.value;
 
-            let idEmpresaVincular;
-
             let fk_cargo = ipt_cargo.value;
 
 
@@ -315,7 +313,8 @@
                 cpf == "" ||
                 codigo_validacao == "" ||
                 senha == "" ||
-                confirma_senha == ""
+                confirma_senha == "" ||
+                email == ""
             ) {
 
                 cardErro.style.display = "block";
@@ -336,48 +335,20 @@
 
             // Verificando o tamanho do cpf
 
-            if (cpf.length != 14) {
+            if (cpf.length != 11) {
 
                 cardErro.style.display = "block";
 
                 mensagem_erro.innerHTML =
-                    "cpf inválido. Digite os 14 números.";
+                    "cpf inválido. Digite os 11 números.";
 
                 finalizarAguardar();
 
                 return false;
 
             }
-
-
-            // Verificando o código de ativação
-
-            let codigoValido = false;
-
-            for (
-                let i = 0;
-                i < listaEmpresasCadastradas.length;
-                i++
-            ) {
-
-                if (
-                    listaEmpresasCadastradas[i].codigo_ativacao ==
-                    codigo_validacao
-                ) {
-
-                    idEmpresaVincular =
-                        listaEmpresasCadastradas[i].id;
-
-                    codigoValido = true;
-
-                    console.log("Código de ativação válido.");
-
-                    break;
-
-                }
-
-            }
-
+            
+            let codigoValido = true;
 
             if (codigoValido == false) {
 
@@ -452,8 +423,6 @@
 
                     senhaServer: senha,
 
-                    idEmpresaVincularServer: idEmpresaVincular,
-
                     cpfServer: cpf,
 
                     codigo_validacaoServer: codigo_validacao
@@ -483,14 +452,13 @@
 
                     finalizarAguardar();
 
-                } else {
+                                } else {
 
                     resposta.text().then(texto => {
 
                         console.error(texto);
 
-                        mensagem_erro.innerHTML =
-                            "Houve um erro ao tentar realizar o cadastro.";
+                        mensagem_erro.innerHTML = texto;
 
                         cardErro.style.display = "block";
 
