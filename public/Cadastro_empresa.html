@@ -55,172 +55,109 @@
                     <span id="mensagem_erro"></span>
 
                 </div>
-
-                <div id="div_aguardar" class="loading-div">
-                    <img src="./assets/circle-loading.gif" id="loading-gif">
-                </div>
+                
                 <div id="div_erros_login"></div>
             </div>
         </div>
 
-        <script>
+       <script>
+    function validar_cnpj() {
+        let cnpj = ipt_cnpj.value;
 
-            let listaEmpresasCadastradas = [];
+        if (cnpj == '') {
+            validacao_cnpj.innerHTML = '';
+        } else if (cnpj.length != 14) {
+            validacao_cnpj.innerHTML =
+                `<p style="color: #be2424;">cnpj inválido - ${cnpj.length} dígito(s)</p>`;
+        } else {
+            validacao_cnpj.innerHTML = '';
+        }
+    }
 
-            function validar_cnpj() {
+    function cadastrar() {
+        let nome_fantasia = ipt_nome_fantasia.value.trim();
+        let cnpj = ipt_cnpj.value.trim();
+        let codigo_validacao = ipt_codigo_validacao.value.trim();
+        let razao_social = ipt_razao_social.value.trim();
 
-                let cnpj = ipt_cnpj.value;
+        if (nome_fantasia == "" || cnpj == "" || codigo_validacao == "" || razao_social == "") {
+            mostrarMensagem("Preencha todos os campos para continuar.");
+            return false;
+        }
 
-                if (cnpj == '') {
+        if (cnpj.length != 14 || isNaN(cnpj)) {
+            mostrarMensagem("CNPJ inválido. Digite os 14 números.");
+            return false;
+        }
 
-                    validacao_cnpj.innerHTML = '';
+        if (codigo_validacao.length != 5) {
+            mostrarMensagem("O código de validação deve ter 5 caracteres.");
+            return false;
+        }
 
-                } else if (cnpj.length < 14 || cnpj.length > 14) {
-
-                    validacao_cnpj.innerHTML =
-                        `<p style="color: #be2424;">
-                        cnpj inválido - ${cnpj.length} dígito(s)
-                    </p>`;
-
+        fetch("/cadastroEmpresa/cadastrar", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                nomeFantasiaServer: nome_fantasia,
+                cnpjServer: cnpj,
+                codigoValidacaoServer: codigo_validacao,
+                razaoSocialServer: razao_social
+            })
+        })
+            .then(function (resposta) {
+                if (resposta.ok) {
+                    mostrarMensagem("Cadastro realizado com sucesso!", true);
+                    limparFormulario();
                 } else {
-
-                    validacao_cnpj.innerHTML = '';
-
-                }
-
-            }
-
-            function cadastrar() {
-
-                aguardar();
-
-                let cnpj = ipt_cnpj.value;
-                let codigo_validacao = ipt_codigo_validacao.value;
-                let nome_fantasia = ipt_nome_fantasia.value;
-                let razao_social = ipt_razao_social.value;
-                let idEmpresaVincular;
-
-
-                if (
-                    nome_fantasia == "" ||
-                    cnpj == "" ||
-                    codigo_validacao == "" ||
-                    razao_social == ""
-                ) {
-
-                    cardErro.style.display = "block";
-
-                    mensagem_erro.innerHTML =
-                        "Preencha todos os campos para continuar.";
-
-                    finalizarAguardar();
-
-                    return false;
-
-                } else {
-
-                    setInterval(sumirMensagem, 5000);
-
-                }
-
-                if (cnpj.length != 14) {
-
-                    cardErro.style.display = "block";
-
-                    mensagem_erro.innerHTML =
-                        "CNPJ inválido. Digite os 14 números.";
-
-                    finalizarAguardar();
-
-                    return false;
-                }
-
-                // Enviando os dados para a API
-                console.log("NOME DA EMPRESA:", nome_empresa);
-
-                console.log("CNPJ:", cnpj);
-
-                fetch("/usuarios/cadastrar", {
-
-                    method: "POST",
-
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-
-                    body: JSON.stringify({
-
-                        nomeEmpresaServer: nome_empresa,
-                        cnpjServer: cnpj,
-                        razaoSocialServer: razao_social,
-                        idEmpresaVincularServer: idEmpresaVincular,
-                        codigoValidacaoServer: codigo_validacao
-                    })
-
-                })
-
-                    .then(function (resposta) {
-
-                        console.log("resposta: ", resposta);
-
-                        if (resposta.ok) {
-
-                            cardErro.style.display = "block";
-
-                            mensagem_erro.innerHTML =
-                                "Cadastro realizado com sucesso!";
-
-                            limparFormulario();
-                            finalizarAguardar();
-
-                        } else {
-
-                            resposta.text().then(texto => {
-
-                                console.error(texto);
-
-                                mensagem_erro.innerHTML =
-                                    "Houve um erro ao tentar realizar o cadastro.";
-
-                                cardErro.style.display = "block";
-
-                                finalizarAguardar();
-
-                            });
-
-                        }
-
-                    })
-
-                    .catch(function (erro) {
-
-                        console.log("#ERRO:", erro);
-
-                        finalizarAguardar();
-
+                    resposta.text().then(texto => {
+                        console.error(texto);
+                        mostrarMensagem("Houve um erro ao tentar realizar o cadastro.");
                     });
+                }
+            })
+            .catch(function (erro) {
+                console.log("#ERRO:", erro);
+                mostrarMensagem("Não foi possível conectar ao servidor.");
+            });
 
-                return false;
+        return false;
+    }
 
-            }
+    function mostrarMensagem(texto, sucesso) {
+    cardErro.style.display = "block";
+    mensagem_erro.innerHTML = texto;
 
-            function limparFormulario() {
+    if (sucesso) {
+        mensagem_erro.className = "sucesso";
+    } else {
+        mensagem_erro.className = "erro";
+    }
 
-                ipt_nome_empresa.value = "";
-                ipt_cnpj.value = "";
-                ipt_codigo_validacao.value = "";
-                validar.innerHTML = "";
-                validacao_cnpj.innerHTML = "";
-            }
+    setTimeout(sumirMensagem, 5000);
+}function mostrarMensagem(texto, sucesso) {
+    cardErro.style.display = "block";
+    mensagem_erro.innerHTML = texto;
 
-            function sumirMensagem() {
+    if (sucesso) {
+        mensagem_erro.className = "sucesso";
+    } else {
+        mensagem_erro.className = "erro";
+    }
 
-                cardErro.style.display = "none";
+    setTimeout(sumirMensagem, 5000);
+}
 
-            }
+    function limparFormulario() {
+        ipt_nome_fantasia.value = "";
+        ipt_cnpj.value = "";
+        ipt_codigo_validacao.value = "";
+        ipt_razao_social.value = "";
+        validacao_cnpj.innerHTML = "";
+    }
 
-        </script>
-
-</body>
-
+    function sumirMensagem() {
+        cardErro.style.display = "none";
+    }
+</script>
 </html>
