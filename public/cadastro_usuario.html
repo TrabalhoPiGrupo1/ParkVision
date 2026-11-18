@@ -15,7 +15,7 @@
     <link rel="icon" href="Assets/Icons/tagFoto.png">
 </head>
 
-<body onload="listar()">
+<body>
 
     <div class="container">
 
@@ -32,7 +32,7 @@
                 <div class="abas">
 
                     <div class="aba aba-ativa">
-                        <a href="./cadastro.html">Cadastro</a>
+                        <a href="./cadastro_usuario.html">Cadastro</a>
                     </div>
 
                     <div class="aba">
@@ -71,7 +71,7 @@
                     <input
                         type="text"
                         placeholder="Digite seu nome completo"
-                        id="ipt_nome_empresa">
+                        id="ipt_nome_usuario">
 
                 </div>
 
@@ -84,8 +84,8 @@
                         inputmode="numeric"
                         maxlength="14"
                         placeholder="Digite o seu CPF"
-                        id="ipt_cnpj"
-                        onkeyup="validar_cnpj()">
+                        id="ipt_cpf"
+                        onkeyup="validar_cpf()">
 
                     <div id="validacao_cpf"></div>
 
@@ -117,10 +117,10 @@
 
                     <div class="rotulo">Cargo:</div>
 
-                    <select>
-                        <option value="gerente">Gerente</option>
-                        <option value="supervisor">Supervisor</option>
-                        <option value="analista">Analista</option>
+                    <select id="ipt_cargo">
+                        <option value="1">Gerente</option>
+                        <option value="2">Supervisor</option>
+                        <option value="3">Analista</option>
                     </select>
 
                     <div id="validar"></div>
@@ -256,27 +256,27 @@
 
 
         // ==========================================
-        // VALIDAÇÃO DO CNPJ
+        // VALIDAÇÃO DO cpf
         // ==========================================
 
-        function validar_cnpj() {
+        function validar_cpf() {
 
-            let cnpj = ipt_cnpj.value;
+            let cpf = ipt_cpf.value;
 
-            if (cnpj == '') {
+            if (cpf == '') {
 
-                validacao_cnpj.innerHTML = '';
+                validacao_cpf.innerHTML = '';
 
-            } else if (cnpj.length < 14 || cnpj.length > 14) {
+            } else if (cpf.length < 14 || cpf.length > 14) {
 
-                validacao_cnpj.innerHTML =
+                validacao_cpf.innerHTML =
                     `<p style="color: #be2424;">
-                        CNPJ inválido - ${cnpj.length} dígito(s)
+                        cpf inválido - ${cpf.length} dígito(s)
                     </p>`;
 
             } else {
 
-                validacao_cnpj.innerHTML = '';
+                validacao_cpf.innerHTML = '';
 
             }
 
@@ -291,24 +291,28 @@
 
             aguardar();
 
+            let email = ipt_email.value;
+
             let senha = ipt_senha.value;
 
             let confirma_senha = ipt_confirma_senha.value;
 
-            let cnpj = ipt_cnpj.value;
+            let cpf = ipt_cpf.value;
 
             let codigo_validacao = ipt_codigo_validacao.value;
 
-            let nome_empresa = ipt_nome_empresa.value;
+            let nome_usuario = ipt_nome_usuario.value;
 
             let idEmpresaVincular;
+
+            let fk_cargo = ipt_cargo.value;
 
 
             // Verificando campos vazios
 
             if (
-                nome_empresa == "" ||
-                cnpj == "" ||
+                nome_usuario == "" ||
+                cpf == "" ||
                 codigo_validacao == "" ||
                 senha == "" ||
                 confirma_senha == ""
@@ -330,14 +334,14 @@
             }
 
 
-            // Verificando o tamanho do CNPJ
+            // Verificando o tamanho do cpf
 
-            if (cnpj.length != 14) {
+            if (cpf.length != 14) {
 
                 cardErro.style.display = "block";
 
                 mensagem_erro.innerHTML =
-                    "CNPJ inválido. Digite os 14 números.";
+                    "cpf inválido. Digite os 14 números.";
 
                 finalizarAguardar();
 
@@ -424,9 +428,9 @@
 
             // Enviando os dados para a API
 
-            console.log("NOME DA EMPRESA:", nome_empresa);
+            console.log("NOME DO USUÁRIO:", nome_usuario);
 
-            console.log("CNPJ:", cnpj);
+            console.log("cpf:", cpf);
 
             fetch("/usuarios/cadastrar", {
 
@@ -438,17 +442,21 @@
 
                 body: JSON.stringify({
 
-                    nomeServer: nome_empresa,
+                    nomeServer: nome_usuario,
+
+                    id_cargoServer: fk_cargo,
 
                     // Mantido o nome esperado pela API original.
-                    // Aqui está sendo enviado o CNPJ.
-                    emailServer: cnpj,
+                    // Aqui está sendo enviado o cpf.
+                    emailServer: email,
 
                     senhaServer: senha,
 
                     idEmpresaVincularServer: idEmpresaVincular,
 
-                    cnpjServer: cnpj
+                    cpfServer: cpf,
+
+                    codigo_validacaoServer: codigo_validacao
 
                 })
 
@@ -554,9 +562,9 @@
 
         function limparFormulario() {
 
-            ipt_nome_empresa.value = "";
+            ipt_nome_usuario.value = "";
 
-            ipt_cnpj.value = "";
+            ipt_cpf.value = "";
 
             ipt_codigo_validacao.value = "";
 
@@ -566,7 +574,7 @@
 
             validar.innerHTML = "";
 
-            validacao_cnpj.innerHTML = "";
+            validacao_cpf.innerHTML = "";
 
             confirmacao_senha.innerHTML = "";
 
