@@ -1,105 +1,98 @@
-<img src="https://user-images.githubusercontent.com/46379117/192358781-9ca879e4-e55e-4d0d-b876-f9a4a2ed9ae8.png" width="600px">
+<div align="center">
 
-_Web Data Visualization = Visualização de Dados na Web_
+<img src="Public/Assets/Icons/logo_amarelo.png" alt="ParkVision" width="250">
 
-_Implementação de Referência para o seu Projeto de Primeiro Semestre_
+**Sistema de monitoramento de vagas em estacionamentos privados na cidade de São Paulo**
 
-<hr>
+![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
 
-# Como usar
+Projeto acadêmico da **São Paulo Tech School (SPTECH)** · Faculdade de Tecnologia · 2026
 
-1. Clone este repositório em sua máquina.
+</div>
 
+---
 
-1. Crie, no Banco de Dados, as tabelas necessárias para o funcionamento deste projeto.
-- Siga as instruções no arquivo **/src/database/script-tabelas.sql**
+## 📌 Sobre o projeto
 
+O **ParkVision** é um protótipo de sistema IoT que monitora a ocupação de vagas de estacionamento e transforma a ocupação física em dados digitais, que podem ser armazenados, visualizados e analisados por meio de uma plataforma web.
 
-3. Acesse o arquivo **app.js** e parametrize o ambiente.
-- Se você estiver utilizando o Ambiente de Produção (remoto), comente a linha 2 e deixe habilitada a linha 1 onde está o valor **var ambiente_processo = 'producao';**
-- Se você estiver utilizando o Ambiente de Desenvolvimento (local), comente a linha 1 e deixe habilitada a linha 2 onde está o valor **var ambiente_processo = 'desenvolvimento';**
+Sensores ultrassônicos ligados a um microcontrolador detectam se uma vaga está **ocupada** ou **livre**. Os dados são enviados por API, guardados em um banco MySQL e exibidos em um dashboard com gráficos e indicadores, para que o gestor do estacionamento acompanhe a utilização das vagas em tempo real e consulte o histórico.
 
-4. Adicione as credenciais de Banco de Dados no arquivo **.env** ou em **.env.dev**, seguindo as instruções neste.
+## ❗ Problema
 
-5. Acesse este repositório no seu terminal (GitBash ou VSCode) e execute os comandos abaixo:
+Estacionamentos privados de médio e grande porte enfrentam uma demanda que oscila ao longo do dia e da semana, mas costumam praticar **tarifas fixas**. O resultado são dois problemas opostos:
+
+- **Saturação** nos horários de pico, quando novos clientes têm dificuldade de estacionar;
+- **Ociosidade silenciosa** fora do pico, quando vagas livres deixam de gerar receita.
+
+Sem acompanhamento contínuo, o gestor depende da observação e da experiência para identificar esses períodos. Por exemplo, com a tarifa mediana de R$ 15,00 por hora em São Paulo (CarPass), um estacionamento de 35 vagas com apenas 5 ocupadas fatura R$ 75,00 por hora, enquanto 30 vagas ficam sem uso.
+
+## 🎯 Objetivo
+
+Desenvolver e validar, **até 7 de dezembro de 2026**, um protótipo IoT com sensores ultrassônicos, microcontrolador e plataforma web com dashboards, capaz de coletar, registrar e exibir em tempo real o status de ocupação e ociosidade de vagas, além de manter o histórico para análise de tendências de demanda.
+
+Com isso, o administrador ganha base de dados para apoiar decisões de gestão, como a **precificação dinâmica**. A decisão de alterar preços continua sendo do gestor; o sistema não a executa sozinho.
+
+## ✨ Funcionalidades
+
+- Detecção de vaga **ocupada/livre** com sensor ultrassônico HC-SR04
+- Envio e armazenamento dos dados em banco MySQL (servidor Linux)
+- Site institucional
+- Cadastro e login de usuários
+- Dashboard com status da vaga em tempo real
+- Indicadores: percentual de ocupação e ociosidade, tempo de uso e períodos de maior e menor demanda
+- Histórico de ocupação para consulta
+
+## 🏗️ Arquitetura da solução
 
 ```
-npm i
-``` 
-_O comando acima irá instalar as bibliotecas necessárias para o funcionamento do projeto. As bibliotecas a serem instaladas estão listadas no arquivo **package.json** então é muito importante que este não seja alterado. Será criada uma nova pasta/diretório chamado **node_modules** quando o comando for finalizado, que é onde as bibliotecas estão localizadas. Não altere a pasta/diretório._
-
+Sensor ultrassônico HC-SR04
+          ↓
+       Arduino
+          ↓
+Computador com aplicação Node.js (API Data-Acquino)
+          ↓
+  Banco de dados MySQL (VM Linux)
+          ↓
+      API Web-Dataviz
+          ↓
+Site institucional  +  Dashboard
 ```
-npm start
-``` 
 
-_O comando acima irá iniciar seu projeto e efetuar os comandos de acordo com a sua parametrização feita nos passos anteriores._
+## 🛠️ Tecnologias
 
-6. Para "ver" seu projeto funcionando, acesse em seu navegador o caminho **informado no terminal**.
+| Camada | Tecnologias |
+|--------|-------------|
+| Hardware | Arduino, sensor ultrassônico HC-SR04 |
+| Front-end | HTML, CSS, JavaScript |
+| Back-end | Node.js |
+| Banco de dados | MySQL |
+| Infraestrutura | Servidor Linux (VM Lubuntu) |
+| Design | Figma |
+| Gestão do projeto | Trello (Kanban), planilha de backlog, GitHub |
 
-7. Caso queira parar a execução, tecle **CTRL+C** no terminal em que o projeto está rodando.
+## 👥 Integrantes
 
-## Adicionar novo recurso ao projeto
+| Nome |
+|------|
+| Camilly Rodrigues Felix de Jesus |
+| Gabriel Borges dos Santos |
+| Guilherme Sanches Matias |
+| Júlia Siécola Matiussi |
+| Mirela Martins de Carvalho |
+| Yan Silva Gutmann |
 
-**"Recurso? O que é?"** Enquanto no Banco de Dados chamamos as tabelas de "entidades", quando tratamos de desenvolvimento WEB usamos a palavra "recurso" para se referir a algo que podemos criar, ler, atualizar ou deletar [1]. Estas ações são conhecidas como CRUD: Create, Read, Update e Delete. Para acessar cada ação, usamos os métodos HTTP: POST, GET, PUT e DELETE [2]. (Há outros verbos, porém com estes já conseguimos efetuar CRUDs). 
+## 📚 Referências
 
-**Tabela para ajudar a fazer a associação**
+- [Modelos de otimização de preço dinâmico para estacionamento (arXiv)](https://arxiv.org/html/2208.14231v1#bib.bib30)
+- [Frota de veículos em São Paulo (IBGE)](https://cidades.ibge.gov.br/brasil/sp/pesquisa/22/28120)
+- [Quanto custa estacionar em São Paulo por bairro (CarPass)](https://www.carpass.in/blog/quanto-custa-estacionar-em-sao-paulo-por-bairro)
+- [Preço dinâmico no estacionamento (CloudPark)](https://cloudpark.com.br/preco-dinamico-no-estacionamento/)
 
-<table>
-  <tr>
-    <th>C.R.U.D</th>
-    <th>Ação</th>
-    <th>Tradução</th>
-    <th>Verbo HTTP *</th>
-    <th>Comando BD</th>
-  </tr>
-  <tr>
-    <td>C</td>
-    <td>Create</td>
-    <td>Criar</td>
-    <td>POST</td>
-    <td>INSERT</td>
-  </tr>
-  <tr>
-    <td>R</td>
-    <td>Read</td>
-    <td>Ler</td>
-    <td>GET</td>
-    <td>SELECT</td>
-  </tr>
-  <tr>
-    <td>U</td>
-    <td>Update</td>
-    <td>Atualizar</td>
-    <td>PUT</td>
-    <td>UPDATE</td>
-  </tr>
-  <tr>
-    <td>D</td>
-    <td>Delete</td>
-    <td>Deletar</td>
-    <td>DELETE</td>
-    <td>DELETE</td>
-  </tr>
-</table>
+---
 
-_* Você verá o verbo HTTP sendo apontado nos arquivos em /routes_
+<div align="center">
 
-**"E no meu projeto, o que seria um recurso?"** Em web-data-viz manipulamos os recursos **usuário**, **aviso** e **medida**. Podemos conferir isso vendo para quais entidades foram criados os caminhos de inserção e captura de dados, que envolve os diretórios **routes**, **controllers** e **models**.
+**SPTECH · São Paulo Tech School** — Faculdade de Tecnologia
 
-Abaixo, uma figura que ajuda a compreender o caminho percorrido para, por exemplo, efetuar o cadastro de um usuário:
-
-
-![image](https://github.com/user-attachments/assets/d576f178-0da6-437e-b5c9-658e3ebaf6ca)
-
-
-
-**Entendi o que é um recurso e gostaria de adicionar um novo ao meu projeto! Como faz?**  
-- Primeiro, crie a tabela no Banco de Dados referente a este recurso. Exemplos de recursos comuns de serem adicionados ao projeto no primeiro semestre: Silo, Aquário, Sala, Andar, Endereço, Mercado, Prateleira, Unidade, Carro, Caminhão...  
-- Assim que criada a tabela, faça todo o caminho de **front-end → routes → controllers → models** replicando o que já existe!  
-- Exemplo, se você quiser a funcionalidade de adicionar um novo Aquário, deve criar arquivos referentes ao aquario nos diretórios e replicar também as funções.  
-- Dica: A implementação de AVISO já contém o CRUD completo! :wink:
- 
-### Fontes bibliográficas
-
-[1] https://datatracker.ietf.org/doc/html/rfc2396  
-[2] https://datatracker.ietf.org/doc/html/rfc7231
+</div>

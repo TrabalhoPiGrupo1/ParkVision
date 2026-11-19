@@ -1,0 +1,219 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 780px 1fr;
+    gap: 100px;
+    height: 100vh;
+    padding: 16px;
+    font-family: "Outfit", sans-serif;
+    color: #14213d;
+}
+
+
+.lado-esquerdo {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 96vh;
+}
+
+.foto {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.degrade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.logo {
+    position: absolute;
+    left: 32px;
+    bottom: 28px;
+    width: 200px;
+}
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 40px;
+}
+
+.topo a{
+    color: #fff;
+}
+
+.topo a:hover{
+    color: #000;
+}
+
+.abas {
+    display: flex;
+    gap: 38px;
+}
+
+.aba {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid #2f8cf5;
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.aba a {
+    color: #2f8cf5;
+    transition: 0.3s;
+}
+
+.aba:hover {
+    background-color: #2f8cf5;
+}
+
+.aba:hover a {
+    color: #ffffff;
+}
+
+.aba-ativa {
+    background: #2f8cf5;
+}
+
+.aba-ativa a {
+    color: #ffffff;
+}
+
+
+.btn-voltar {
+    background: #2f8cf5;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 14px 50px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+a {
+    text-decoration: none;
+}
+
+.btn-voltar a {
+    color: #fff;
+    transition: 0.3s;
+}
+
+.btn-voltar:hover {
+    background-color: #ffe27a;
+}
+
+.btn-voltar:hover a {
+    color: #000000;
+}
+
+.titulo {
+    margin: 70px 0 40px;
+    font-size: 44px;
+    font-weight: 800;
+    letter-spacing: -2px;
+}
+
+.titulo-destaque {
+    color: #2f8cf5;
+}
+
+.formulario {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 10px;
+    max-width: 690px;
+    margin-left: 0;
+}
+
+.campo-inteiro {
+    grid-column: 1 / -1;
+}
+
+.rotulo {
+    margin: 0 0 8px 18px;
+    font-weight: 800;
+    font-size: 17px;
+}
+
+.campo input {
+    width: 100%;
+    height: 60px;
+    padding: 0 26px;
+    font-size: 18px;
+    color: #14213d;
+    border: 1px solid #aab4d4;
+    border-radius: 20px;
+    outline: none;
+}
+
+.campo input:focus {
+    border: 2px solid #2f8cf5;
+}
+
+.btn-finalizar {
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-top: 20px;
+    width: 270px;
+    height: 71px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffe27a;
+    color: #000;                       
+    font-family: "Outfit", sans-serif; 
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-finalizar a{
+    color: #000;
+}
+
+.btn-finalizar:hover a{
+    color: #ffff;
+}
+
+button{
+    border: none;
+}
+
+.btn-finalizar:hover {
+    background-color: #2f8cf5;
+    color: #fff;
+}
+
+#validar,
+#confirmacao_senha,
+#validacao_cnpj {
+    padding: 10px 0 8px 18px;
+    font-size: 14px;
+}
