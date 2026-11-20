@@ -21,6 +21,7 @@ var avisosRouter = require("./src/routes/avisos");
 var medidasRouter = require("./src/routes/medidas");
 var empresasRouter = require("./src/routes/empresas");
 var cadastroEmpresaRouter = require("./src/routes/cadastroEmpresa");
+var cadastroEstacionamentoRouter = require("./src/routes/cadastroEstacionamento");
 // ...
 
 app.use(express.json());
@@ -35,6 +36,8 @@ app.use("/avisos", avisosRouter);
 app.use("/medidas", medidasRouter);
 app.use("/empresas", empresasRouter);
 app.use("/cadastroEmpresa", cadastroEmpresaRouter);
+app.use("/cadastroEstacionamento", cadastroEstacionamentoRouter);
+
 
 app.listen(PORTA_APP, function () {
     console.log(`

@@ -171,3 +171,10 @@ body {
 .erro:empty {
     display: none;
 }
+
+#msg_sucesso {
+    color: green;
+    font-weight: bold;
+    margin-top: 15px;
+    text-align: center;
+}
