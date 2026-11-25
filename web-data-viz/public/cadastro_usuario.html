@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -58,7 +57,6 @@
             <!-- Mensagens de erro -->
             <div class="alerta_erro">
                 <div class="card_erro" id="cardErro">
-                    <span id="mensagem_erro"></span>
                 </div>
             </div>
 
@@ -68,10 +66,7 @@
 
                     <div class="rotulo">Nome completo:</div>
 
-                    <input
-                        type="text"
-                        placeholder="Digite seu nome completo"
-                        id="ipt_nome_usuario">
+                    <input type="text" placeholder="Digite seu nome completo" id="ipt_nome_usuario">
 
                 </div>
 
@@ -79,12 +74,7 @@
 
                     <div class="rotulo">CPF:</div>
 
-                    <input
-                        type="text"
-                        inputmode="numeric"
-                        maxlength="14"
-                        placeholder="Digite o seu CPF"
-                        id="ipt_cpf"
+                    <input type="text" inputmode="numeric" maxlength="14" placeholder="Digite o seu CPF" id="ipt_cpf"
                         onkeyup="validar_cpf()">
 
                     <div id="validacao_cpf"></div>
@@ -95,25 +85,19 @@
 
                     <div class="rotulo">Código de validação da empresa:</div>
 
-                    <input
-                        type="text"
-                        placeholder="Digite o código"
-                        id="ipt_codigo_validacao">
+                    <input type="text" placeholder="Digite o código" id="ipt_codigo_validacao">
 
                 </div>
 
-                <div class="campo campo-inteiro">
+                <div class="campo">
 
                     <div class="rotulo">E-mail:</div>
 
-                    <input
-                        type="text"
-                        placeholder="Digite o seu e-mail"
-                        id="ipt_email">
+                    <input type="text" placeholder="Digite o seu e-mail" id="ipt_email">
 
                 </div>
 
-                <div class="campo campo-inteiro">
+                <div class="campo">
 
                     <div class="rotulo">Cargo:</div>
 
@@ -123,7 +107,6 @@
                         <option value="3">Analista</option>
                     </select>
 
-                    <div id="validar"></div>
 
                 </div>
 
@@ -131,11 +114,7 @@
 
                     <div class="rotulo">Senha:</div>
 
-                    <input
-                        type="password"
-                        placeholder="Digite uma senha"
-                        id="ipt_senha"
-                        onkeyup="validar_seguranca()">
+                    <input type="password" placeholder="Digite uma senha" id="ipt_senha" onkeyup="validar_seguranca()">
 
                     <div id="validar"></div>
 
@@ -145,33 +124,23 @@
 
                     <div class="rotulo">Confirme sua senha:</div>
 
-                    <input
-                        type="password"
-                        placeholder="Digite novamente sua senha"
-                        id="ipt_confirma_senha"
+                    <input type="password" placeholder="Digite novamente sua senha" id="ipt_confirma_senha"
                         onkeyup="validar_confirmacao()">
 
                     <div id="confirmacao_senha"></div>
 
                 </div>
 
-                <button
-                    type="button"
-                    class="btn-finalizar"
-                    onclick="cadastrar()">
+                <button type="button" class="btn-finalizar" onclick="cadastrar()">Cadastrar</button>
+                <span id="mensagem_erro"></span>
 
-                    Cadastrar
-
-                </button>
 
             </div>
 
             <!-- Loading -->
             <div id="div_aguardar" class="loading-div">
 
-                <img
-                    src="./assets/circle-loading.gif"
-                    id="loading-gif">
+                <img src="./assets/circle-loading.gif" id="loading-gif">
 
             </div>
 
@@ -183,26 +152,14 @@
 
     <script>
 
-        // Array para armazenar empresas cadastradas
-        // para validação do código de ativação
-
         let listaEmpresasCadastradas = [];
-
-        // Controle da segurança da senha
-
         let requisitos_cadastro_global = 0;
 
-
-        // ==========================================
-        // VALIDAÇÃO DE SEGURANÇA DA SENHA
-        // ==========================================
 
         function validar_seguranca() {
 
             let requisitos_cadastro = 0;
-
             let senha = ipt_senha.value;
-
             let criterios = 1;
 
             if (senha.length >= 8) {
@@ -224,7 +181,6 @@
             if (senha == '') {
 
                 validar.innerHTML = '';
-
                 requisitos_cadastro = 0;
 
             } else if (criterios == 5) {
@@ -254,20 +210,14 @@
 
         }
 
-
-        // ==========================================
-        // VALIDAÇÃO DO cpf
-        // ==========================================
-
         function validar_cpf() {
 
             let cpf = ipt_cpf.value;
-
             if (cpf == '') {
 
                 validacao_cpf.innerHTML = '';
 
-            } else if (cpf.length < 14 || cpf.length > 14) {
+            } else if (cpf.length < 11 || cpf.length > 11) {
 
                 validacao_cpf.innerHTML =
                     `<p style="color: #be2424;">
@@ -282,31 +232,17 @@
 
         }
 
-
-        // ==========================================
-        // CADASTRO
-        // ==========================================
-
         function cadastrar() {
 
             aguardar();
 
             let email = ipt_email.value;
-
             let senha = ipt_senha.value;
-
             let confirma_senha = ipt_confirma_senha.value;
-
             let cpf = ipt_cpf.value;
-
             let codigo_validacao = ipt_codigo_validacao.value;
-
             let nome_usuario = ipt_nome_usuario.value;
-
             let fk_cargo = ipt_cargo.value;
-
-
-            // Verificando campos vazios
 
             if (
                 nome_usuario == "" ||
@@ -332,9 +268,6 @@
 
             }
 
-
-            // Verificando o tamanho do cpf
-
             if (cpf.length != 11) {
 
                 cardErro.style.display = "block";
@@ -347,7 +280,7 @@
                 return false;
 
             }
-            
+
             let codigoValido = true;
 
             if (codigoValido == false) {
@@ -363,9 +296,6 @@
 
             }
 
-
-            // Verificando confirmação da senha
-
             if (confirma_senha !== senha) {
 
                 confirmacao_senha.innerHTML =
@@ -380,9 +310,6 @@
 
             }
 
-
-            // Verificando segurança da senha
-
             if (requisitos_cadastro_global < 1) {
 
                 confirmacao_senha.innerHTML =
@@ -396,9 +323,7 @@
 
             }
 
-
             // Enviando os dados para a API
-
             console.log("NOME DO USUÁRIO:", nome_usuario);
 
             console.log("cpf:", cpf);
@@ -414,78 +339,66 @@
                 body: JSON.stringify({
 
                     nomeServer: nome_usuario,
-
                     id_cargoServer: fk_cargo,
-
-                    // Mantido o nome esperado pela API original.
-                    // Aqui está sendo enviado o cpf.
                     emailServer: email,
-
                     senhaServer: senha,
-
                     cpfServer: cpf,
-
                     codigo_validacaoServer: codigo_validacao
 
                 })
 
             })
 
-            .then(function (resposta) {
+                .then(function (resposta) {
 
-                console.log("resposta: ", resposta);
+                    console.log("resposta: ", resposta);
 
-                if (resposta.ok) {
-
-                    cardErro.style.display = "block";
-
-                    mensagem_erro.innerHTML =
-                        "Cadastro realizado com sucesso! Redirecionando para o Login...";
-
-                    setTimeout(() => {
-
-                        window.location = "login.html";
-
-                    }, 2000);
-
-                    limparFormulario();
-
-                    finalizarAguardar();
-
-                                } else {
-
-                    resposta.text().then(texto => {
-
-                        console.error(texto);
-
-                        mensagem_erro.innerHTML = texto;
+                    if (resposta.ok) {
 
                         cardErro.style.display = "block";
 
+                        mensagem_erro.innerHTML =
+                            "Cadastro realizado com sucesso! Redirecionando para o Login...";
+
+                        setTimeout(() => {
+
+                            window.location = "login.html";
+
+                        }, 2000);
+
+                        limparFormulario();
+
                         finalizarAguardar();
 
-                    });
+                    } else {
 
-                }
+                        resposta.text().then(texto => {
 
-            })
+                            console.error(texto);
 
-            .catch(function (erro) {
+                            mensagem_erro.innerHTML = texto;
 
-                console.log("#ERRO:", erro);
+                            cardErro.style.display = "block";
 
-                finalizarAguardar();
+                            finalizarAguardar();
 
-            });
+                        });
+
+                    }
+
+                })
+
+                .catch(function (erro) {
+
+                    console.log("#ERRO:", erro);
+
+                    finalizarAguardar();
+
+                });
 
             return false;
 
         }
-
-
-        // ==========================================
-        // LISTANDO EMPRESAS CADASTRADAS
-        // ==========================================
 
         function listar() {
 
@@ -495,65 +408,47 @@
 
             })
 
-            .then(function (resposta) {
+                .then(function (resposta) {
 
-                resposta.json().then((empresas) => {
+                    resposta.json().then((empresas) => {
 
-                    empresas.forEach((empresa) => {
+                        empresas.forEach((empresa) => {
 
-                        listaEmpresasCadastradas.push(empresa);
+                            listaEmpresasCadastradas.push(empresa);
 
-                        console.log("listaEmpresasCadastradas");
+                            console.log("listaEmpresasCadastradas");
 
-                        console.log(
-                            listaEmpresasCadastradas[0].codigo_ativacao
-                        );
+                            console.log(
+                                listaEmpresasCadastradas[0].codigo_ativacao
+                            );
+
+                        });
 
                     });
 
+                })
+
+                .catch(function (resposta) {
+
+                    console.log("#ERRO:", resposta);
+
                 });
 
-            })
-
-            .catch(function (resposta) {
-
-                console.log("#ERRO:", resposta);
-
-            });
-
         }
-
-
-        // ==========================================
-        // LIMPAR FORMULÁRIO
-        // ==========================================
 
         function limparFormulario() {
 
             ipt_nome_usuario.value = "";
-
             ipt_cpf.value = "";
-
             ipt_codigo_validacao.value = "";
-
             ipt_senha.value = "";
-
             ipt_confirma_senha.value = "";
-
             validar.innerHTML = "";
-
             validacao_cpf.innerHTML = "";
-
             confirmacao_senha.innerHTML = "";
-
             requisitos_cadastro_global = 0;
 
         }
-
-
-        // ==========================================
-        // CONFIRMAÇÃO DA SENHA
-        // ==========================================
 
         function validar_confirmacao() {
 
@@ -566,11 +461,6 @@
             }
 
         }
-
-
-        // ==========================================
-        // SUMIR MENSAGEM
-        // ==========================================
 
         function sumirMensagem() {
 
