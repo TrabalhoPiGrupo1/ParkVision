@@ -886,7 +886,19 @@ h2, h3 {
 
 .contato {
     display: flex;
+    align-items: flex-start;
     gap: 10px;
+}
+
+.contato > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.contato label {
+    display: block;
 }
 
 .contato input {
@@ -910,6 +922,7 @@ h2, h3 {
     width: 230px;
     height: 50px;
     border: none;
+    margin-top: 24px;
     border-radius: 4px;
     background-color: var(--azul);
     color: var(--branco);
@@ -918,6 +931,26 @@ h2, h3 {
     cursor: pointer;
     font-family: "Outfit", Arial, Helvetica, sans-serif;
     transition: 0.3s;
+}
+
+#mensagemEmail {
+    margin-top: 0;
+    font-size: 13px;
+}
+
+#mensagemEmail p {
+    margin: 0;
+    font-size: 13px;
+    text-align: left;
+    line-height: normal;
+}
+
+#mensagemEmail .email-invalido {
+    color: #be2424;
+}
+
+#mensagemEmail .email-enviado {
+    color: #008000;
 }
 
 .btn-contato-final:hover {
