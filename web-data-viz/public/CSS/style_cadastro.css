@@ -1,0 +1,21 @@
+.alerta_erro {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.card_erro {
+    width: 100%;
+    text-align: center;
+}
+
+#mensagem_erro {
+    display: block;
+    grid-column: 1 / -1;
+    text-align: center;
+    margin: 15px auto 0 auto;
+    color: #cf4339;
+    font-weight: 700;
+}

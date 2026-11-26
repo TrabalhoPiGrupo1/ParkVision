@@ -11,6 +11,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./CSS/style_cadastro_login.css">
+    <link rel="stylesheet" href="./CSS/style_login.css">
     <link rel="shortcut icon" href="./Assets/Icons/tagFoto.png" type="image/x-icon">
 </head>
 
@@ -54,11 +55,6 @@
             </div>
 
             <!-- Mensagem de erro -->
-            <div class="alerta_erro">
-                <div class="card_erro" id="cardErro">
-                    <span id="mensagem_erro"></span>
-                </div>
-            </div>
 
             <div class="formulario">
 
@@ -78,24 +74,17 @@
                         id="ipt_senha">
                 </div>
 
-                <div class="campo campo-inteiro">
-                    <div class="rotulo">Código de validação:</div>
-                    <input
-                        type="password"
-                        placeholder="Digite o código"
-                        id="ipt_codigo">
+                <button class="btn-finalizar" onclick="entrar()">Login</button>
+
+                 <div class="alerta_erro">
+                <div class="card_erro" id="cardErro">
+                    <span id="mensagem_erro"></span>
                 </div>
-
-                <button class="btn-finalizar" onclick="entrar()">
-                    Login
-                </button>
+            </div>
 
             </div>
 
-            <!-- Loading -->
-            <div id="div_aguardar" class="loading-div">
-                <img src="./Assets/circle-loading.gif" id="loading-gif">
-            </div>
+            <div id="div_aguardar" class="loading-div"></div>
 
             <div id="div_erros_login"></div>
 
@@ -129,7 +118,7 @@
 
             }
 
-            console.log("FORM cpf: ", emailVar);
+            console.log("FORM EMAIL: ", emailVar);
             console.log("FORM SENHA: ", senhaVar);
 
             fetch("/usuarios/autenticar", {

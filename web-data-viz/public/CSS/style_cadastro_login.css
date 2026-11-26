@@ -230,10 +230,3 @@ button{
     outline: none;
     font-family: 17px;
 }
-
-#mensagem_erro{
-text-align: center;
-color: #cf4339;
-grid-column: 1 / -1;
-font-weight: 700;
-}
