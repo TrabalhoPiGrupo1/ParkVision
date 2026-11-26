@@ -26,6 +26,7 @@
                     <li><a href="#processo">Processo</a></li>
                     <li><a href="#simulador">Simulador</a></li>
                     <li><a href="#contato">Contato</a></li>
+                    <li><a href="https://parkvision.atlassian.net/jira/software/form/24501e25-ccdc-4d76-9b7d-ffdd8757224b">Suporte</a></li>
                 </ul>
             </nav>
 
@@ -317,7 +318,7 @@
 
 
     <!-- Pág 8 -->
-    <div class="rodape">
+    <div class="rodape" id="suporte">
 
         <img class="logo" src="./Assets/Icons/logo_amarelo.png" alt="ParkVision">
 
@@ -326,6 +327,7 @@
             <a href="#processo">Processo</a>
             <a href="#simulador">Simulador</a>
             <a href="#contato">Contato</a>
+            <a href="https://parkvision.atlassian.net/jira/software/form/24501e25-ccdc-4d76-9b7d-ffdd8757224b">Suporte</a>
         </div>
 
     </div>
@@ -423,7 +425,7 @@
             let achou = false;
 
             while (i < email.length && !achou) {
-                if (email[i] == "@") {
+                if (email[i] == "@" && email.length > 4) {
                     achou = true;
                 }
                 i++;
@@ -431,10 +433,10 @@
 
             if (achou) {
                 mensagemEmail.innerHTML =
-                    `<p class="email-enviado">E-mail enviado!</p>`;
+                    `<p class="email-enviado">E-mail enviado para ${email}!</p>`;
             } else {
                 mensagemEmail.innerHTML =
-                    `<p class="email-invalido">E-mail inválido: falta o @</p>`;
+                    `<p class="email-invalido"><b>E-mail inválido!</b></p>`;
             }
         }
     </script>
