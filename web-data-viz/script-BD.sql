@@ -1,12 +1,12 @@
-CREATE DATABASE IF NOT EXISTS parkvision;
-USE parkvision;
+CREATE DATABASE IF NOT EXISTS parkVision;
+USE parkVision;
 
 -- 1. Tabela endereco
 CREATE TABLE endereco (
     id_endereco INT PRIMARY KEY AUTO_INCREMENT,
     logradouro VARCHAR(100),
     bairro VARCHAR(100),
-    CEP CHAR(8),
+    CEP CHAR(9),
     numero VARCHAR(20),
     cidade VARCHAR(100)
 );
@@ -81,9 +81,6 @@ CREATE TABLE alerta (
     CONSTRAINT fk_alerta_sensor FOREIGN KEY (fk_sensor_medida) REFERENCES sensor_medida(id_sensor_medida)
 );
 
--- ==========================================
--- INSERTS DE TESTE
--- ==========================================
 
 INSERT INTO endereco (logradouro, bairro, CEP, numero, cidade)
 VALUES ('Rua Teste', 'Centro', '01000000', '100', 'São Paulo');
@@ -94,7 +91,6 @@ VALUES ('Empresa Teste', '12345678000199', CURDATE(), 'ABC12', 'Empresa Teste LT
 INSERT INTO cargo (nome)
 VALUES ('Gerente'), ('Supervisor');
 
--- Exemplo de insert de usuário preenchendo a coluna 'usuario' exigida pelo DER
 INSERT INTO usuario (nome, cpf, email, usuario, senha, fk_empresa, fk_cargo)
 VALUES ('Guilherme', '12121212111', 'guilherme@email.com', 'guilherme.adm', '123456', 1, 1);
 
@@ -106,6 +102,9 @@ VALUES ('A', 1, 1), ('A', 2, 1);
 
 INSERT INTO sensor_medida (leitura_sensor, dt_hora_leitura, fk_vaga)
 VALUES (1, NOW(), 1), (0, NOW(), 2);
+
+INSERT INTO cargo (id_cargo, nome) VALUES 
+(3, 'Analista');
 
 -- SELECT DE TESTE
 SELECT v.id_vaga, v.bloco, v.numero,
@@ -119,3 +118,6 @@ WHERE v.fk_estacionamento = 1
     WHERE fk_vaga = v.id_vaga
   )
 ORDER BY v.bloco, v.numero;
+
+SELECT * FROM usuario;
+select * from empresa;
