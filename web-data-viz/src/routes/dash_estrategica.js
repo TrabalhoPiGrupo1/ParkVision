@@ -1,15 +1,14 @@
 var express = require("express");
 var router = express.Router();
 
-var usuarioController = require("../controllers/usuarioController");
+var dashboardEstrategicaController = require("../controllers/dashboard_estrategicaController");
 
-//Recebendo os dados do html e direcionando para a função cadastrar de usuarioController.js
-router.post("/cadastrar", function (req, res) {
-    usuarioController.cadastrar(req, res);
-})
+router.get("/ociosidade-media/:idEstacionamento", function (req, res) {
+    dashboardEstrategicaController.buscarOciosidadeMedia(req, res);
+});
 
-router.post("/autenticar", function (req, res) {
-    usuarioController.autenticar(req, res);
+router.get("/ociosidade-horario/:idEstacionamento", function (req, res) {
+    dashboardEstrategicaController.buscarOciosidadePorHorario(req, res);
 });
 
 module.exports = router;
