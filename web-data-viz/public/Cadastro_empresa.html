@@ -42,7 +42,8 @@
                 </div>
                 <div class="campo">
                     <div class="rotulo">Código de validação da empresa:</div>
-                    <input type="text" placeholder="Digite o código" id="ipt_codigo_validacao">
+                    <input type="text" placeholder="Digite o código" id="ipt_codigo_validacao" onkeyup="validacao_codigo()">
+                    <div id="validacao_codigoV"></div>
                 </div>
 
                 <div class="campo campo-inteiro">
@@ -68,9 +69,22 @@
             validacao_cnpj.innerHTML = '';
         } else if (cnpj.length != 14) {
             validacao_cnpj.innerHTML =
-                `<p style="color: #be2424;">cnpj inválido - ${cnpj.length} dígito(s)</p>`;
+                `<p style="color: #be2424;">CNPJ inválido - ${cnpj.length} dígito(s)</p>`;
         } else {
             validacao_cnpj.innerHTML = '';
+        }
+    }
+
+        function validacao_codigo() {
+        let codigo_ativacao = ipt_codigo_validacao.value;
+
+        if (codigo_ativacao == '') {
+            codigo_ativacao.innerHTML = '';
+        } else if (codigo_ativacao.length != 5) {
+            validacao_codigoV.innerHTML =
+                `<p style="color: #be2424;">Código inválido - ${codigo_ativacao.length} dígito(s)</p>`;
+        } else {
+            validacao_codigoV.innerHTML = '';
         }
     }
 
