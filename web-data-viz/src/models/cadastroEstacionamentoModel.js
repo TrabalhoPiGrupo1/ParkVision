@@ -2,7 +2,7 @@ const db = require("../config/database");
 
 async function buscarEmpresaPorCodigo(codigoValidacao) {
   const [linhas] = await db.execute(
-    "SELECT id_empresa FROM Empresa WHERE codigo_validacao = ?",
+    "SELECT id_empresa FROM empresa WHERE codigo_validacao = ?",
     [codigoValidacao]
   );
   return linhas[0] || null;
@@ -23,7 +23,7 @@ async function cadastrar({ nome, rua, bairro, cep, fkEmpresa }) {
 
     // 2º: insere o estacionamento usando o id do endereço recém-criado
     const [estacionamento] = await conexao.execute(
-      `INSERT INTO Estacionamento
+      `INSERT INTO estacionamento
          (nome, status_estacionamento, dt_cadastro, fk_endereco, fk_empresa)
        VALUES (?, 'ativo', CURDATE(), ?, ?)`,
       [nome, endereco.insertId, fkEmpresa]
