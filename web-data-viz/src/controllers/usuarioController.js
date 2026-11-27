@@ -40,6 +40,9 @@ function cadastrar(req, res) {
     var fk_cargo = req.body.id_cargoServer;
     var codigo_validacao = req.body.codigo_validacaoServer;
 
+    // Gerando o nome de usuário (username) automaticamente com base no e-mail (tudo antes do @)
+    var usuario = email ? email.split('@')[0] : nome;
+
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
     } else if (cpf == undefined) {
@@ -49,9 +52,9 @@ function cadastrar(req, res) {
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
     } else if (fk_cargo == undefined) {
-        res.status(400).send("Seu cargo está undefined");
+        res.status(400).send("Seu cargo está undefined!");
     } else if (codigo_validacao == undefined) {
-        res.status(400).send("Seu código de validação está undefined");
+        res.status(400).send("Seu código de validação está undefined!");
     } else {
         usuarioModel.buscarEmpresaPorCodigo(codigo_validacao)
             .then(function (resultadoEmpresa) {
@@ -62,7 +65,7 @@ function cadastrar(req, res) {
 
                 var fk_empresa = resultadoEmpresa[0].id_empresa;
 
-                return usuarioModel.cadastrar(nome, cpf, email, senha, fk_empresa, fk_cargo)
+                return usuarioModel.cadastrar(nome, cpf, email, usuario, senha, fk_empresa, fk_cargo)
                     .then(function (resultado) {
                         res.json(resultado);
                     });

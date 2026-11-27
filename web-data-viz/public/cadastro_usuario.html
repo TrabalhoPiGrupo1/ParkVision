@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./CSS/style_cadastro_login.css">
     <link rel="stylesheet" href="./CSS/style_cadastro.css">
-    <link rel="shortcut icon" href="../Assets/Icons/icon-ParkVision.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./Assets/Icons/tagFoto.png" type="image/x-icon">
     <link rel="icon" href="Assets/Icons/tagFoto.png">
 </head>
 
@@ -103,6 +103,7 @@
                     <div class="rotulo">Cargo:</div>
 
                     <select id="ipt_cargo">
+                        <option selected disabled>Selecionar...</option>
                         <option value="1">Gerente</option>
                         <option value="2">Supervisor</option>
                         <option value="3">Analista</option>
@@ -354,7 +355,7 @@
                         cardErro.style.display = "block";
 
                         mensagem_erro.innerHTML =
-                            "Cadastro realizado com sucesso! Redirecionando para o Login...";
+                            `<span style = "color: green;">Cadastro realizado com sucesso! Redirecionando para o Login...</span>`;
 
                         setTimeout(() => {
 
