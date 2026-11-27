@@ -22,6 +22,9 @@ var medidasRouter = require("./src/routes/medidas");
 var empresasRouter = require("./src/routes/empresas");
 var cadastroEmpresaRouter = require("./src/routes/cadastroEmpresa");
 var cadastroEstacionamentoRouter = require("./src/routes/cadastroEstacionamento");
+var dash_operacionalRouter = require("./src/routes/dash_operacional");
+var dash_estrategicaRouter = require("./src/routes/dash_estrategica");
+
 // ...
 
 app.use(express.json());
@@ -37,6 +40,9 @@ app.use("/medidas", medidasRouter);
 app.use("/empresas", empresasRouter);
 app.use("/cadastroEmpresa", cadastroEmpresaRouter);
 app.use("/cadastroEstacionamento", cadastroEstacionamentoRouter);
+app.use("/dash_operacional", dash_operacionalRouter);
+app.use("/dash_estrategica", dash_estrategicaRouter);
+
 
 
 app.listen(PORTA_APP, function () {
